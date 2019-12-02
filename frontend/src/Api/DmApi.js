@@ -35,8 +35,8 @@ const fetchDMTables = () => {
   .then((response) => response.json())
 }
 
-const fetchDMTableByID = (DMTableId) => {
-  return fetch(`${url}dm_tables/${DMTableId}`)
+const fetchDMTableByID = (DMTableID) => {
+  return fetch(`${url}dm_tables/${DMTableID}`)
   .then(res => res.json())
   .then(data => data)
   .catch(err => {
@@ -79,7 +79,7 @@ const fetchPlayers = () => {
 }
 
 const fetchPlayerByID = (playerID) => {
-  return fetch(`${url}players/${playerId}`)
+  return fetch(`${url}players/${playerID}`)
   .then(res => res.json())
   .then(data => data)
   .catch(err => {
@@ -123,7 +123,7 @@ const addPlayer = (playerObject) => {
   }
   
   const fetchNPCByID = (npcID) => {
-    return fetch(`${url}npcs/${npcId}`)
+    return fetch(`${url}npcs/${npcID}`)
     .then(res => res.json())
     .then(data => data)
     .catch(err => {
