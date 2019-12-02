@@ -1,6 +1,7 @@
 const url = "https://localhost:8000/"
 
 
+// DMs/Users
 const fetchAllDM = async () => {
   let users = await fetch(`http://localhost:8000/users/`)
     .then(res => res.json())
@@ -28,6 +29,7 @@ const fetchEditDM = async (userid, newUserObject) => {
   })
 }
 
+// DMT...ables
 const fetchDMTables = () => {
   return fetch(url + "dm_tables")
   .then((response) => response.json())
@@ -70,6 +72,54 @@ const addDMTable = (DMTableObject) => {
   }).catch(err => err);
   }
 
+  // players
+const fetchPlayers = () => {
+  return fetch(url + "players")
+  .then((response) => response.json())
+}
+
+const fetchPlayerByID = (playerID) => {
+  return fetch(`${url}players/${playerId}`)
+  .then(res => res.json())
+  .then(data => data)
+  .catch(err => {
+    return err
+  })
+}
+
+const deletePlayer = (player) => {
+  return fetchPlayers(`${url}players/${player}/`, {
+    method: `delete`
+  })
+}
+
+const addPlayer = (playerObject) => {
+    return fetch(`${url}/players/`, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify(playerObject)
+    })
+  }
+
+  const updatePlayer = (playerID, data) => {
+    return fetch(`${url}/players/${playerID}/`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      return res;
+  }).catch(err => err);
+  }
+
+  // NPCs
+
+  
+
+
 export default {
   fetchAllDM: fetchAllDM,
   fetchEditDM: fetchEditDM,
@@ -79,4 +129,9 @@ export default {
   deleteDMTable: deleteDMTable,
   addDMTable: addDMTable,
   updateDMTable: updateDMTable,
+  fetchPlayers: fetchPlayers,
+  fetchPlayerByID: fetchPlayerByID,
+  deletePlayer: deletePlayer,
+  addPlayer: addPlayer,
+  updatePlayer: updatePlayer,
 }
