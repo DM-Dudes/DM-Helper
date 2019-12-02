@@ -117,21 +117,67 @@ const addPlayer = (playerObject) => {
 
   // NPCs
 
+  const fetchNPCs = () => {
+    return fetch(url + "npcs")
+    .then((response) => response.json())
+  }
   
+  const fetchNPCByID = (npcID) => {
+    return fetch(`${url}npcs/${npcId}`)
+    .then(res => res.json())
+    .then(data => data)
+    .catch(err => {
+      return err
+    })
+  }
+  
+  const deleteNPC = (npc) => {
+    return fetchNPCs(`${url}npcs/${npc}/`, {
+      method: `delete`
+    })
+  }
+  
+  const addNPC = (npcObject) => {
+      return fetch(`${url}/npcs/`, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify(npcObject)
+      })
+    }
+  
+    const updateNPC = (npcID, data) => {
+      return fetch(`${url}/npcs/${npcID}/`, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => {
+        return res;
+    }).catch(err => err);
+    }
 
 
 export default {
-  fetchAllDM: fetchAllDM,
+  fetchAllDM: fetchAllDM,       /* Users */
   fetchEditDM: fetchEditDM,
   fetchNewUser: fetchNewUser,
-  fetchDMTables: fetchDMTables,
+  fetchDMTables: fetchDMTables, /* DM Tables */
   fetchDMTableByID: fetchDMTableByID,
   deleteDMTable: deleteDMTable,
   addDMTable: addDMTable,
   updateDMTable: updateDMTable,
-  fetchPlayers: fetchPlayers,
+  fetchPlayers: fetchPlayers,   /* Players */
   fetchPlayerByID: fetchPlayerByID,
   deletePlayer: deletePlayer,
   addPlayer: addPlayer,
   updatePlayer: updatePlayer,
+  fetchNPCs: fetchNPCs,
+  fetchNPCByID: fetchNPCByID,   /* NPCs */
+  deleteNPC: deleteNPC,
+  addNPC: addNPC,
+  updateNPC: updateNPC,
+
 }
