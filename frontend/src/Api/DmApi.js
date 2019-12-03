@@ -1,11 +1,11 @@
 const fetchAllDM = async () => {
-  let users = await fetch(`http://localhost:8000/users/`)
+  let users = await fetch(`http://localhost:8000/user/`)
   .then(res => res.json())
   .then(data => data)
   return users
 }
 const fetchNewUser = (newUserObject) => {
-  return fetch('http://localhost:8000/users/', {
+  return fetch('http://localhost:8000/user/', {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -14,7 +14,7 @@ const fetchNewUser = (newUserObject) => {
   })
 }
 const fetchEditDM = async (userid, newUserObject) => {
-  return fetch(`http://localhost:8000/users/${userid+1}/`, {
+  return fetch(`http://localhost:8000/user/${userid+1}/`, {
     headers: {
       'Content-Type': 'application/json'
     },
