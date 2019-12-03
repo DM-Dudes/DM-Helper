@@ -5,10 +5,14 @@ import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppNav from './components/NavBar/NavBar.js';
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 import NPC_list from './components/NPC_list.js'
 >>>>>>> 5b3a52da18abd0732ca459b8eb7562c5d4278ef7
+=======
+import NPC_list from './components/NPC_list.js';
+>>>>>>> 498edc21a6290c0fad44f88b6fde479bc18d9637
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = React.useState(
     localStorage.getItem(localStorageKey) || ''
@@ -170,7 +174,12 @@ const App = () => {
       <div>
         <Router>
           <div>
+<<<<<<< HEAD
             <AppNav />
+=======
+          <AppNav/>
+          <NPC_list/>
+>>>>>>> 498edc21a6290c0fad44f88b6fde479bc18d9637
             <div>
             </div>
             {/* <Route exact path="/create-player" component={CreatePlayer} /> */}

@@ -1,16 +1,23 @@
  import React, { useState, useEffect } from 'react';
  import DmAPI from '../Api/DmApi.js'
  
- export const NPC_list = () => {
+ export const NPC_list = (_props) => {
 
-  const [NPCs, setNPCs] = useState()
-
-  useEffect(() => {
+  const [NPCs, setNPCs] = useState(0)
+  React.useEffect (() => {
+    let tableid = 1
+    let stateArray = []
+    console.log('called')
     DmAPI.fetchNPCs()
     .then((apiResponseJSON) => {
-      setNPCs(apiResponseJSON)
+      for(let npc of apiResponseJSON){
+        if(npc.dmtable === tableid){
+        stateArray.push(npc.name)
+          setNPCs(stateArray)
+        }
+      }
     })
-  })
+  }, [])
 
      return (
        <div>
@@ -19,6 +26,4 @@
      );
    }
  
- 
  export default NPC_list;
-
