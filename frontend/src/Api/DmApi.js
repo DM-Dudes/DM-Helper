@@ -3,20 +3,14 @@ const url = "https://localhost:8000/"
 
 // DMs/Users
 const fetchAllDM = async () => {
-<<<<<<< HEAD
-  let users = await fetch(`http://localhost:8000/user/`)
-  .then(res => res.json())
-  .then(data => data)
-=======
   let users = await fetch(`http://localhost:8000/users/`)
     .then(res => res.json())
     .then(data => data)
->>>>>>> 313101a5c731274d7d44070f6753efcaefc31e7d
   return users
 }
 
 const fetchNewUser = (newUserObject) => {
-  return fetch('http://localhost:8000/user/', {
+  return fetch('http://localhost:8000/users/', {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -26,11 +20,7 @@ const fetchNewUser = (newUserObject) => {
 }
 
 const fetchEditDM = async (userid, newUserObject) => {
-<<<<<<< HEAD
-  return fetch(`http://localhost:8000/user/${userid+1}/`, {
-=======
   return fetch(`http://localhost:8000/users/${userid + 1}/`, {
->>>>>>> 313101a5c731274d7d44070f6753efcaefc31e7d
     headers: {
       'Content-Type': 'application/json'
     },

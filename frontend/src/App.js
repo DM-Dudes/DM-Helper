@@ -4,6 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppNav from './components/NavBar/NavBar.js';
+
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = React.useState(
     localStorage.getItem(localStorageKey) || ''
@@ -27,7 +28,6 @@ const App = () => {
 
   const profileSubmit = async (event) => {
     event.preventDefault()
-    console.log('profileSubmit()')
     let user_name = event.target.user_name.value
     let password = event.target.password.value
     if (userPass === 0) {
@@ -44,24 +44,23 @@ const App = () => {
     event.preventDefault()
     let name = event.target.user_name.value
     let password = event.target.password.value
-    if (userPass === 0)  {
+    if (userPass === 0) {
       setUserPass(password)
     }
     if (userName === 0) {
       setUserName(name)
-      console.log(name)
     }
-    if (!post){
-          let newUserObject = {
-            name: name,
-            password: password,
-          }
-          setLoggedIn(true)
+    if (!post) {
+      let newUserObject = {
+        name: name,
+        password: password,
+      }
+      setLoggedIn(true)
       Api.fetchNewUser(newUserObject)
-      .then((_response) => { setPost({ post: true }) })
+        .then((_response) => { setPost({ post: true }) })
       window.location.reload()
     }
-    
+
 
   }
 
@@ -72,8 +71,6 @@ const App = () => {
     }
   }
   const userCheck = () => {
-    console.log(usersinfo)
-    
     if (!loggedIn) {
       for (let i = 0; i < usersinfo.length; i++) {
         if (usersinfo[i].name === userName && usersinfo[i].password === userPass) {
@@ -85,7 +82,7 @@ const App = () => {
       }
     }
   }
-  
+
   useEffect(() => {
     profiles()
   })
@@ -97,23 +94,23 @@ const App = () => {
     return (
       <div>
         <Router>
-      <div>
-        <AppNav/>
-      </div>
-      <div className='signupform'>
-      <Form onSubmit={newUserSubmit} method="GET" id='test'>
-        <FormGroup>
-          <Label for="user_name" className="col-2 ml-3">Username</Label>
-          <Input type="text" name="user_name" id="user_name" className="col-6 ml-3" placeholder="Dungeon Master" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="password" className="col-2 ml-3">Password</Label>
-          <Input type="password" name="password" id="password" className="col-6 ml-3" placeholder="Word of Power" />
-        </FormGroup>
-        <Button type='submit' className="col-6 ml-3" form='test'>Register</Button>
-      </Form>
-    </div>
-      </Router>
+          <div>
+            <AppNav />
+          </div>
+          <div className='signupform'>
+            <Form onSubmit={newUserSubmit} method="GET" id='test'>
+              <FormGroup>
+                <Label for="user_name" className="col-2 ml-3">Username</Label>
+                <Input type="text" name="user_name" id="user_name" className="col-6 ml-3" placeholder="Dungeon Master" />
+              </FormGroup>
+              <FormGroup>
+                <Label for="password" className="col-2 ml-3">Password</Label>
+                <Input type="password" name="password" id="password" className="col-6 ml-3" placeholder="Word of Power" />
+              </FormGroup>
+              <Button type='submit' className="col-6 ml-3" form='test'>Register</Button>
+            </Form>
+          </div>
+        </Router>
       </div>
     )
   }
@@ -121,39 +118,38 @@ const App = () => {
     return (
       <div>
         <Router>
-      <div>
-        <AppNav/>
-      </div>
-      <div className='loginform'>
-        <Form onSubmit={profileSubmit} method="GET" id='test'>
-          <FormGroup>
-            <Label for="user_name" className="col-2 ml-3">Username</Label>
-            <Input type="text" name="user_name" id="user_name" className="col-6 ml-3" placeholder="Dungeon Master" />
-          </FormGroup>
-          <FormGroup>
-            <Label for="password" className="col-2 ml-3">Password</Label>
-            <Input type="password" name="password" id="password" className="col-6 ml-3" placeholder="Word of Power" />
-          </FormGroup>
-          <Button type='submit' className="col-6 ml-3" form='test'>Login</Button>
-        </Form>
-      </div>
-      <div>
-      <Button onClick = {setSignUpForm}>Sign Up</Button>
-      </div>
-      </Router>
+          <div>
+            <AppNav />
+          </div>
+          <div className='loginform'>
+            <Form onSubmit={profileSubmit} method="GET" id='test'>
+              <FormGroup>
+                <Label for="user_name" className="col-2 ml-3">Username</Label>
+                <Input type="text" name="user_name" id="user_name" className="col-6 ml-3" placeholder="Dungeon Master" />
+              </FormGroup>
+              <FormGroup>
+                <Label for="password" className="col-2 ml-3">Password</Label>
+                <Input type="password" name="password" id="password" className="col-6 ml-3" placeholder="Word of Power" />
+              </FormGroup>
+              <Button type='submit' className="col-6 ml-3" form='test'>Login</Button>
+            </Form>
+          </div>
+          <div>
+            <Button onClick={setSignUpForm}>Sign Up</Button>
+          </div>
+        </Router>
       </div>
     );
   } else {
-    console.log('good')
     return (
       <div>
         <Router>
           <div>
-          <AppNav/>
+            <AppNav />
             <div>
             </div>
-            {/* <Route exact path='/' render={(props) => <ProfilePage {...props} userid={userid} loggedIn={loggedIn} />} /> */}
-            </div>
+            {/* <Route exact path="/create-player" component={CreatePlayer} /> */}
+          </div>
         </Router>
       </div>
     );
