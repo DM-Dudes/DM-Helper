@@ -1,3 +1,4 @@
+
 from django.db import models
 
 class User(models.Model):
@@ -9,7 +10,7 @@ class User(models.Model):
         
 class DMTable(models.Model):
     name = models.CharField(max_length=255)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
+    userdmtable = models.ForeignKey(User, on_delete=models.CASCADE, related_name='userdmtable')
     story = models.TextField()
     notes = models.TextField()
 
