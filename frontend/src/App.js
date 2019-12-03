@@ -4,6 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppNav from './components/NavBar/NavBar.js';
+import NPC_list from './components/NPC_list.js'
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = React.useState(
     localStorage.getItem(localStorageKey) || ''
@@ -99,6 +100,7 @@ const App = () => {
         <Router>
       <div>
         <AppNav/>
+        <NPC_list/>
       </div>
       <div className='signupform'>
       <Form onSubmit={newUserSubmit} method="GET" id='test'>
