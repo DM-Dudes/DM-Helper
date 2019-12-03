@@ -4,13 +4,8 @@ const url = "http://localhost:8000/"
 // DMs/Users
 const fetchAllDM = async () => {
   let users = await fetch(`http://localhost:8000/users/`)
-<<<<<<< HEAD
-    .then(res => res.json())
-    .then(data => data)
-=======
   .then(res => res.json())
   .then(data => data)
->>>>>>> 5b3a52da18abd0732ca459b8eb7562c5d4278ef7
   return users
 }
 
@@ -25,11 +20,7 @@ const fetchNewUser = (newUserObject) => {
 }
 
 const fetchEditDM = async (userid, newUserObject) => {
-<<<<<<< HEAD
-  return fetch(`http://localhost:8000/users/${userid + 1}/`, {
-=======
   return fetch(`http://localhost:8000/users/${userid+1}/`, {
->>>>>>> 5b3a52da18abd0732ca459b8eb7562c5d4278ef7
     headers: {
       'Content-Type': 'application/json'
     },
