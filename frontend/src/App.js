@@ -4,15 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppNav from './components/NavBar/NavBar.js';
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-import NPC_list from './components/NPC_list.js'
->>>>>>> 5b3a52da18abd0732ca459b8eb7562c5d4278ef7
-=======
 import NPC_list from './components/NPC_list.js';
->>>>>>> 498edc21a6290c0fad44f88b6fde479bc18d9637
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = React.useState(
     localStorage.getItem(localStorageKey) || ''
@@ -102,7 +94,6 @@ const App = () => {
     return (
       <div>
         <Router>
-<<<<<<< HEAD
           <div>
             <AppNav />
           </div>
@@ -120,26 +111,6 @@ const App = () => {
             </Form>
           </div>
         </Router>
-=======
-      <div>
-        <AppNav/>
-        <NPC_list/>
-      </div>
-      <div className='signupform'>
-      <Form onSubmit={newUserSubmit} method="GET" id='test'>
-        <FormGroup>
-          <Label for="user_name" className="col-2 ml-3">Username</Label>
-          <Input type="text" name="user_name" id="user_name" className="col-6 ml-3" placeholder="Dungeon Master" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="password" className="col-2 ml-3">Password</Label>
-          <Input type="password" name="password" id="password" className="col-6 ml-3" placeholder="Word of Power" />
-        </FormGroup>
-        <Button type='submit' className="col-6 ml-3" form='test'>Register</Button>
-      </Form>
-    </div>
-      </Router>
->>>>>>> 5b3a52da18abd0732ca459b8eb7562c5d4278ef7
       </div>
     )
   }
@@ -174,12 +145,8 @@ const App = () => {
       <div>
         <Router>
           <div>
-<<<<<<< HEAD
-            <AppNav />
-=======
           <AppNav/>
           <NPC_list/>
->>>>>>> 498edc21a6290c0fad44f88b6fde479bc18d9637
             <div>
             </div>
             {/* <Route exact path="/create-player" component={CreatePlayer} /> */}
