@@ -1,16 +1,15 @@
-const url = "http://localhost:8000/"
-
+const url = "https://salty-refuge-50932.herokuapp.com/https://dm-dudes-backend-api.herokuapp.com/"
 
 // DMs/Users
 const fetchAllDM = async () => {
-  let users = await fetch(`http://localhost:8000/users/`)
+  let users = await fetch(`${url}users/`)
   .then(res => res.json())
   .then(data => data)
   return users
 }
 
 const fetchNewUser = (newUserObject) => {
-  return fetch('http://localhost:8000/users/', {
+  return fetch(`${url}users/`, {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -20,7 +19,7 @@ const fetchNewUser = (newUserObject) => {
 }
 
 const fetchEditDM = async (userid, newUserObject) => {
-  return fetch(`http://localhost:8000/users/${userid+1}/`, {
+  return fetch(`${url}/users/${userid}/`, {
     headers: {
       'Content-Type': 'application/json'
     },

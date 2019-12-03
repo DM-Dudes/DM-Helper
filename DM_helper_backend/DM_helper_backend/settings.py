@@ -1,4 +1,5 @@
 
+django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -70,7 +71,7 @@ WSGI_APPLICATION = 'DM_helper_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': "dmHelper",
     }
 }
@@ -121,3 +122,4 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://localhost:8080',
 ]
+django_heroku.settings(locals())
