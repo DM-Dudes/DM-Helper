@@ -19,7 +19,7 @@ import { stat } from 'fs';
       }
       if (players === 0){
         setPlayers(stateArray)
-        // setIndex(indexArray)
+       
       }
       console.log(players)
       console.log(index)
