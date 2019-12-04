@@ -10,18 +10,11 @@ import { stat } from 'fs';
   const notsoFucked = async () => {
     let playerId = 2
     let stateArray = []
-    let indexArray = []
     const playerSet = await DmAPI.fetchPlayers(playerId)
     console.log(playerSet)
-      let counter = 0
       for(let player of playerSet){
         if(player.dmtable === playerId){
-          indexArray.push(counter)
           stateArray.push(player.name)
-          
-          counter += 1;
-        } else {
-          counter += 1;
         }
       }
       if (players === 0){
