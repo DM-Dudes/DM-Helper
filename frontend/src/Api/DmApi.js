@@ -30,12 +30,12 @@ const fetchEditDM = async (userid, newUserObject) => {
 
 // DMT...ables
 const fetchDMTables = () => {
-  return fetch(url + "dm_tables")
+  return fetch(url + "dm_tables/")
   .then((response) => response.json())
 }
 
 const fetchDMTableByID = (DMTableID) => {
-  return fetch(`${url}dm_tables/${DMTableID}`)
+  return fetch(`${url}dm_tables/${DMTableID}/`)
   .then(res => res.json())
   .then(data => data)
   .catch(err => {
