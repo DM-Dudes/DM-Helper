@@ -58,12 +58,12 @@ const App = () => {
         password: password,
       }
       setLoggedIn(true)
-      Api.fetchNewUser(newUserObject)
+      await Api.fetchNewUser(newUserObject)
         .then((_response) => { setPost({ post: true }) })
       }
+      
+      
       window.location.reload()
-
-
   }
 
   const profiles = async () => {
