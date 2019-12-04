@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import DmApi from '../Api/DmApi.js'
 
 export const NPC_create_page = (props) => {
+  console.log('here')
   let { tableid } = props
   let [NPCSubmitted, setNPCSubmitted] = useState(null)
 
