@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import PlayerView from './Playerview.js'
+import React from 'react';
+
 
 
 function PlayerListMap (props) {

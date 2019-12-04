@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DmAPI from '../../Api/DmApi.js'
 
-export const NPC_detail = (props) => {
-console.log(props)
+export const NPC_Detail = (props) => {
  const [NPC, setNPC] = useState(0)
   useEffect (() => {
    let npcID = props.npcid
@@ -23,4 +22,4 @@ console.log(props)
     );
   }
 
-export default NPC_detail;
+export default NPC_Detail;

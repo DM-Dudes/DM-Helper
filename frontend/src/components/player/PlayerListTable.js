@@ -11,14 +11,11 @@ import { stat } from 'fs';
     let playerId = 2
     let stateArray = []
     const playerSet = await DmAPI.fetchPlayers(playerId)
-    console.log(playerSet)
       for(let player of playerSet){
         if(player.dmtable === playerId){
           stateArray.push(player)
-          console.log(stateArray)
         }
       }
-      console.log(stateArray)
       if (players === 0){
         setPlayers(stateArray)
       }

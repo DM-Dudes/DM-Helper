@@ -1,4 +1,4 @@
-import React, {FlexView} from 'react' 
+import React from 'react' 
 
 function PlayerView(props) {
   return (
