@@ -3,8 +3,9 @@ import DmAPI from '../../Api/DmApi.js'
 
 export const NPC_detail = (props) => {
  const [NPC, setNPC] = useState(0)
+ const npcID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
+
   useEffect (() => {
-   let npcID = props.npcid
    DmAPI.fetchNPCByID(npcID)
    .then((apiResponseJSON) => {
          setNPC(apiResponseJSON)
