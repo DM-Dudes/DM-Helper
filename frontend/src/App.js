@@ -10,6 +10,8 @@ import SinglePlayer from './components/player/SinglePlayer.js'
 import renderDMTableCreatePage from './pages/DMTable_create.js'
 import DMTableCreatePage from './pages/DMTable_create.js';
 import DMTableDetailsPage from './pages/DMTable_details.js'
+import NPCDetailsPage from './pages/NPCs_details_page.js'
+import NPCs_create_page from './pages/NPCs_create_page.js'
 
 
 const useStateWithLocalStorage = localStorageKey => {
@@ -154,12 +156,12 @@ const App = () => {
         <Router>
           <div>
           <AppNav/>
-          <NPC_list/>
-          <NPC_detail/>
           <SinglePlayer/>
           <div>
           <Route exact path="/create-table" component={() => <DMTableCreatePage userName={ userName }/>}/>
           <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1'/>}/>
+          <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage npcid='1'/>}/>
+          <Route exact path="/create-npc" component={() => <NPCs_create_page tableid='1'/>}/>
           </div>
             {/* <Route exact path="/create-player" component={CreatePlayer} /> */}
           </div>
