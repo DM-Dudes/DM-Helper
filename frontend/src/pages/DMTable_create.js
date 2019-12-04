@@ -38,6 +38,8 @@ const DMTableCreatePage = (props) => {
           <br />
           <input type="text" name="story" placeholder="Craft your story here..."></input>
           <br />
+          <input type="text" name="notes" placeholder="Notes about your story..."></input>
+          <br />
           <button type="submit" name="submit">Submit</button>
         </form>
       </div>
