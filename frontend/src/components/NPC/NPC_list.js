@@ -4,7 +4,7 @@
  export const NPC_list = (_props) => {
 
   const [NPCs, setNPCs] = useState(0)
-  React.useEffect (() => {
+  useEffect (() => {
     let tableid = 1
     let stateArray = []
     DmAPI.fetchNPCs()
