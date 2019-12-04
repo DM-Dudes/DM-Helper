@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DmAPI from '../../Api/DmApi.js'
+import { Redirect } from 'react-router-dom'
+
 
 export const NPC_list = (props) => {
 
@@ -14,13 +16,21 @@ export const NPC_list = (props) => {
         .then((apiResponseJSON) => {
           for (let npc of apiResponseJSON) {
             if (npc.dmtable === tableid) {
-              stateArray.push(npc.name)
+              stateArray.push(
+                <div>{npc.name} <button onclick={handleClick(npc.npc_id)}>click me to go!</button></div>
+                )
             }
           }
           setNPCs(stateArray)
         })
     }
   }, [])
+
+  const handleClick = NPC_id => {
+    return (
+      <Redirect to={`/NPC-detail/${NPC_id}`}/>
+    )
+  }
 
   return (
     <div>
