@@ -3,14 +3,14 @@ import DmAPI from '../../Api/DmApi.js'
 import PlayerListMap from './PlayerListMap.js'
 import { stat } from 'fs';
 import { Redirect } from 'react-router-dom'
- 
+import PlayerPage from '../../pages/Players_details.js'
+
  const PlayerListTable = (_props) => {
 
   const [players, setPlayers] = useState(0)
   const [redirect, setRedirect] = useState(false)
   const [PlayerLink, setPlayerLink] = useState(null)
   const handleClick = (Player_id) => {
-    console.log(Player_id)
     setRedirect(true)
     setPlayerLink(Player_id)
   }
@@ -38,7 +38,7 @@ import { Redirect } from 'react-router-dom'
     );
   }else{
     return(
-      <Redirect to={`/Player-detail/${PlayerLink}`}/>
+      <PlayerPage id={PlayerLink}/>
     )
   }
   }

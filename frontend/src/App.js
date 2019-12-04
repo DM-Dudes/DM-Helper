@@ -158,6 +158,7 @@ const App = () => {
         <Router>
           <div>
           <AppNav/>
+          <PlayerListTable/>
           <div>
           <Route exact path="/create-table" component={() => <DMTableCreatePage userName={ userName }/>}/>
           <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1'/>}/>

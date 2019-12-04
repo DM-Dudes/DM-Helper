@@ -77,9 +77,8 @@ const fetchPlayers = () => {
   .then((response) => response.json())
 }
 
-const fetchPlayerByID = () => {
-  let playerID = 1
-  return fetch(`${url}players/${playerID}`)
+const fetchPlayerByID = (id) => {
+  return fetch(`${url}players/${id}`)
   .then(res => res.json())
   .then(data => data)
   .catch(err => {

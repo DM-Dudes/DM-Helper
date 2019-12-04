@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Api from '../Api/DmApi.js'
 
 const PlayerPage = (props) => {
+  console.log(props.id)
   const [playerinfo, setPlayerInfo] = useState('');
   const player = async () => {
-    const profileinfo = await Api.fetchPlayerByID(props.playerid)
+    const profileinfo = await Api.fetchPlayerByID(props.id)
     if (playerinfo === '') {
       setPlayerInfo(profileinfo)
     }
