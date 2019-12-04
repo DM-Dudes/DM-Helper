@@ -2,6 +2,7 @@
 from django.db import models
 
 class User(models.Model):
+    user_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     password = models.CharField(max_length=100)
 
@@ -9,6 +10,7 @@ class User(models.Model):
         return self.name
         
 class DMTable(models.Model):
+    dmtable_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     userdmtable = models.ForeignKey(User, on_delete=models.CASCADE, related_name='userdmtable')
     story = models.TextField()
@@ -18,6 +20,7 @@ class DMTable(models.Model):
         return self.name
     
 class Player(models.Model):
+    player_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     details = models.TextField()
     dmtable = models.ForeignKey(DMTable, on_delete=models.CASCADE, related_name='dmtablePlayer')
@@ -26,6 +29,7 @@ class Player(models.Model):
         return self.name
 
 class NPC(models.Model):
+    npc_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     dmtable = models.ForeignKey(DMTable, on_delete=models.CASCADE, related_name='dmtableNPC')
     hp = models.CharField(max_length=255)

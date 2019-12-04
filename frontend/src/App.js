@@ -4,8 +4,12 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppNav from './components/NavBar/NavBar.js';
+<<<<<<< HEAD
+import NPC_list from './components/NPC_list.js';
+=======
 import NPC_list from './components/NPC_list.js'
 import SinglePlayer from './components/player/SinglePlayer.js'
+>>>>>>> 97fbeed55253b116a483a2f8b83fd3d4ed5c177c
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = React.useState(
     localStorage.getItem(localStorageKey) || ''
@@ -149,7 +153,10 @@ const App = () => {
           <div>
           <AppNav/>
           <NPC_list/>
+<<<<<<< HEAD
+=======
           <SinglePlayer/>
+>>>>>>> 97fbeed55253b116a483a2f8b83fd3d4ed5c177c
             <div>
             </div>
             {/* <Route exact path="/create-player" component={CreatePlayer} /> */}
