@@ -1,25 +1,19 @@
 import React from 'react';
-<<<<<<< HEAD
-
-=======
-import PlayerView from './Playerview.js';
->>>>>>> 2772b7f58b96232ae909b960a47ce13fb069e5ad
 
 
 function PlayerListMap (props) {
-<<<<<<< HEAD
-  console.log("props ",props.player) 
-  const mapObject = () => {
-    let players = props.player
-    Map.players = () => {
-      console.log('yo')
-    return <PlayerView
-      name={props.name}
-      details={props.details}
-      table_id={props.dmtable}
-    />
-    }
-  }
+  // console.log("props ",props.player) 
+  // const mapObject = () => {
+  //   let players = props.player
+  //   Map.players = () => {
+  //     console.log('yo')
+  //   return <PlayerView
+  //     name={props.name}
+  //     details={props.details}
+  //     table_id={props.dmtable}
+  //   />
+  //   }
+  // }
 
   // for (let player of props){
   //   console.log(player)
@@ -28,24 +22,8 @@ function PlayerListMap (props) {
   if (props) {
     return (
       <div>
-        {() => mapObject}
+        {/* {() => mapObject} */}
       
-=======
-    
-  // const mapObject = (props, id) => {
-  //   return <PlayerView
-  //     id = {id}
-  //     name={props.name}
-  //     details={props.details}
-  //     table_id={props.dmtable}
-  //   />
-  //   }
-  
-  if (props) {
-    return (
-      <div>
-        {/* {mapObject()} */}
->>>>>>> 79d0e4b6609c0351a50b3f54d121667c27038057
       </div>
     )
     } else {
