@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PlayerView from "./Playerview.js"
 
 function PlayerListMap (props) {
   console.log("props ",props.player) 
