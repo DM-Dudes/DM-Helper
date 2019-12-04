@@ -2,11 +2,7 @@ const url = "https://salty-refuge-50932.herokuapp.com/https://dm-dudes-backend-a
 
 // DMs/Users
 const fetchAllDM = async () => {
-<<<<<<< HEAD
-  let users = await fetch(`http://localhost:8000/users/`)
-=======
   let users = await fetch(`${url}users/`)
->>>>>>> e1fd5b5b5f074c8a93a52eba63ca1d0cc9930eb4
   .then(res => res.json())
   .then(data => data)
   return users
@@ -23,11 +19,7 @@ const fetchNewUser = (newUserObject) => {
 }
 
 const fetchEditDM = async (userid, newUserObject) => {
-<<<<<<< HEAD
-  return fetch(`http://localhost:8000/users/${userid+1}/`, {
-=======
   return fetch(`${url}/users/${userid}/`, {
->>>>>>> e1fd5b5b5f074c8a93a52eba63ca1d0cc9930eb4
     headers: {
       'Content-Type': 'application/json'
     },

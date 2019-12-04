@@ -4,12 +4,9 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppNav from './components/NavBar/NavBar.js';
-<<<<<<< HEAD
-import NPC_list from './components/NPC_list.js';
-=======
-import NPC_list from './components/NPC_list.js'
+import NPC_list from './components/NPC/NPC_list.js'
+import NPC_detail from './components/NPC/NPC_detail.js'
 import SinglePlayer from './components/player/SinglePlayer.js'
->>>>>>> 97fbeed55253b116a483a2f8b83fd3d4ed5c177c
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = React.useState(
     localStorage.getItem(localStorageKey) || ''
@@ -63,8 +60,8 @@ const App = () => {
       setLoggedIn(true)
       Api.fetchNewUser(newUserObject)
         .then((_response) => { setPost({ post: true }) })
+      }
       window.location.reload()
-    }
 
 
   }
@@ -153,10 +150,8 @@ const App = () => {
           <div>
           <AppNav/>
           <NPC_list/>
-<<<<<<< HEAD
-=======
+          <NPC_detail/>
           <SinglePlayer/>
->>>>>>> 97fbeed55253b116a483a2f8b83fd3d4ed5c177c
             <div>
             </div>
             {/* <Route exact path="/create-player" component={CreatePlayer} /> */}
