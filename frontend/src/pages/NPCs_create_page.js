@@ -3,9 +3,11 @@ import { Redirect } from 'react-router-dom'
 import DmApi from '../Api/DmApi.js'
 
 export const NPC_create_page = (props) => {
+  let { tableid } = props
+  let [NPCSubmitted, setNPCSubmitted] = useState(null)
 
-  let [NPCSubmitted, setNPCSubmitted] = useState(null) 
-  
+  let [cancelButton, setCancelButton] = useState(null)
+
   const handleEvent = async (event) => {
     event.preventDefault()
     console.log('called')
@@ -23,13 +25,19 @@ export const NPC_create_page = (props) => {
     }
   }
 
+  const cancelButtonOnClickHandler = () => {
+    setCancelButton(<Redirect to={`/table-detail/${tableid}`} />)
+  }
+
   if (NPCSubmitted) {
     return (
       <Redirect to="/" />
     )
+  } else if (cancelButton) {
+    return cancelButton
   } else {
     return (
-      <div> 
+      <div>
         <hr />
         <form onSubmit={handleEvent}>
           <h2>Create Your NPC</h2>
@@ -47,7 +55,11 @@ export const NPC_create_page = (props) => {
           <br />
           <button type="submit" name="submit">Submit</button>
         </form>
+        <div>
+          <button onClick={() => cancelButtonOnClickHandler()} name="cancel">Cancel</button>
+        </div>
       </div>
+
     )
   }
 }
