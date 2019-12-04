@@ -77,7 +77,8 @@ const fetchPlayers = () => {
   .then((response) => response.json())
 }
 
-const fetchPlayerByID = (playerID) => {
+const fetchPlayerByID = () => {
+  let playerID = 1
   return fetch(`${url}players/${playerID}`)
   .then(res => res.json())
   .then(data => data)
