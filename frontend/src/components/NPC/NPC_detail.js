@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import DmAPI from '../../Api/DmApi.js'
 
-export const NPC_detail = (_props) => {
-
+export const NPC_detail = (props) => {
+console.log(props)
  const [NPC, setNPC] = useState(0)
   useEffect (() => {
-   let npcID = 1
-   let stateArray = []
+   let npcID = props.npcid
    DmAPI.fetchNPCByID(npcID)
    .then((apiResponseJSON) => {
          setNPC(apiResponseJSON)
@@ -15,7 +14,11 @@ export const NPC_detail = (_props) => {
  }, [])
     return (
       <div>
-        {NPC.name}
+        Name = {NPC.name} 
+        table = {NPC.dmtable} 
+        HP = {NPC.hp} 
+        AC = {NPC.ac} 
+        Details = {NPC.details}
       </div>
     );
   }
