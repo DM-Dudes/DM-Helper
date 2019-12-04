@@ -1,8 +1,9 @@
 import React from 'react';
+import NPC_list from '../NPC/NPC_list';
 
 
 const DmTableDetail = (props) => {
-  const { name, userdmtable, story, notes } = props
+  const { name, userdmtable, story, notes, dmtable_id } = props
 
   return (
     <div>
@@ -15,6 +16,12 @@ const DmTableDetail = (props) => {
       <p>
         {notes}
       </p>
+      <div>
+        <NPC_list tableid={dmtable_id} />
+      </div>
+      <div>
+        {/*<ListComponent PlayerList />*/}
+      </div>
     </div>
   );
 }
