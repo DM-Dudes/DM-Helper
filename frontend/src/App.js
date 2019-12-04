@@ -13,6 +13,7 @@ import DMTableCreatePage from './pages/DMTable_create.js';
 import DMTableDetailsPage from './pages/DMTable_details.js'
 import NPCDetailsPage from './pages/NPCs_details_page.js'
 import NPCs_create_page from './pages/NPCs_create_page.js'
+import PlayerView from './components/player/Playerview.js';
 
 
 const useStateWithLocalStorage = localStorageKey => {

@@ -2,36 +2,48 @@ import React, { useState, useEffect } from 'react';
 import DmAPI from '../../Api/DmApi.js'
 import PlayerListMap from './PlayerListMap.js'
 import { stat } from 'fs';
+import { Redirect } from 'react-router-dom'
  
  const PlayerListTable = (_props) => {
 
   const [players, setPlayers] = useState(0)
- 
+  const [redirect, setRedirect] = useState(false)
+  const [PlayerLink, setPlayerLink] = useState(null)
+  const handleClick = (Player_id) => {
+    console.log(Player_id)
+    setRedirect(true)
+    setPlayerLink(Player_id)
+  }
   const playerList = async () => {
     let playerId = 2
     let stateArray = []
     const playerSet = await DmAPI.fetchPlayers(playerId)
-    console.log(playerSet)
       for(let player of playerSet){
         if(player.dmtable === playerId){
+<<<<<<< HEAD
+          stateArray.push(<div>{player.name} <button onClick={() => handleClick(player.player_id)}>click me to go!</button></div>)
+=======
           stateArray.push(player)
-          console.log(stateArray)
+>>>>>>> 6d3ff18e86c6cebbd4cee900880e2800412d48c7
         }
       }
-      console.log(stateArray)
       if (players === 0){
         setPlayers(stateArray)
       }
-      // console.log(players)
     }
   useEffect(() => {
     playerList()
   })
-     return (
-       <div>
-         <PlayerListMap player={players} />
-       </div>
-     );
-   }
- 
- export default PlayerListTable;
+  if(!redirect){
+    return (
+      <div>
+        {players}
+      </div>
+    );
+  }else{
+    return(
+      <Redirect to={`/Player-detail/${PlayerLink}`}/>
+    )
+  }
+  }
+ export default PlayerListTable
