@@ -154,10 +154,7 @@ const App = () => {
           <div>
           <AppNav/>
           <NPC_list/>
-<<<<<<< HEAD
-=======
           <NPC_detail/>
->>>>>>> e163801b94a7a170b3c7c62c70e73b387d1b9128
           <SinglePlayer/>
             <div>
             </div>
