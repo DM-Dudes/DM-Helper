@@ -19,16 +19,20 @@ import { stat } from 'fs';
       if (players === 0){
         setPlayers(stateArray)
       }
-      // console.log(players)
     }
   useEffect(() => {
     playerList()
   })
+  if (!players) {
+    return (
+      <div>Jordan</div>
+    )
+  } else {
      return (
        <div>
          <PlayerListMap player={players} />
        </div>
-     );
+     )
    }
- 
- export default PlayerListTable;
+  }
+ export default PlayerListTable

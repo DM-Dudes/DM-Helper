@@ -1,9 +1,9 @@
 import React from 'react' 
 
-function PlayerView(props) {
+function PlayerView(id, name, details) {
   return (
     <div>
-      <h1>name: {props.name}</h1>
+      <h1>name: {name}</h1>
     </div>
   )
 }
