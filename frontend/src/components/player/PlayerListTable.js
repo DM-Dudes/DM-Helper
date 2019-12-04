@@ -20,11 +20,7 @@ import { Redirect } from 'react-router-dom'
     const playerSet = await DmAPI.fetchPlayers(playerId)
       for(let player of playerSet){
         if(player.dmtable === playerId){
-<<<<<<< HEAD
           stateArray.push(<div>{player.name} <button onClick={() => handleClick(player.player_id)}>click me to go!</button></div>)
-=======
-          stateArray.push(player)
->>>>>>> 6d3ff18e86c6cebbd4cee900880e2800412d48c7
         }
       }
       if (players === 0){
