@@ -4,7 +4,8 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import AppNav from './components/NavBar/NavBar.js';
-import NPC_list from './components/NPC_list.js'
+import NPC_list from './components/NPC/NPC_list.js'
+import NPC_detail from './components/NPC/NPC_detail.js'
 import SinglePlayer from './components/player/SinglePlayer.js'
 import renderDMTableCreatePage from './pages/DMTable_create.js'
 import DMTableCreatePage from './pages/DMTable_create.js';
@@ -62,12 +63,12 @@ const App = () => {
         password: password,
       }
       setLoggedIn(true)
-      Api.fetchNewUser(newUserObject)
+      await Api.fetchNewUser(newUserObject)
         .then((_response) => { setPost({ post: true }) })
+      }
+      
+      
       window.location.reload()
-    }
-
-
   }
 
   const profiles = async () => {
@@ -154,6 +155,7 @@ const App = () => {
           <div>
           <AppNav/>
           <NPC_list/>
+          <NPC_detail/>
           <SinglePlayer/>
           <div>
           <Route exact path="/create-table" component={() => <DMTableCreatePage userName={ userName }/>}/>

@@ -1,5 +1,5 @@
  import React, { useState, useEffect } from 'react';
- import DmAPI from '../Api/DmApi.js'
+ import DmAPI from '../../Api/DmApi.js'
  
  export const NPC_list = (_props) => {
 
@@ -7,7 +7,6 @@
   React.useEffect (() => {
     let tableid = 1
     let stateArray = []
-    console.log('called')
     DmAPI.fetchNPCs()
     .then((apiResponseJSON) => {
       for(let npc of apiResponseJSON){
@@ -17,6 +16,7 @@
         }
       }
     })
+    
   }, [])
 
      return (
