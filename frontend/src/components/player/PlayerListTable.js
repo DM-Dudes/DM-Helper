@@ -10,28 +10,29 @@ import { stat } from 'fs';
   const playerList = async () => {
     let playerId = 2
     let stateArray = []
-    const playerSet = await DmAPI.fetchPlayers(playerId)
-    console.log(playerSet)
+    const playerSet = await DmAPI.fetchPlayers()
       for(let player of playerSet){
         if(player.dmtable === playerId){
-          stateArray.push(player)
-          console.log(stateArray)
+          stateArray.push(<div></div>player)
         }
       }
-      console.log(stateArray)
       if (players === 0){
         setPlayers(stateArray)
       }
-      // console.log(players)
     }
   useEffect(() => {
     playerList()
   })
+  if (!players) {
+    return (
+      <div>Jordan</div>
+    )
+  } else {
      return (
        <div>
          <PlayerListMap player={players} />
        </div>
-     );
+     )
    }
- 
- export default PlayerListTable;
+  }
+ export default PlayerListTable

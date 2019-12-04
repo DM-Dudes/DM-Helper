@@ -1,22 +1,30 @@
-import React, { Component } from 'react';
-import PlayerView from './Playerview.js'
+import React from 'react';
+import PlayerView from './Playerview.js';
 
 
 function PlayerListMap (props) {
-    
-  const mapObject = (props, id) => {
+  console.log("props ",props.player) 
+  const mapObject = () => {
+    let players = props.player
+    Map.players = () => {
+      console.log('yo')
     return <PlayerView
-      id = {id}
       name={props.name}
       details={props.details}
       table_id={props.dmtable}
     />
     }
-  
+  }
+
+  // for (let player of props){
+  //   console.log(player)
+  // }
+
   if (props) {
     return (
       <div>
-        {mapObject()}
+        {() => mapObject}
+      
       </div>
     )
     } else {
