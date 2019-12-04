@@ -4,12 +4,8 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import AppNav from './components/NavBar/NavBar.js';
-<<<<<<< HEAD
-import NPC_list from './components/NPC_list.js'
-=======
 import NPC_list from './components/NPC/NPC_list.js'
 import NPC_detail from './components/NPC/NPC_detail.js'
->>>>>>> e163801b94a7a170b3c7c62c70e73b387d1b9128
 import SinglePlayer from './components/player/SinglePlayer.js'
 import renderDMTableCreatePage from './pages/DMTable_create.js'
 import DMTableCreatePage from './pages/DMTable_create.js';

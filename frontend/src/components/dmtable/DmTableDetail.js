@@ -15,6 +15,12 @@ const DmTableDetail = (props) => {
       <p>
         {notes}
       </p>
+      <div>
+        {/*<ListComponent NPCData />*/}
+      </div>
+      <div>
+        {/*<ListComponent PlayerList />*/}
+      </div>
     </div>
   );
 }
