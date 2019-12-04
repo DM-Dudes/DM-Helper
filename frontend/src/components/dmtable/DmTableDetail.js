@@ -1,5 +1,6 @@
 import NPC_list from '../NPC/NPC_list';
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
+import { Redirect } from "react-router-dom";
 import { MDBBtn, MDBIcon } from "mdbreact";
 
 
@@ -7,42 +8,55 @@ import { MDBBtn, MDBIcon } from "mdbreact";
 
 
 const DmTableDetail = (props) => {
+  const [newNPC, setNewNPC] = useState(null)
+  const [newPlayer, setNewPlayer] = useState(null)
+
   const { name, userdmtable, story, notes, dmtable_id } = props
 
-  addPlayerOnClickHandler = event => {
-    
+  const addNpcOnClickHandler = () => {
+    console.log("called")
+    setNewNPC(<Redirect to="/create-npc" />)
   }
 
+  const addPlayerOnClickHandler = () => {
+    console.log("called")
+    setNewNPC(<Redirect to="/create-npc" />)
+  }
 
-  return (
-    <div>
-      <h1>
-        {name}
-      </h1>
-      <p>
-        {story}
-      </p>
-      <p>
-        {notes}
-      </p>
+  if (!newNPC) {
+    return (
       <div>
-        <Fragment>
-          <MDBBtn onClick= color="default">
-            Add NPC <MDBIcon icon="plus" className="ml-1" />
-          </MDBBtn>
-          <MDBBtn color="default">
-            Add Player <MDBIcon icon="plus" className="ml-1" />
-          </MDBBtn>
-        </Fragment>
+        <h1>
+          {name}
+        </h1>
+        <p>
+          {story}
+        </p>
+        <p>
+          {notes}
+        </p>
+        <div>
+          <Fragment>
+            <MDBBtn onClick={ () => addNpcOnClickHandler() } color="default">
+              Add NPC <MDBIcon  icon="plus" className="ml-1" />
+            </MDBBtn>
+            <MDBBtn onClick={ () => addPlayerOnClickHandler() } color="default">
+              Add Player <MDBIcon  icon="plus" className="ml-1" />
+            </MDBBtn>
+          </Fragment>
+        </div>
+        <div>
+          <NPC_list tableid={dmtable_id} />
+        </div>
+        <div>
+          {/*<ListComponent PlayerList />*/}
+        </div>
       </div>
-      <div>
-        <NPC_list tableid={dmtable_id} />
-      </div>
-      <div>
-        {/*<ListComponent PlayerList />*/}
-      </div>
-    </div>
-  );
-}
-
+    );
+  } else {
+    return (
+      newNPC
+    )
+  }
+} 
 export default DmTableDetail

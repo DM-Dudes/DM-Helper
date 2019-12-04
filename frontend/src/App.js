@@ -6,7 +6,8 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 import AppNav from './components/NavBar/NavBar.js';
 import NPC_list from './components/NPC/NPC_list.js'
 import NPC_detail from './components/NPC/NPC_detail.js'
-import SinglePlayer from './components/player/SinglePlayer.js'
+import PlayerListTable from './components/player/PlayerListTable.js'
+import PlayerPage from './pages/Players_details.js'
 import renderDMTableCreatePage from './pages/DMTable_create.js'
 import DMTableCreatePage from './pages/DMTable_create.js';
 import DMTableDetailsPage from './pages/DMTable_details.js'
@@ -156,7 +157,6 @@ const App = () => {
         <Router>
           <div>
           <AppNav/>
-          <SinglePlayer/>
           <div>
           <Route exact path="/create-table" component={() => <DMTableCreatePage userName={ userName }/>}/>
           <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1'/>}/>
