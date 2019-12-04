@@ -6,6 +6,8 @@ import { Redirect } from 'react-router-dom'
 export const NPC_list = (props) => {
 
   const [NPCs, setNPCs] = useState(0)
+  const [redirect, setRedirect] = useState(null)
+  const [NpcLink, setNpcLink] = useState(null)
 
   useEffect(() => {
 
@@ -17,7 +19,7 @@ export const NPC_list = (props) => {
           for (let npc of apiResponseJSON) {
             if (npc.dmtable === tableid) {
               stateArray.push(
-                <div>{npc.name} <button onclick={handleClick(npc.npc_id)}>click me to go!</button></div>
+                <div>{npc.name} <button onClick={() => handleClick(npc.npc_id)}>click me to go!</button></div>
                 )
             }
           }
@@ -26,17 +28,24 @@ export const NPC_list = (props) => {
     }
   }, [])
 
-  const handleClick = NPC_id => {
+  const handleClick = (NPC_id) => {
+    console.log(NPC_id)
+    setRedirect(true)
+    setNpcLink(NPC_id)
+  }
+
+  if(!redirect){
     return (
-      <Redirect to={`/NPC-detail/${NPC_id}`}/>
+      <div>
+        {NPCs}
+      </div>
+    );
+  }else{
+    return(
+      <Redirect to={`/NPC-detail/${NpcLink}`}/>
     )
   }
 
-  return (
-    <div>
-      {NPCs}
-    </div>
-  );
 }
 
 export default NPC_list;

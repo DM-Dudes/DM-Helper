@@ -4,19 +4,19 @@ import PlayerView from './Playerview.js'
 
 function PlayerListMap (props) {
     
-  const mapObject = (props, id) => {
-    return <PlayerView
-      id = {id}
-      name={props.name}
-      details={props.details}
-      table_id={props.dmtable}
-    />
-    }
+  // const mapObject = (props, id) => {
+  //   return <PlayerView
+  //     id = {id}
+  //     name={props.name}
+  //     details={props.details}
+  //     table_id={props.dmtable}
+  //   />
+  //   }
   
   if (props) {
     return (
       <div>
-        {mapObject()}
+        {/* {mapObject()} */}
       </div>
     )
     } else {
