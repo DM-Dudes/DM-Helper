@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Api from './Api/DmApi.js'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import AppNav from './components/NavBar/NavBar.js';
 <<<<<<< HEAD
 import NPC_list from './components/NPC_list.js'
@@ -11,6 +11,11 @@ import NPC_list from './components/NPC/NPC_list.js'
 import NPC_detail from './components/NPC/NPC_detail.js'
 >>>>>>> e163801b94a7a170b3c7c62c70e73b387d1b9128
 import SinglePlayer from './components/player/SinglePlayer.js'
+import renderDMTableCreatePage from './pages/DMTable_create.js'
+import DMTableCreatePage from './pages/DMTable_create.js';
+import DMTableDetailsPage from './pages/DMTable_details.js'
+
+
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = React.useState(
     localStorage.getItem(localStorageKey) || ''
@@ -156,8 +161,10 @@ const App = () => {
           <NPC_list/>
           <NPC_detail/>
           <SinglePlayer/>
-            <div>
-            </div>
+          <div>
+          <Route exact path="/create-table" component={() => <DMTableCreatePage userName={ userName }/>}/>
+          <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1'/>}/>
+          </div>
             {/* <Route exact path="/create-player" component={CreatePlayer} /> */}
           </div>
         </Router>

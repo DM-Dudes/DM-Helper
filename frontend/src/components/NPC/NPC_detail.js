@@ -4,7 +4,7 @@ import DmAPI from '../../Api/DmApi.js'
 export const NPC_detail = (_props) => {
 
  const [NPC, setNPC] = useState(0)
- React.useEffect (() => {
+  useEffect (() => {
    let npcID = 1
    let stateArray = []
    DmAPI.fetchNPCByID(npcID)
