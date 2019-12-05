@@ -15,6 +15,7 @@ import NPCDetailsPage from './pages/NPCs_details_page.js'
 import Players_create from './pages/Players_create'
 import NPCs_create_page from './pages/NPCs_create_page.js'
 import DMTableListPage from './pages/DMTable_list.js'
+import DMTableEditPage from './pages/DMTable_edit.js'
 import PlayerView from './components/player/Playerview.js';
 
 
@@ -58,31 +59,32 @@ const App = () => {
   }
   const newUserSubmit = async (event) => {
     event.preventDefault()
-    if(event.target.user_name.value.length > 0 && event.target.password.value.length > 0) {
-    let name = event.target.user_name.value
-    let password = event.target.password.value   
-    if (userName === 0) {
-      setUserName(name)
-    }
-    if (userPass === 0) {
-      setUserPass(password)
-    }
-    if (!post) {
-      let newUserObject = {
-        name: name,
-        password: password,
+    if (event.target.user_name.value.length > 0 && event.target.password.value.length > 0) {
+      let name = event.target.user_name.value
+      let password = event.target.password.value
+      if (userName === 0) {
+        setUserName(name)
       }
-      setLoggedIn(true)
-      await Api.fetchNewUser(newUserObject)
-        .then((_response) => { setPost({ post: true }) })
+      if (userPass === 0) {
+        setUserPass(password)
       }
+      if (!post) {
+        let newUserObject = {
+          name: name,
+          password: password,
+        }
+        setLoggedIn(true)
+        await Api.fetchNewUser(newUserObject)
+          .then((_response) => { setPost({ post: true }) })
+      }
+    }
+
+
+
+
+    window.location.reload()
   }
-    
-  
-      
-      
-      window.location.reload()
-  }
+
 
   const profiles = async () => {
     const profileinfo = await Api.fetchAllDM()
@@ -90,6 +92,7 @@ const App = () => {
       setUsersInfo(profileinfo)
     }
   }
+
   const userCheck = () => {
     if (!loggedIn) {
       for (let i = 0; i < usersinfo.length; i++) {
@@ -113,7 +116,7 @@ const App = () => {
     return (
       <div>
         <Router>
-        <div>
+          <div>
             <a1>Welcome To DM-Helper</a1>
           </div>
           <div className='signupform'>
@@ -129,11 +132,11 @@ const App = () => {
               <Button type='submit' className="col-6 ml-3" form='test'>Register</Button>
             </Form>
             <Form onSubmit={backToLogin} method="GET" id='restart'>
-            <Button type='submit' form='restart'>Back to Login</Button>
+              <Button type='submit' form='restart'>Back to Login</Button>
             </Form>
           </div>
         </Router>
-      </div>     
+      </div>
     )
   }
   if (!loggedIn) {
@@ -167,15 +170,16 @@ const App = () => {
       <div>
         <Router>
           <div>
-          <AppNav/>
-          <div>
-          <Route exact path="/" component={() => <DMTableListPage userName={ userName }/>}/>
-          </div>
-          <Route exact path="/create-table" component={() => <DMTableCreatePage/>}/>
-          <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1'/>}/>
-          <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage npcid='1'/>}/>
-          <Route exact path="/create-npc" component={() => <NPCs_create_page tableid='1'/>}/>
-            <Route exact path="/create-player" component={() => <Players_create tableid='1'/>}/>
+            <AppNav />
+            <div>
+              <Route exact path="/" component={() => <DMTableListPage userName={userName} />} />
+            </div>
+            <Route exact path="/create-table" component={() => <DMTableCreatePage />} />
+            <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1' />} />
+            <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage npcid='1' />} />
+            <Route exact path="/create-npc" component={() => <NPCs_create_page tableid='1' />} />
+            <Route exact path="/edit-table/:userid" component={() => <DMTableEditPage userid='1' />} />
+            <Route exact path="/create-player" component={() => <Players_create tableid='1' />} />
           </div>
         </Router>
       </div>
