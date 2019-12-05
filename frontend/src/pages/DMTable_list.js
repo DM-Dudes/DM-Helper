@@ -9,7 +9,7 @@ const DMTableListPage = (props) => {
     DmApi.fetchAllDM()
       .then((apiResponseJSON) => {
         for (let user of apiResponseJSON){
-          if (user.name === props.userName && userId === null){
+          if (user.name === props.userName){
             setUserId(user.user_id)
             break;
           }

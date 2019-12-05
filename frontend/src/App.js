@@ -96,8 +96,6 @@ const App = () => {
         if (usersinfo[i].name === userName && usersinfo[i].password === userPass) {
           setUserId(i)
           setLoggedIn(true)
-        } else {
-          console.log('nope')
         }
       }
     }
@@ -171,7 +169,7 @@ const App = () => {
           <div>
           <AppNav/>
           <div>
-          <Route exact path="/" component={() => <DMTableListPage userid='1'/>}/>
+          <Route exact path="/" component={() => <DMTableListPage userName={userName}/>}/>
           </div>
           <Route exact path="/create-table" component={() => <DMTableCreatePage userName={ userName }/>}/>
           <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1'/>}/>
