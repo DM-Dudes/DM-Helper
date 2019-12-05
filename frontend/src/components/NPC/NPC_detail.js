@@ -3,11 +3,10 @@ import { Redirect } from "react-router-dom"
 import DmAPI from '../../Api/DmApi.js'
 
 
-
 export const NPC_detail = (props) => {
-  const { tableid } = props /* John */
+  const { tableid } = props
 
-  const [backToTableDetailButton, setBackToTableDetailButton] = useState(null) /* John */
+  const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
   
   const [NPC, setNPC] = useState(0)
 
@@ -20,8 +19,13 @@ export const NPC_detail = (props) => {
       }
       )
   }, [])
+  
+  const handleDelete = async () => {
+    console.log(npcID)
+    return await DmAPI.deleteNPC(npcID)
+  }
 
-  const backToTableDetailonClickHandler = () => {  /* John */
+  const backToTableDetailonClickHandler = () => { 
     return setBackToTableDetailButton(<Redirect to={`/table-detail/${tableid}`} />)
   }
   if (backToTableDetailButton) {
@@ -31,13 +35,18 @@ export const NPC_detail = (props) => {
     <div>
       <div>
         Name = {NPC.name}
+        <br/>
         table = {NPC.dmtable}
+        <br/>
         HP = {NPC.hp}
+        <br/>
         AC = {NPC.ac}
+        <br/>
         Details = {NPC.details}
-   { /*    <div>
-          <button onClick={() => handleDelete(npcID)}>KILL MEEEEEEE (this will delete the NPC)</button>
-   </div> */}
+        <br/>
+        <div>
+          <button onClick={handleDelete}>KILL MEEEEEEE (this will delete the NPC)</button>
+        </div>
       </div>
       <br />
       <div>

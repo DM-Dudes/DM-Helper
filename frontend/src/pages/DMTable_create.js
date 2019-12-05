@@ -11,13 +11,14 @@ const DMTableCreatePage = (props) => {
     event.preventDefault()
     let { name, story, notes } = event.target
     const DMTableObject = {
-      userdmtable: 1,
+      userdmtable: JSON.parse(sessionStorage.getItem("currentUser_id")),
       name: name.value,
       story: story.value,
       notes: notes.value,
     }
     let response = await DmApi.addDMTable(DMTableObject)
-    if (response.status === 200) {
+    console.log(response.status)
+    if (response.status === 201) {
       setdmTableSubmitted(true)
     }
   }
