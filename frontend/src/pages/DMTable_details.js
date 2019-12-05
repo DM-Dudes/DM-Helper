@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
-
+import TableNavBar from '../components/NavBar/TableNavBar.js'
 import DmTableDetail from '../components/dmtable/DmTableDetail.js'
 import DmApi from '../Api/DmApi.js'
 
@@ -37,6 +37,9 @@ const DMTableDetailsPage = (props) => {
   } else {
     return (
       <div>
+        <div>
+        <TableNavBar/>
+      </div>
       <div>
         <button onClick={() => handleEditButtonClick()}>Edit Table</button>
       </div>

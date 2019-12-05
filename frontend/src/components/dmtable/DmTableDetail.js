@@ -2,7 +2,7 @@ import NPC_list from '../NPC/NPC_list';
 import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { MDBBtn, MDBIcon } from "mdbreact";
-import TableNavBar from '../../components/NavBar/TableNavBar.js'
+
 
 
 
@@ -26,9 +26,6 @@ const DmTableDetail = (props) => {
   if (!newNPC) {
     return (
       <div>
-      <div>
-        <TableNavBar/>
-      </div>
       <div>
         <h1>
           {name}

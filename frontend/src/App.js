@@ -33,11 +33,11 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useStateWithLocalStorage(
     'myValueInLocalStorage'
   );
-  const [signup, setSignUp] = useState(0)
-  const [userName, setUserName] = useState(0)
   const [localName, setLocalName] =useStateWithLocalStorage(
     'myUserInLocalStorage'
   );
+  const [signup, setSignUp] = useState(0)
+  const [userName, setUserName] = useState(0)
   const [userPass, setUserPass] = useState(0)
   const [usersinfo, setUsersInfo] = useState(0)
   const [userid, setUserId] = useState(0)
