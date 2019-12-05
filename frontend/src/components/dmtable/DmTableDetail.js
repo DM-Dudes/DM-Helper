@@ -3,6 +3,7 @@ import PlayerListTable from '../player/PlayerListTable.js';
 import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { MDBBtn, MDBIcon } from "mdbreact";
+import "../../App.css";
 
 
 
@@ -27,35 +28,40 @@ const DmTableDetail = (props) => {
   if (!newNPC) {
     return (
       <div>
-      <div>
-        <h1>
-          {name}
-        </h1>
-        <p>
-          {story}
-        </p>
-        <p>
-          {notes}
-        </p>
         <div>
-          <Fragment>
-            <MDBBtn onClick={ () => addNpcOnClickHandler() } color="default">
-              Add NPC <MDBIcon  icon="plus" className="ml-1" />
-            </MDBBtn>
-            <MDBBtn onClick={ () => addPlayerOnClickHandler() } color="default">
-              Add Player <MDBIcon  icon="plus" className="ml-1" />
-            </MDBBtn>
-          </Fragment>
+          <h1>
+            {name}
+          </h1>
+          <p>
+            {story}
+          </p>
+          <p>
+            {notes}
+          </p>
+          <div>
+            <Fragment>
+            <div className="NPC_Player_List_box">
+              <MDBBtn onClick={ () => addNpcOnClickHandler() } color="default">
+                Add NPC <MDBIcon  icon="plus" className="ml-1" />
+              </MDBBtn>
+                <div>
+                  <h3>NPCs</h3>
+                  <NPC_list tableid={dmtable_id}/>
+                </div>
+              <MDBBtn onClick={ () => addPlayerOnClickHandler() } color="default">
+                Add Player <MDBIcon  icon="plus" className="ml-1" />
+              </MDBBtn>
+              <div>
+                <h3>Players</h3>
+                <PlayerListTable tableid={dmtable_id}/>
+              </div>
+              </div>
+            </Fragment>
+          </div>
+          
+
+
         </div>
-        <div>
-          <h3>NPCs</h3>
-          <NPC_list tableid={dmtable_id}/>
-        </div>
-        <div>
-          <h3>Players</h3>
-          <PlayerListTable tableid={dmtable_id}/>
-        </div>
-      </div>
       </div>
     );
   } else {

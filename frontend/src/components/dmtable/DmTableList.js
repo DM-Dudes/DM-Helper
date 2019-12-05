@@ -17,7 +17,7 @@ export const DmTableList = (props) => {
             if (table.userdmtable == userid) {
               
               stateArray.push(
-                <div key={table.table_id}>{table.name} <button onClick={() => handleClick(table.userdmtable)}>click me to go!</button></div>
+                <div key={table.table_id}><button onClick={() => handleClick(table.userdmtable)}><div>{table.name}</div></button></div>
                 )
             }
           }
@@ -34,7 +34,7 @@ export const DmTableList = (props) => {
   if(!redirect){
     return (
       <div>
-      heres where they should be
+      <h2>YOUR TABLES</h2>
         {tables}
       </div>
     )

@@ -42,7 +42,7 @@ export const NPC_create_page = (props) => {
         <form onSubmit={handleEvent}>
           <h2>Create Your NPC</h2>
           <br />
-          <input type="text" name="name" placeholder="Name your Table..."></input>
+          <input type="text" name="name" placeholder="Name your NPC"></input>
           <br />
           <br />
           <input type="text" name="hp" placeholder="Enter HP value"></input>
