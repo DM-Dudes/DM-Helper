@@ -141,6 +141,7 @@ const addPlayer = (playerObject) => {
   }
   
   const deleteNPC = (npc) => {
+    console.log('called')
     return fetchNPCs(`${url}npcs/${npc}/`, {
       method: `delete`
     })

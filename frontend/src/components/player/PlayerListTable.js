@@ -20,7 +20,7 @@ import PlayerPage from '../../pages/Players_details.js'
     const playerSet = await DmAPI.fetchPlayers(playerId)
       for(let player of playerSet){
         if(player.dmtable === playerId){
-          stateArray.push(<div>{player.name} <button onClick={() => handleClick(player.player_id)}>click me to go!</button></div>)
+          stateArray.push(<div key={player.player_id}>{player.name} <button onClick={() => handleClick(player.player_id)}>click me to go!</button></div>)
         }
       }
       if (players === 0){
