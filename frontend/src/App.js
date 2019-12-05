@@ -134,8 +134,7 @@ const App = () => {
             </Form>
           </div>
         </Router>
-      </div>
-        
+      </div>     
     )
   }
   if (!loggedIn) {

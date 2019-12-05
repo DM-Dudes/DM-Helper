@@ -11,6 +11,7 @@ const DMTableListPage = (props) => {
         for (let user of apiResponseJSON){
           if (user.name === props.userName && userId === null){
             setUserId(user.user_id)
+            sessionStorage.setItem("currentUser_id", JSON.stringify(user.user_id))
             break;
           }
         }
