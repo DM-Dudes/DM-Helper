@@ -78,10 +78,6 @@ const App = () => {
           .then((_response) => { setPost({ post: true }) })
       }
     }
-
-
-
-
     window.location.reload()
   }
 
@@ -97,10 +93,11 @@ const App = () => {
     if (!loggedIn) {
       for (let i = 0; i < usersinfo.length; i++) {
         if (usersinfo[i].name === userName && usersinfo[i].password === userPass) {
-          setUserId(i)
+          setUserId(i + 1)
+          sessionStorage.setItem("currentUser_id", JSON.stringify(i + 1))
           setLoggedIn(true)
+          break
         } else {
-          console.log('nope')
         }
       }
     }
@@ -111,7 +108,6 @@ const App = () => {
   useEffect(() => {
     userCheck()
   })
-
   if (signup) {
     return (
       <div>
@@ -171,9 +167,7 @@ const App = () => {
         <Router>
           <div>
             <AppNav />
-            <div>
-              <Route exact path="/" component={() => <DMTableListPage userName={userName} />} />
-            </div>
+            <Route exact path="/" component={() => <DMTableListPage userName={userName} />} />
             <Route exact path="/create-table" component={() => <DMTableCreatePage />} />
             <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1' />} />
             <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage npcid='1' />} />
