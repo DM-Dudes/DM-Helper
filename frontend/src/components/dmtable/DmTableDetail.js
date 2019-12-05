@@ -1,8 +1,9 @@
 import NPC_list from '../NPC/NPC_list';
+import PlayerListTable from '../player/PlayerListTable.js';
 import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { MDBBtn, MDBIcon } from "mdbreact";
-
+import TableNavBar from '../../components/NavBar/TableNavBar.js'
 
 
 
@@ -26,6 +27,10 @@ const DmTableDetail = (props) => {
   if (!newNPC) {
     return (
       <div>
+      <div>
+        <TableNavBar/>
+      </div>
+      <div>
         <h1>
           {name}
         </h1>
@@ -46,11 +51,14 @@ const DmTableDetail = (props) => {
           </Fragment>
         </div>
         <div>
-          <NPC_list tableid={dmtable_id} />
+          <h3>NPCs</h3>
+          <NPC_list tableid={dmtable_id}/>
         </div>
         <div>
-          {/*<ListComponent PlayerList />*/}
+          <h3>Players</h3>
+          <PlayerListTable tableid={dmtable_id}/>
         </div>
+      </div>
       </div>
     );
   } else {

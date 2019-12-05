@@ -8,7 +8,6 @@ export const NPC_list = (props) => {
   const [NPCs, setNPCs] = useState(0)
   const [redirect, setRedirect] = useState(null)
   const [NpcLink, setNpcLink] = useState(null)
-
   useEffect(() => {
 
     if (props.tableid) {
