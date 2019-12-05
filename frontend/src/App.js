@@ -165,7 +165,7 @@ const App = () => {
           <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1'/>}/>
           <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage npcid='1'/>}/>
           <Route exact path="/create-npc" component={() => <NPCs_create_page tableid='1'/>}/>
-          <Route exact path="/table-list/" component={() => <DMTableListPage userid='1'/>}/>
+          <Route exact path="/table-list/" component={() => <DMTableListPage userName={ userName }/>}/>
           </div>
             <Route exact path="/create-player" component={() => <Players_create tableid='1'/>}/>
           </div>

@@ -44,7 +44,7 @@ const fetchDMTableByID = (DMTableID) => {
 }
 
 const deleteDMTable = (DMTable) => {
-  return fetchDMTables(`${url}dm_tables/${DMTable}/`, {
+  return fetch(`${url}dm_tables/${DMTable}/`, {
     method: `delete`
   })
 }
@@ -87,7 +87,7 @@ const fetchPlayerByID = (id) => {
 }
 
 const deletePlayer = (player) => {
-  return fetchPlayers(`${url}players/${player}/`, {
+  return fetch(`${url}players/${player}/`, {
     method: `delete`
   })
 }
@@ -142,7 +142,7 @@ const addPlayer = (playerObject) => {
   
   const deleteNPC = (npc) => {
     console.log('called')
-    return fetchNPCs(`${url}npcs/${npc}/`, {
+    return fetch(`${url}npcs/${npc}/`, {
       method: `delete`
     })
   }
