@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
-
+import TableNavBar from '../components/NavBar/TableNavBar.js'
 import DmTableDetail from '../components/dmtable/DmTableDetail.js'
 import DmApi from '../Api/DmApi.js'
 
 const DMTableDetailsPage = (props) => {
-  
+
   let { tableid } = props
   let [dmTable, setDmTable] = useState(null)
 
@@ -22,7 +22,7 @@ const DMTableDetailsPage = (props) => {
 
 
 
-if (dmTable === null) {
+  if (dmTable === null) {
     return (
       <div>
         No soup for you.
@@ -31,7 +31,12 @@ if (dmTable === null) {
   } else {
     return (
       <div>
-        <DmTableDetail {...dmTable} />
+        
+          <TableNavBar />
+        
+        <div>
+          <DmTableDetail {...dmTable} />
+        </div>
       </div>
     )
   }

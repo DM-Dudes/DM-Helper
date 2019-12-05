@@ -3,7 +3,9 @@ import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { MDBBtn, MDBIcon } from "mdbreact";
 import DMTableEditPage from "../../pages/DMTable_edit.js"
-import TableNavBar from '../../components/NavBar/TableNavBar.js'
+
+
+
 
 
 
@@ -41,33 +43,32 @@ const DmTableDetail = (props) => {
     return (
       <div>
         <div>
-          <TableNavBar />
-        </div>
-        <div>
-          <button onClick={() => handleEditButtonClick()}>Edit Table</button>
-        </div>
-        <div>
-          <h1>
-            {name}
-          </h1>
-          <p>
-            {story}
-          </p>
-          <p>
-            {notes}
-          </p>
           <div>
-            <Fragment>
-              <MDBBtn onClick={() => addNpcOnClickHandler()} color="default">
-                Add NPC <MDBIcon icon="plus" className="ml-1" />
-              </MDBBtn>
-              <MDBBtn onClick={() => addPlayerOnClickHandler()} color="default">
-                Add Player <MDBIcon icon="plus" className="ml-1" />
-              </MDBBtn>
-            </Fragment>
+            <button onClick={() => handleEditButtonClick()}>Edit Table</button>
           </div>
           <div>
-            <NPC_list tableid={dmtable_id} />
+            <h1>
+              {name}
+            </h1>
+            <p>
+              {story}
+            </p>
+            <p>
+              {notes}
+            </p>
+            <div>
+              <Fragment>
+                <MDBBtn onClick={() => addNpcOnClickHandler()} color="default">
+                  Add NPC <MDBIcon icon="plus" className="ml-1" />
+                </MDBBtn>
+                <MDBBtn onClick={() => addPlayerOnClickHandler()} color="default">
+                  Add Player <MDBIcon icon="plus" className="ml-1" />
+                </MDBBtn>
+              </Fragment>
+            </div>
+            <div>
+              <NPC_list tableid={dmtable_id} />
+            </div>
           </div>
         </div>
       </div>
