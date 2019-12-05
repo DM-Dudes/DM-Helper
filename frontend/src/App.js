@@ -3,7 +3,7 @@ import Api from './Api/DmApi.js'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import AppNav from './components/NavBar/NavBar.js';
+import HLBar from './components/NavBar/NavBar.js';
 import NPC_list from './components/NPC/NPC_list.js'
 import NPC_detail from './components/NPC/NPC_detail.js'
 import PlayerListTable from './components/player/PlayerListTable.js'
@@ -15,6 +15,7 @@ import NPCDetailsPage from './pages/NPCs_details_page.js'
 import Players_create from './pages/Players_create'
 import NPCs_create_page from './pages/NPCs_create_page.js'
 import DMTableListPage from './pages/DMTable_list.js'
+import DMTableEditPage from './pages/DMTable_edit.js'
 import PlayerView from './components/player/Playerview.js';
 
 
@@ -34,11 +35,14 @@ const App = () => {
   );
   const [signup, setSignUp] = useState(0)
   const [userName, setUserName] = useState(0)
+  const [localName, setLocalName] =useStateWithLocalStorage(
+    'myUserInLocalStorage'
+  );
   const [userPass, setUserPass] = useState(0)
   const [usersinfo, setUsersInfo] = useState(0)
   const [userid, setUserId] = useState(0)
   const [post, setPost] = useState(false)
-
+  console.log(userid)
   const profileSubmit = async (event) => {
     event.preventDefault()
     let user_name = event.target.user_name.value
@@ -48,6 +52,7 @@ const App = () => {
     }
     if (userName === 0) {
       setUserName(user_name)
+      setLocalName(user_name)
     }
   }
   const setSignUpForm = async () => {
@@ -58,31 +63,33 @@ const App = () => {
   }
   const newUserSubmit = async (event) => {
     event.preventDefault()
-    if(event.target.user_name.value.length > 0 && event.target.password.value.length > 0) {
-    let name = event.target.user_name.value
-    let password = event.target.password.value   
-    if (userName === 0) {
-      setUserName(name)
-    }
-    if (userPass === 0) {
-      setUserPass(password)
-    }
-    if (!post) {
-      let newUserObject = {
-        name: name,
-        password: password,
+    if (event.target.user_name.value.length > 0 && event.target.password.value.length > 0) {
+      let name = event.target.user_name.value
+      let password = event.target.password.value
+      if (userName === 0) {
+        setUserName(name)
+        setLocalName(name)
       }
-      setLoggedIn(true)
-      await Api.fetchNewUser(newUserObject)
-        .then((_response) => { setPost({ post: true }) })
+      if (userPass === 0) {
+        setUserPass(password)
       }
+      if (!post) {
+        let newUserObject = {
+          name: name,
+          password: password,
+        }
+        setLoggedIn(true)
+        await Api.fetchNewUser(newUserObject)
+          .then((_response) => { setPost({ post: true }) })
+      }
+    }
+
+
+
+
+    window.location.reload()
   }
-    
-  
-      
-      
-      window.location.reload()
-  }
+
 
   const profiles = async () => {
     const profileinfo = await Api.fetchAllDM()
@@ -90,17 +97,17 @@ const App = () => {
       setUsersInfo(profileinfo)
     }
   }
+
   const userCheck = () => {
     if (!loggedIn) {
       for (let i = 0; i < usersinfo.length; i++) {
         if (usersinfo[i].name === userName && usersinfo[i].password === userPass) {
-          setUserId(i)
+          setUserId(i+1)
           setLoggedIn(true)
         }
       }
     }
   }
-
   useEffect(() => {
     profiles()
   })
@@ -112,7 +119,7 @@ const App = () => {
     return (
       <div>
         <Router>
-        <div>
+          <div>
             <a1>Welcome To DM-Helper</a1>
           </div>
           <div className='signupform'>
@@ -128,12 +135,11 @@ const App = () => {
               <Button type='submit' className="col-6 ml-3" form='test'>Register</Button>
             </Form>
             <Form onSubmit={backToLogin} method="GET" id='restart'>
-            <Button type='submit' form='restart'>Back to Login</Button>
+              <Button type='submit' form='restart'>Back to Login</Button>
             </Form>
           </div>
         </Router>
       </div>
-        
     )
   }
   if (!loggedIn) {
@@ -167,15 +173,16 @@ const App = () => {
       <div>
         <Router>
           <div>
-          <AppNav/>
-          <div>
-          <Route exact path="/" component={() => <DMTableListPage userName={userName}/>}/>
-          </div>
-          <Route exact path="/create-table" component={() => <DMTableCreatePage userName={ userName }/>}/>
-          <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1'/>}/>
-          <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage npcid='1'/>}/>
-          <Route exact path="/create-npc" component={() => <NPCs_create_page tableid='1'/>}/>
-            <Route exact path="/create-player" component={() => <Players_create tableid='1'/>}/>
+            <HLBar userName={userName}/>
+            <div>
+            <Route exact path="/" component={() => <DMTableListPage userName={localName} />} />
+            </div>
+            <Route exact path="/create-table" component={() => <DMTableCreatePage userid='userid'/>} />
+            <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1' />} />
+            <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage npcid='1' />} />
+            <Route exact path="/create-npc" component={() => <NPCs_create_page tableid='1' />} />
+            <Route exact path="/edit-table/:userid" component={() => <DMTableEditPage userid='1' />} />
+            <Route exact path="/create-player" component={() => <Players_create tableid='1' />} />
           </div>
         </Router>
       </div>
