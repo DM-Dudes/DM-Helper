@@ -11,7 +11,7 @@ const DMTableCreatePage = (props) => {
     event.preventDefault()
     let { name, story, notes } = event.target
     const DMTableObject = {
-      userdmtable: props.user.user_id,
+      userdmtable: 1,
       name: name.value,
       story: story.value,
       notes: notes.value,
