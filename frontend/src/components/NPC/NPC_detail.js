@@ -6,11 +6,8 @@ import TableNavBar from '../../components/NavBar/TableNavBar.js'
 
 export const NPC_detail = (props) => {
   const { tableid } = props
-
   const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
-  
   const [NPC, setNPC] = useState(0)
-
   const npcID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
 
   useEffect(() => {
@@ -22,7 +19,6 @@ export const NPC_detail = (props) => {
   }, [])
   
   const handleDelete = async () => {
-    console.log(npcID)
     return await DmAPI.deleteNPC(npcID)
   }
 
@@ -35,25 +31,25 @@ export const NPC_detail = (props) => {
   return (
     <div>
       <TableNavBar/>
-      <div>
-        Name = {NPC.name}
-        <br/>
-        table = {NPC.dmtable}
-        <br/>
-        HP = {NPC.hp}
-        <br/>
-        AC = {NPC.ac}
-        <br/>
-        Details = {NPC.details}
-        <br/>
         <div>
-          <button onClick={handleDelete}>KILL MEEEEEEE (this will delete the NPC)</button>
+          Name = {NPC.name}
+          <br/>
+          table = {NPC.dmtable}
+          <br/>
+          HP = {NPC.hp}
+          <br/>
+          AC = {NPC.ac}
+          <br/>
+          Details = {NPC.details}
+          <br/>
+          <div>
+            <button onClick={handleDelete}>delete NPC</button>
+          </div>
         </div>
-      </div>
-      <br />
-      <div>
-        <button onClick={() => backToTableDetailonClickHandler()} name="back">Back to Table</button>
-      </div>
+        <br />
+        <div>
+          <button onClick={() => backToTableDetailonClickHandler()} name="back">Back to Table</button>
+        </div>
     </div>
 
   );
