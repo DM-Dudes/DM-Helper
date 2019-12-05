@@ -8,8 +8,8 @@ export const DmTableList = (props) => {
   const [redirect, setRedirect] = useState(null)
   const [TableLink, setTableLink] = useState(null)
   useEffect(() => {
-    if (props.userid) {
-      let userid = props.userid
+    if (props.userId) {
+      let userid = props.userId
       let stateArray = []
       DmAPI.fetchDMTables()
         .then((apiResponseJSON) => {
@@ -25,7 +25,7 @@ export const DmTableList = (props) => {
           setTables(stateArray)
         })
     }
-  }, [])
+  }, [props])
 
   const handleClick = (table_id) => {
     setRedirect(true)
