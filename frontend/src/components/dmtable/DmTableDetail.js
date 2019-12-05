@@ -14,7 +14,7 @@ const DmTableDetail = (props) => {
   const [newPlayer, setNewPlayer] = useState(null)
 
   const { name, userdmtable, story, notes, dmtable_id } = props
-
+  console.log(props)
   const addNpcOnClickHandler = () => {
     console.log("called")
     setNewNPC(<Redirect to="/create-npc" />)
