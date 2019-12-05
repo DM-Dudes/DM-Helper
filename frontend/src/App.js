@@ -15,6 +15,7 @@ import NPCDetailsPage from './pages/NPCs_details_page.js'
 import Players_create from './pages/Players_create'
 import NPCs_create_page from './pages/NPCs_create_page.js'
 import DMTableListPage from './pages/DMTable_list.js'
+import DMTableEditPage from './pages/DMTable_edit.js'
 import PlayerView from './components/player/Playerview.js';
 
 
@@ -77,12 +78,14 @@ const App = () => {
       window.location.reload()
   }
 
+ 
   const profiles = async () => {
     const profileinfo = await Api.fetchAllDM()
     if (usersinfo === 0) {
       setUsersInfo(profileinfo)
     }
   }
+
   const userCheck = () => {
     if (!loggedIn) {
       for (let i = 0; i < usersinfo.length; i++) {
@@ -166,6 +169,7 @@ const App = () => {
           <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage npcid='1'/>}/>
           <Route exact path="/create-npc" component={() => <NPCs_create_page tableid='1'/>}/>
           <Route exact path="/table-list/" component={() => <DMTableListPage userid='1'/>}/>
+          <Route exact path="/edit-table/:userid" component={() => <DMTableEditPage userid='1'/>}/>
           </div>
             <Route exact path="/create-player" component={() => <Players_create tableid='1'/>}/>
           </div>

@@ -1,21 +1,33 @@
 import React, { useState, useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
 
 import DmTableDetail from '../components/dmtable/DmTableDetail.js'
 import DmApi from '../Api/DmApi.js'
 
 const DMTableDetailsPage = (props) => {
-  let {tableid} = props
+  let { tableid } = props
   let [dmTable, setDmTable] = useState(null)
-  
+  let [editClick, setEditClick] = useState(null)
+
   useEffect(() => {
-    
+
     DmApi.fetchDMTableByID(tableid)
-    .then((apiResponseJSON) => {
-      setDmTable(apiResponseJSON) /* don't do this anymore: no more setState inside of useEffect */
-    }
-    )
+      .then((apiResponseJSON) => {
+        setDmTable(apiResponseJSON) /* don't do this anymore: no more setState inside of useEffect */
+      }
+      )
   }, [])
+
+  const handleEditButtonClick = () => {
+    setEditClick(true)
+  }
   
+  if (editClick) {
+    return (
+      <Redirect to={"/edit-table/1"}/>
+    )
+  }
+
   if (dmTable === null) {
     return (
       <div>
@@ -23,11 +35,14 @@ const DMTableDetailsPage = (props) => {
       </div>
     )
   } else {
-  return (
-    <div>
-      <DmTableDetail {...dmTable} />
-    </div>
-  )
+    return (
+      <div>
+      <div>
+        <button onClick={() => handleEditButtonClick()}>Edit Table</button>
+      </div>
+        <DmTableDetail {...dmTable} />
+      </div>
+    )
   }
 }
 
