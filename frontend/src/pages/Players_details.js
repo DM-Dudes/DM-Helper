@@ -9,14 +9,14 @@ const Player_details = (props) => {
 
   console.log(playerID)
    useEffect(() => {
-    Api.fetchPlayersByID(playerID)
+    Api.fetchPlayerByID(playerID)
       .then((apiResponseJSON) => {
         setPlayer(apiResponseJSON)
         console.log(playerID)
       }
       )
   }, [])
-
+  if (player){
   return (
     <div>
       <h1>Player ID: {player.player_id}</h1>
@@ -24,7 +24,12 @@ const Player_details = (props) => {
       <h1>Table ID: {player.dmtable}</h1>
       <h1>Player Details: {player.details}</h1>
     </div>
-  );
+  );}
+  else{
+    return(
+      <div>loading player</div>
+    )
+  }
 }
 
 export default Player_details;
