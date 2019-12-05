@@ -156,6 +156,7 @@ const addPlayer = (playerObject) => {
         body: JSON.stringify(npcObject)
       })
     }
+
   
     const updateNPC = (npcID, data) => {
       return fetch(`${url}/npcs/${npcID}/`, {
@@ -189,5 +190,5 @@ export default {
   deleteNPC: deleteNPC,
   addNPC: addNPC,
   updateNPC: updateNPC,
-
+  addPlayer: addPlayer,
 }
