@@ -1,6 +1,8 @@
 import React, { setState, useState, useEffect } from 'react';
 import { Redirect } from "react-router-dom"
 import DmAPI from '../../Api/DmApi.js'
+import { Redirect } from 'react-router-dom'
+
 
 export const NPC_detail = (props) => {
   const { tableid } = props /* John */
@@ -33,6 +35,9 @@ export const NPC_detail = (props) => {
         HP = {NPC.hp}
         AC = {NPC.ac}
         Details = {NPC.details}
+        <div>
+          <button onClick={() => handleDelete(npcID)}>KILL MEEEEEEE (this will delete the NPC)</button>
+        </div>
       </div>
       <br />
       <div>
