@@ -1,23 +1,21 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom'
 
 import DmApi from '../Api/DmApi'
 
 
 const DMTableEditPage = (props) => {
-  let { tablid } = props
   let [dmTableSubmitted, setdmTableSubmitted] = useState(null)
 
   const handleEvent = async (event) => {
     event.preventDefault()
     let { name, story, notes } = event.target
     const DMTableObject = {
-      userdmtable: 1,
+      userdmtable: props.props.userdmtable,
       name: name.value,
       story: story.value,
       notes: notes.value,
     }
-    let response = await DmApi.updateDMTable(tablid, DMTableObject)
+    let response = await DmApi.updateDMTable(props.props.dmtable_id, DMTableObject)
     if (response.status === 200) {
       setdmTableSubmitted(true)
     }
@@ -26,7 +24,7 @@ const DMTableEditPage = (props) => {
 
   if (dmTableSubmitted) {
     return (
-      <Redirect to="/table-detail/1" />
+      window.location.reload()
     )
   } else {
     return (
@@ -35,11 +33,11 @@ const DMTableEditPage = (props) => {
         <form onSubmit={handleEvent}>
           <h2>Edit Your Table</h2>
           <br />
-          <input type="text" name="name" placeholder="Name your Table..."></input>
+          <input type="text" name="name" defaultValue={ props.props.name }></input>
           <br />
-          <input type="text" name="story" placeholder="Craft your story here..."></input>
+          <input type="text" name="story" defaultValue={ props.props.story }></input>
           <br />
-          <input type="text" name="notes" placeholder="Notes about your story..."></input>
+          <input type="text" name="notes" defaultValue={ props.props.notes }></input>
           <br />
           <button type="submit" name="submit">Submit</button>
         </form>

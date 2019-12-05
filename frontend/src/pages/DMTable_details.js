@@ -5,9 +5,11 @@ import DmTableDetail from '../components/dmtable/DmTableDetail.js'
 import DmApi from '../Api/DmApi.js'
 
 const DMTableDetailsPage = (props) => {
+  
   let { tableid } = props
   let [dmTable, setDmTable] = useState(null)
-  let [editClick, setEditClick] = useState(null)
+
+
 
   useEffect(() => {
 
@@ -18,17 +20,9 @@ const DMTableDetailsPage = (props) => {
       )
   }, [])
 
-  const handleEditButtonClick = () => {
-    setEditClick(true)
-  }
-  
-  if (editClick) {
-    return (
-      <Redirect to={"/edit-table/1"}/>
-    )
-  }
 
-  if (dmTable === null) {
+
+if (dmTable === null) {
     return (
       <div>
         No soup for you.
@@ -37,9 +31,6 @@ const DMTableDetailsPage = (props) => {
   } else {
     return (
       <div>
-      <div>
-        <button onClick={() => handleEditButtonClick()}>Edit Table</button>
-      </div>
         <DmTableDetail {...dmTable} />
       </div>
     )
