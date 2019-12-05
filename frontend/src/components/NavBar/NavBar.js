@@ -12,9 +12,9 @@ function AppNav({ handleNavClick }) {
   return (
     <nav className="nav">
       <button><a className="nav-link nav-button" href="/">HOME</a></button>
-      <button><a className="nav-link" href="/">CREATE TABLE</a></button>
-      <button><a className="nav-link disabled" href="/" tabIndex="-1" aria-disabled="true">CREATE NPCS</a></button>
-      <button><a className="nav-link disabled" href="/" tabIndex="-1" aria-disabled="true">CREATE PLAYER</a></button>
+      <button><a className="nav-link" href="/create-table">CREATE TABLE</a></button>
+      <button><a className="nav-link" href="/create-npc">CREATE NPCS</a></button>
+      <button><a className="nav-link" href="/create-player">CREATE PLAYER</a></button>
       <Link to='/'><button onClick={logout} >LOGOUT</button></Link>
     </nav>
 

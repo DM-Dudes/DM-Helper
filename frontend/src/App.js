@@ -12,6 +12,7 @@ import renderDMTableCreatePage from './pages/DMTable_create.js'
 import DMTableCreatePage from './pages/DMTable_create.js';
 import DMTableDetailsPage from './pages/DMTable_details.js'
 import NPCDetailsPage from './pages/NPCs_details_page.js'
+import Players_create from './pages/Players_create'
 import NPCs_create_page from './pages/NPCs_create_page.js'
 import DMTableListPage from './pages/DMTable_list.js'
 import PlayerView from './components/player/Playerview.js';
@@ -159,7 +160,6 @@ const App = () => {
         <Router>
           <div>
           <AppNav/>
-          <PlayerListTable/>
           <div>
           <Route exact path="/create-table" component={() => <DMTableCreatePage userName={ userName }/>}/>
           <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1'/>}/>
@@ -167,7 +167,7 @@ const App = () => {
           <Route exact path="/create-npc" component={() => <NPCs_create_page tableid='1'/>}/>
           <Route exact path="/table-list/" component={() => <DMTableListPage userid='1'/>}/>
           </div>
-            {/* <Route exact path="/create-player" component={CreatePlayer} /> */}
+            <Route exact path="/create-player" component={() => <Players_create tableid='1'/>}/>
           </div>
         </Router>
       </div>
