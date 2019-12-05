@@ -8,7 +8,6 @@ export const NPC_list = (props) => {
   const [NPCs, setNPCs] = useState(0)
   const [redirect, setRedirect] = useState(null)
   const [NpcLink, setNpcLink] = useState(null)
-
   useEffect(() => {
 
     if (props.tableid) {
@@ -17,7 +16,6 @@ export const NPC_list = (props) => {
       DmAPI.fetchNPCs()
         .then((apiResponseJSON) => {
           for (let npc of apiResponseJSON) {
-            console.log(npc)
             if (npc.dmtable === tableid) {
               stateArray.push(
                 <div key={npc.npc_id}>{npc.name} <button onClick={() => handleClick(npc.npc_id)}>click me to go!</button></div>

@@ -7,7 +7,6 @@ import HLBar from './components/NavBar/NavBar.js';
 import NPC_list from './components/NPC/NPC_list.js'
 import NPC_detail from './components/NPC/NPC_detail.js'
 import PlayerListTable from './components/player/PlayerListTable.js'
-import PlayerPage from './pages/Players_details.js'
 import renderDMTableCreatePage from './pages/DMTable_create.js'
 import DMTableCreatePage from './pages/DMTable_create.js';
 import DMTableDetailsPage from './pages/DMTable_details.js'
@@ -17,6 +16,7 @@ import NPCs_create_page from './pages/NPCs_create_page.js'
 import DMTableListPage from './pages/DMTable_list.js'
 import DMTableEditPage from './pages/DMTable_edit.js'
 import PlayerView from './components/player/Playerview.js';
+import Players_details from './pages/Players_details.js'
 
 
 const useStateWithLocalStorage = localStorageKey => {
@@ -42,7 +42,7 @@ const App = () => {
   const [usersinfo, setUsersInfo] = useState(0)
   const [userid, setUserId] = useState(0)
   const [post, setPost] = useState(false)
-  console.log(userid)
+
   const profileSubmit = async (event) => {
     event.preventDefault()
     let user_name = event.target.user_name.value
@@ -83,10 +83,6 @@ const App = () => {
           .then((_response) => { setPost({ post: true }) })
       }
     }
-
-
-
-
     window.location.reload()
   }
 
@@ -114,7 +110,6 @@ const App = () => {
   useEffect(() => {
     userCheck()
   })
-
   if (signup) {
     return (
       <div>
@@ -178,8 +173,9 @@ const App = () => {
             <Route exact path="/" component={() => <DMTableListPage userName={localName} />} />
             </div>
             <Route exact path="/create-table" component={() => <DMTableCreatePage userid='userid'/>} />
-            <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage />} />
-            <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage npcid='1' />} />
+            <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1' />} />
+            <Route exact path="/Players-details/:playerid" component={() => <Players_details/>} />
+            <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage/>} />
             <Route exact path="/create-npc" component={() => <NPCs_create_page tableid='1' />} />
             <Route exact path="/edit-table/:userid" component={() => <DMTableEditPage userid='1' />} />
             <Route exact path="/create-player" component={() => <Players_create tableid='1' />} />
