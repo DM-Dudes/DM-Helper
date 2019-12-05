@@ -19,7 +19,6 @@ export const DmTableList = (props) => {
               stateArray.push(
                 <div key={table.table_id}>{table.name} <button onClick={() => handleClick(table.userdmtable)}>click me to go!</button></div>
                 )
-                console.log(stateArray)
             }
           }
           setTables(stateArray)
