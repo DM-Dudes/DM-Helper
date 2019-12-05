@@ -67,9 +67,6 @@ const DmTableDetail = (props) => {
                 </MDBBtn>
               </Fragment>
             </div>
-            <div>
-              <NPC_list tableid={dmtable_id} />
-            </div>
           </div>
         </div>
         <div>
