@@ -53,15 +53,19 @@ const App = () => {
   const setSignUpForm = async () => {
     setSignUp(true)
   }
+  const backToLogin = async () => {
+    setSignUp(false)
+  }
   const newUserSubmit = async (event) => {
     event.preventDefault()
+    if(event.target.user_name.value.length > 0 && event.target.password.value.length > 0) {
     let name = event.target.user_name.value
-    let password = event.target.password.value
-    if (userPass === 0) {
-      setUserPass(password)
-    }
+    let password = event.target.password.value   
     if (userName === 0) {
       setUserName(name)
+    }
+    if (userPass === 0) {
+      setUserPass(password)
     }
     if (!post) {
       let newUserObject = {
@@ -72,6 +76,9 @@ const App = () => {
       await Api.fetchNewUser(newUserObject)
         .then((_response) => { setPost({ post: true }) })
       }
+  }
+    
+  
       
       
       window.location.reload()
@@ -107,8 +114,8 @@ const App = () => {
     return (
       <div>
         <Router>
-          <div>
-            <AppNav />
+        <div>
+            <a1>Welcome To DM-Helper</a1>
           </div>
           <div className='signupform'>
             <Form onSubmit={newUserSubmit} method="GET" id='test'>
@@ -122,6 +129,9 @@ const App = () => {
               </FormGroup>
               <Button type='submit' className="col-6 ml-3" form='test'>Register</Button>
             </Form>
+            <Form onSubmit={backToLogin} method="GET" id='restart'>
+            <Button type='submit' form='restart'>Back to Login</Button>
+            </Form>
           </div>
         </Router>
       </div>
@@ -133,7 +143,7 @@ const App = () => {
       <div>
         <Router>
           <div>
-            <AppNav />
+            <a1>Welcome To DM-Helper</a1>
           </div>
           <div className='loginform'>
             <Form onSubmit={profileSubmit} method="GET" id='test'>
@@ -161,6 +171,7 @@ const App = () => {
           <div>
           <AppNav/>
           <div>
+          <Route exact path="/" component={() => <DMTableCreatePage userName={ userName }/>}/>
           <Route exact path="/create-table" component={() => <DMTableCreatePage userName={ userName }/>}/>
           <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1'/>}/>
           <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage npcid='1'/>}/>

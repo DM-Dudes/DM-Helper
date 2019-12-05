@@ -3,7 +3,7 @@ import { Link, onClick } from 'react-router-dom';
 import Container from 'react-bootstrap/Container'
 import { Navbar, Nav, Row, Col } from 'react-bootstrap';
 
-function AppNav({ handleNavClick }) {
+function HLNav({ handleNavClick }) {
   const logout = () => {
     console.log('not working')
     localStorage.clear()
@@ -12,9 +12,6 @@ function AppNav({ handleNavClick }) {
   return (
     <nav className="nav">
       <button><a className="nav-link nav-button" href="/">HOME</a></button>
-      <button><a className="nav-link" href="/create-table">CREATE TABLE</a></button>
-      <button><a className="nav-link" href="/create-npc">CREATE NPCS</a></button>
-      <button><a className="nav-link" href="/create-player">CREATE PLAYER</a></button>
       <Link to='/'><button onClick={logout} >LOGOUT</button></Link>
     </nav>
 
@@ -22,7 +19,7 @@ function AppNav({ handleNavClick }) {
 }
 
 
-export default AppNav;
+export default HLNav;
 {/* <Link key={i} to={`/${navItem.value}/`}>{navItem.label}| </Link> */}
 //     <button>
 //       {createNavItems()}
