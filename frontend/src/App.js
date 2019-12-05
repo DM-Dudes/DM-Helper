@@ -3,7 +3,7 @@ import Api from './Api/DmApi.js'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import AppNav from './components/NavBar/NavBar.js';
+import HLBar from './components/NavBar/NavBar.js';
 import NPC_list from './components/NPC/NPC_list.js'
 import NPC_detail from './components/NPC/NPC_detail.js'
 import PlayerListTable from './components/player/PlayerListTable.js'
@@ -35,11 +35,14 @@ const App = () => {
   );
   const [signup, setSignUp] = useState(0)
   const [userName, setUserName] = useState(0)
+  const [localName, setLocalName] =useStateWithLocalStorage(
+    'myUserInLocalStorage'
+  );
   const [userPass, setUserPass] = useState(0)
   const [usersinfo, setUsersInfo] = useState(0)
   const [userid, setUserId] = useState(0)
   const [post, setPost] = useState(false)
-
+  console.log(userid)
   const profileSubmit = async (event) => {
     event.preventDefault()
     let user_name = event.target.user_name.value
@@ -49,6 +52,7 @@ const App = () => {
     }
     if (userName === 0) {
       setUserName(user_name)
+      setLocalName(user_name)
     }
   }
   const setSignUpForm = async () => {
@@ -64,6 +68,7 @@ const App = () => {
       let password = event.target.password.value
       if (userName === 0) {
         setUserName(name)
+        setLocalName(name)
       }
       if (userPass === 0) {
         setUserPass(password)
@@ -97,15 +102,12 @@ const App = () => {
     if (!loggedIn) {
       for (let i = 0; i < usersinfo.length; i++) {
         if (usersinfo[i].name === userName && usersinfo[i].password === userPass) {
-          setUserId(i)
+          setUserId(i+1)
           setLoggedIn(true)
-        } else {
-          console.log('nope')
         }
       }
     }
   }
-
   useEffect(() => {
     profiles()
   })
@@ -171,11 +173,11 @@ const App = () => {
       <div>
         <Router>
           <div>
-            <AppNav />
+            <HLBar userName={userName}/>
             <div>
-              <Route exact path="/" component={() => <DMTableListPage userName={userName} />} />
+            <Route exact path="/" component={() => <DMTableListPage userName={localName} />} />
             </div>
-            <Route exact path="/create-table" component={() => <DMTableCreatePage />} />
+            <Route exact path="/create-table" component={() => <DMTableCreatePage userid='userid'/>} />
             <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1' />} />
             <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage npcid='1' />} />
             <Route exact path="/create-npc" component={() => <NPCs_create_page tableid='1' />} />

@@ -3,7 +3,8 @@ import { Link, onClick } from 'react-router-dom';
 import Container from 'react-bootstrap/Container'
 import { Navbar, Nav, Row, Col } from 'react-bootstrap';
 
-function TableNav({ handleNavClick }) {
+function TableNavBar({ props, handleNavClick }) {
+  console.log(props)
   return (
     <nav className="nav">
       <button><a className="nav-link" href="/create-table">CREATE TABLE</a></button>
@@ -15,4 +16,4 @@ function TableNav({ handleNavClick }) {
 }
 
 
-export default TableNav;
+export default TableNavBar;
