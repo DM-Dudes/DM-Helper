@@ -22,7 +22,7 @@ export const NPC_detail = (props) => {
   
   const handleDelete = async () => {
     console.log(npcID)
-    return await DmApi.deleteNPC(npcID)
+    return await DmAPI.deleteNPC(npcID)
   }
 
   const backToTableDetailonClickHandler = () => { 
