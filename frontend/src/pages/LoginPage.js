@@ -4,15 +4,6 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
 import { Redirect } from "react-router-dom";
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import HLBar from './components/NavBar/NavBar.js';
-import DMTableCreatePage from './pages/DMTable_create.js';
-import DMTableDetailsPage from './pages/DMTable_details.js'
-import NPCDetailsPage from './pages/NPCs_details_page.js'
-import PlayersCreate from './pages/Players_create'
-import NPCsCreatePage from './pages/NPCs_create_page.js'
-import DMTableListPage from './pages/DMTable_list.js'
-import DMTableEditPage from './pages/DMTable_edit.js'
-import Playersdetails from './pages/Players_details.js'
 
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = React.useState(
@@ -20,12 +11,11 @@ const useStateWithLocalStorage = localStorageKey => {
   );
   React.useEffect(() => {
     localStorage.setItem(localStorageKey, value);
-  }, [localStorageKey, value]);
+  }, [value]);
   return [value, setValue];
 };
-const TableID = sessionStorage.getItem("currentTable_id")
-const UserID = sessionStorage.getItem("currentUser_id")
-const App = () => {
+
+const LoginAndSignup = () => {
   const [loggedIn, setLoggedIn] = useStateWithLocalStorage(
     'myValueInLocalStorage'
   );
@@ -34,6 +24,7 @@ const App = () => {
   );
   const [signup, setSignUp] = useState(0)
   const [userName, setUserName] = useState(0)
+  
   const [userPass, setUserPass] = useState(0)
   const [usersinfo, setUsersInfo] = useState(0)
   const [post, setPost] = useState(false)
@@ -82,7 +73,6 @@ const App = () => {
     
   }
 
-  
   const profiles = async () => {
     const profileinfo = await Api.fetchAllDM()
     if (usersinfo === 0) {
@@ -95,12 +85,8 @@ const App = () => {
       for (let i = 0; i < usersinfo.length; i++) {
         if (usersinfo[i].name === userName && usersinfo[i].password === userPass) {
           setLoggedIn(true)
-        }
-        
+        }       
       }
-      return (
-        <Redirect to="/" />
-      )
     }
   }
   useEffect(() => {
@@ -164,26 +150,9 @@ const App = () => {
         </Router>
       </div>
     );
-  } else {
-    return (
-      <div>
-        <Router>
-          <div>
-            <HLBar userName={userName}/>
-            <div>
-            <Route exact path="/" component={() => <DMTableListPage userName={localName} />} />
-            </div>
-            <Route exact path="/create-table" component={() => <DMTableCreatePage userid={UserID}/>} />
-            <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid={TableID}/>} />
-            <Route exact path="/Players-details/:playerid" component={() => <Playersdetails/>} />
-            <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage />} />
-            <Route exact path="/create-npc" component={() => <NPCsCreatePage tableid={TableID} />} />
-            <Route exact path="/edit-table/:userid" component={() => <DMTableEditPage userid={UserID} />} />
-            <Route exact path="/create-player" component={() => <PlayersCreate tableid={TableID} />} />
-          </div>
-        </Router>
-      </div>
-    );
+  } 
+  else {
+    <Redirect to='/'/>
   }
 }
-export default App;
+export default LoginAndSignup;

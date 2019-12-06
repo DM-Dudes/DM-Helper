@@ -1,32 +1,41 @@
 import React, { useState, useEffect } from 'react'
-import { Redirect } from 'react-router-dom'
 import TableNavBar from '../components/NavBar/TableNavBar.js'
 import DmTableDetail from '../components/dmtable/DmTableDetail.js'
 import DmApi from '../Api/DmApi.js'
+import { Redirect } from "react-router-dom";
 
 const DMTableDetailsPage = (props) => {
-
+  let { login } = localStorage.getItem('myValueInLocalStorage')
   let { tableid } = props
   let [dmTable, setDmTable] = useState(null)
 
   useEffect(() => {
-
     DmApi.fetchDMTableByID(tableid)
       .then((apiResponseJSON) => {
-         setDmTable(apiResponseJSON) /* don't do this anymore: no more setState inside of useEffect */
+        setDmTable(apiResponseJSON) /* don't do this anymore: no more setState inside of useEffect */
       }
       )
-      
-  }, [props])
+  }, [tableid])
+
   const refresh = () => {
-    if(tableid != sessionStorage.getItem("currentTable_id")){
-    window.location.reload()}
+    if (tableid !== sessionStorage.getItem("currentTable_id")) {
+      window.location.reload()
+    }
   }
+
+  const reset = () => {
+    if (login === false) {
+      return (<Redirect to='/' />)
+    }
+  }
+
+  useEffect(() => {
+    reset()
+  })
+
   useEffect(() => {
     refresh()
   })
-
-
 
   if (dmTable === null) {
     return (
@@ -37,9 +46,7 @@ const DMTableDetailsPage = (props) => {
   } else {
     return (
       <div>
-        
-          <TableNavBar />
-        
+        <TableNavBar />
         <div>
           <DmTableDetail {...dmTable} />
         </div>
@@ -49,5 +56,3 @@ const DMTableDetailsPage = (props) => {
 }
 
 export default DMTableDetailsPage
-
-

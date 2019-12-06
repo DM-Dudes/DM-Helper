@@ -8,7 +8,7 @@ const PlayerEditPage = (props) => {
 
   const handleEvent = async (event) => {
     event.preventDefault()
-    let { player_id, name, dmtable, details } = event.target
+    let { name, details } = event.target
     const PlayerObject = {
       player_id: props.props.player_id,
       name: name.value,

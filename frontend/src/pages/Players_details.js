@@ -7,13 +7,10 @@ import PlayerEditPage from '../pages/Player_edit.js'
 
 const Player_details = (props) => {
   const { tableid } = props
-  const [playerinfo, setPlayerInfo] = useState('');
   const [player, setPlayer] = useState(null)
   const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
   const [deletePlayerClick, setDeletePlayerClick] = useState(null)
   const [editPlayerClick, setEditPlayerClick] = useState(null)
-
-
 
   const playerID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
 
@@ -23,7 +20,7 @@ const Player_details = (props) => {
         setPlayer(apiResponseJSON)
       }
       )
-  }, [])
+  }, [props])
 
   const handleEditButtonClick = () => {
     setEditPlayerClick(true)
@@ -36,13 +33,14 @@ const Player_details = (props) => {
       </div>
     )
   }
-  
+
   const backToTableDetailonClickHandler = () => {
     return setBackToTableDetailButton(true),
       <Redirect to={`/table-detail/${player.dmtable}`} />
   }
   const handleDelete = async () => {
-    return await Api.deletePlayer(playerID), setBackToTableDetailButton(true)
+    await Api.deletePlayer(playerID)
+    return setBackToTableDetailButton(true)
   }
   if (backToTableDetailButton === true) {
     return <Redirect to={`/table-detail/${player.dmtable}`} />

@@ -8,7 +8,7 @@ const NpcEditPage = (props) => {
    
   const handleEvent = async (event) => {
     event.preventDefault()
-    let { npc_id, name, dmtable, hp, ac, details } = event.target
+    let { name, hp, ac, details } = event.target
     const NpcObject = {
       npc_id: props.props.npc_id,
       name: name.value,

@@ -3,22 +3,23 @@ import DmTableList from '../components/dmtable/DmTableList.js'
 import DmApi from '../Api/DmApi.js'
 
 
-const DMTableListPage = (props) => {
 
+const DMTableListPage = (props) => {
   const [userId, setUserId] = useState(null)
   useEffect(() => {
     DmApi.fetchAllDM()
-      .then((apiResponseJSON) => {
-        for (let user of apiResponseJSON){
-          if (user.name === props.userName){
-            setUserId(user.user_id)
-            sessionStorage.setItem("currentUser_id", JSON.stringify(user.user_id))
-            break;
-          }
+    .then((apiResponseJSON) => {
+      for (let user of apiResponseJSON){
+        if (user.name === props.userName){
+          setUserId(user.user_id)
+          sessionStorage.setItem("currentUser_id", JSON.stringify(user.user_id))
+          break;
         }
-      })
+      }
+    })
   }, [props])
-  
+
+
  if(!userId){
     return (
       <div>

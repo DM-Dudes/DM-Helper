@@ -14,7 +14,7 @@ export const DmTableList = (props) => {
       DmAPI.fetchDMTables()
         .then((apiResponseJSON) => {
           for (let table of apiResponseJSON) {
-            if (table.userdmtable == userid) {
+            if (table.userdmtable === userid) {
               stateArray.push(
                 <div key={table.dmtable_id}>{table.name} <button onClick={() => handleClick(table.dmtable_id)}>click me to go!</button></div>
                 )
