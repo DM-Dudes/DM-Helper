@@ -44,6 +44,7 @@ const fetchDMTableByID = (DMTableID) => {
 }
 
 const deleteDMTable = (DMTable) => {
+  console.log("fetchpage fires")
   return fetch(`${url}dm_tables/${DMTable}/`, {
     method: `delete`
   })

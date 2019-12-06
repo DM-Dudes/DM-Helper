@@ -4,7 +4,7 @@ import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { MDBBtn, MDBIcon } from "mdbreact";
 import DMTableEditPage from "../../pages/DMTable_edit.js"
-import deleteDMTable from "../../Api/DmApi.js"
+import DmApi from "../../Api/DmApi.js"
 
 
 import "../../App.css";
@@ -18,16 +18,20 @@ const DmTableDetail = (props) => {
   const [newPlayer, setNewPlayer] = useState(null)
   let [editTableClick, setEditTableClick] = useState(null)
   let [deleteTableClick, setDeleteTableClick] = useState(null)
+  
+
   const { name, userdmtable, story, notes, dmtable_id } = props
   console.log(props)
 
-  const handleDeleteTable = () => {
-    deleteDMTable(dmtable_id)
-      .then(() => {
-        return (
-          <Redirect to="/table-list/" />)
-      })
+
+
+  const handleDeleteTable = async () => {
+    return await DmApi.deleteDMTable(dmtable_id), setDeleteTableClick(true)
   }
+  if (deleteTableClick === true) {
+    return <Redirect to="/" />
+  }
+  
 
   const handleEditButtonClick = () => {
     setEditTableClick(true)
