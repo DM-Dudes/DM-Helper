@@ -2,8 +2,6 @@ import React, { setState, useState, useEffect } from 'react';
 import { Redirect } from "react-router-dom"
 import DmAPI from '../../Api/DmApi.js'
 import TableNavBar from '../../components/NavBar/TableNavBar.js'
-import SearchComponent from '../3rdPartyAPI/SearchComponent.js'
-
 
 export const NPC_detail = (props) => {
   const { tableid } = props
@@ -32,7 +30,6 @@ export const NPC_detail = (props) => {
   return (
     <div>
       <TableNavBar/>
-      <SearchComponent/>
         <div>
           Name = {NPC.name}
           <br/>

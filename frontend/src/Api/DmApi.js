@@ -113,23 +113,12 @@ const addPlayer = (playerObject) => {
       return res;
   }).catch(err => err);
   }
-  // const fetchPlayers = () => {
-  //   return fetch(url + "players")
-  //   .then((response) => response.json())
-  // }
-  // NPCs
+
 
   const fetchNPCs = () => {
     return fetch(url + "npcs/")
     .then((response) => response.json())
   }
-
-  // const fetchNPCs = async (tableID) => {
-  //   let users = await fetch(`http://localhost:8000/npcs/`)
-  //   .then(res => res.json())
-  //   .then(data => data)
-  //   return users
-  // }
 
   const fetchNPCByID = (npcID) => {
     return fetch(`${url}npcs/${npcID}`)
@@ -157,7 +146,6 @@ const addPlayer = (playerObject) => {
       })
     }
 
-  
     const updateNPC = (npcID, data) => {
       return fetch(`${url}/npcs/${npcID}/`, {
         method: 'PUT',
@@ -190,5 +178,4 @@ export default {
   deleteNPC: deleteNPC,
   addNPC: addNPC,
   updateNPC: updateNPC,
-  addPlayer: addPlayer,
 }

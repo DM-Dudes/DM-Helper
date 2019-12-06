@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, onClick } from 'react-router-dom';
 import Container from 'react-bootstrap/Container'
 import { Navbar, Nav, Row, Col } from 'react-bootstrap';
+import SpellSearch from '../3rdPartyAPI/SpellSearch.js'
 
 function HLNav({ handleNavClick }) {
   const logout = () => {
@@ -14,6 +15,7 @@ function HLNav({ handleNavClick }) {
     <nav className="nav">
       <button><a className="nav-link nav-button" href="/">HOME</a></button>
       <Link to='/'><button onClick={logout} >LOGOUT</button></Link>
+      <SpellSearch/>
     </nav>
 
   );
