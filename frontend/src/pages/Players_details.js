@@ -6,7 +6,6 @@ import TableNavBar from '../components/NavBar/TableNavBar.js'
 
 const Player_details = (props) => {
   const { tableid } = props
-  const [playerinfo, setPlayerInfo] = useState('');
   const [player, setPlayer] = useState(null)
   const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
   
@@ -17,10 +16,11 @@ const Player_details = (props) => {
     Api.fetchPlayerByID(playerID)
       .then((apiResponseJSON) => {
         setPlayer(apiResponseJSON)
-        console.log(playerID)
       }
       )
-  }, [])
+  }, [props])
+
+  
   const backToTableDetailonClickHandler = () => { 
     return setBackToTableDetailButton(<Redirect to={`/table-detail/${tableid}`} />)
   }

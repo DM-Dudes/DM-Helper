@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import DmApi from '../Api/DmApi'
+import { Redirect } from "react-router-dom";
 
 
 const DMTableEditPage = (props) => {
+  let { login } = localStorage.getItem('myValueInLocalStorage')
   let [dmTableSubmitted, setdmTableSubmitted] = useState(null)
   
   const handleEvent = async (event) => {
@@ -19,7 +21,15 @@ const DMTableEditPage = (props) => {
     if (response.status === 200) {
       setdmTableSubmitted(true)
     }
-  }
+    }
+    const reset = () => {
+      if(login === false){
+        return (<Redirect to='/'/>)
+      }
+    }
+    useEffect(() => {
+      reset()
+    })
 
   if (dmTableSubmitted) {
     return (

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 function HLNav() {
   const logout = () => {
-    console.log('not working')
     localStorage.clear()
     sessionStorage.clear()
     window.location.reload()
