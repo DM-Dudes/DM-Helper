@@ -10,12 +10,12 @@ const DMTableDetailsPage = (props) => {
   let [dmTable, setDmTable] = useState(null)
 
 
-
+  console.log(tableid)
   useEffect(() => {
 
     DmApi.fetchDMTableByID(tableid)
       .then((apiResponseJSON) => {
-        setDmTable(apiResponseJSON) /* don't do this anymore: no more setState inside of useEffect */
+         setDmTable(apiResponseJSON) /* don't do this anymore: no more setState inside of useEffect */
       }
       )
   }, [])

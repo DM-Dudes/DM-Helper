@@ -4,6 +4,7 @@ import DmApi from '../Api/DmApi.js'
 
 
 const DMTableListPage = (props) => {
+
   const [userId, setUserId] = useState(null)
   useEffect(() => {
     DmApi.fetchAllDM()
@@ -17,6 +18,7 @@ const DMTableListPage = (props) => {
         }
       })
   }, [props])
+  
  if(!userId){
     return (
       <div>

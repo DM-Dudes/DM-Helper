@@ -5,7 +5,7 @@ import DmApi from '../Api/DmApi'
 
 const DMTableEditPage = (props) => {
   let [dmTableSubmitted, setdmTableSubmitted] = useState(null)
-
+  
   const handleEvent = async (event) => {
     event.preventDefault()
     let { name, story, notes } = event.target
@@ -20,7 +20,6 @@ const DMTableEditPage = (props) => {
       setdmTableSubmitted(true)
     }
   }
-
 
   if (dmTableSubmitted) {
     return (

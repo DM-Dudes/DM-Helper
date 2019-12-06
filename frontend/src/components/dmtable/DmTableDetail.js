@@ -4,6 +4,7 @@ import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { MDBBtn, MDBIcon } from "mdbreact";
 import DMTableEditPage from "../../pages/DMTable_edit.js"
+import deleteDMTable from "../../Api/DmApi.js"
 
 
 
@@ -15,27 +16,34 @@ const DmTableDetail = (props) => {
   const [newNPC, setNewNPC] = useState(null)
   const [newPlayer, setNewPlayer] = useState(null)
   let [editTableClick, setEditTableClick] = useState(null)
-
+  let [deleteTableClick, setDeleteTableClick] = useState(null)
   const { name, userdmtable, story, notes, dmtable_id } = props
+  console.log(props)
+
+  const handleDeleteTable = () => {
+    deleteDMTable(props)
+      .then(() => {
+        return (
+          <Redirect to="/table-list/" />)
+      })
+  }
 
   const handleEditButtonClick = () => {
     setEditTableClick(true)
   }
 
   const addNpcOnClickHandler = () => {
-    console.log("called")
     setNewNPC(<Redirect to="/create-npc" />)
   }
 
   const addPlayerOnClickHandler = () => {
-    console.log("called")
     setNewNPC(<Redirect to="/create-npc" />)
   }
 
   if (editTableClick === true) {
     return (
       <div>
-        <DMTableEditPage props={props} editStatus={setEditTableClick} />
+        <DMTableEditPage props={props} editStatus={setEditTableClick} /> {/* change this */}
       </div>
     )
   }
@@ -45,7 +53,12 @@ const DmTableDetail = (props) => {
       <div>
         <div>
           <div>
-            <button onClick={() => handleEditButtonClick()}>Edit Table</button>
+            <button onClick={() => handleEditButtonClick()}>
+              Edit Table
+            </button>
+            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this table,')) handleDeleteTable() }}>
+              Delete
+            </button>
           </div>
           <div>
             <h1>
