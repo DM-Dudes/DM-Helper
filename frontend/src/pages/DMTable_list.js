@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import DmTableList from '../components/dmtable/DmTableList.js'
 import DmApi from '../Api/DmApi.js'
+import NavBar from '../components/NavBar/NavBar'
 
 
 
@@ -23,14 +24,16 @@ const DMTableListPage = (props) => {
  if(!userId){
     return (
       <div>
+      <NavBar/>
       loading
       </div>
     )
   }else{
     return(
       <div>
-        <button><a className="nav-link" href="/create-table">CREATE TABLE</a></button>
-      <DmTableList userId={userId}/>
+        <NavBar/>
+        <br></br>
+        <DmTableList userId={userId}/>
       </div>
     )
   }
