@@ -41,16 +41,16 @@ const DmTableDetail = (props) => {
           <div>
             <Fragment>
             <div className="NPC_Player_List_box">
-              <MDBBtn onClick={ () => addNpcOnClickHandler() } color="default">
+              {/* <MDBBtn onClick={ () => addNpcOnClickHandler() } color="default">
                 Add NPC <MDBIcon  icon="plus" className="ml-1" />
-              </MDBBtn>
+              </MDBBtn> */}
                 <div>
                   <h3>NPCs</h3>
                   <NPC_list tableid={dmtable_id}/>
                 </div>
-              <MDBBtn onClick={ () => addPlayerOnClickHandler() } color="default">
+              {/* <MDBBtn onClick={ () => addPlayerOnClickHandler() } color="default">
                 Add Player <MDBIcon  icon="plus" className="ml-1" />
-              </MDBBtn>
+              </MDBBtn> */}
               <div>
                 <h3>Players</h3>
                 <PlayerListTable tableid={dmtable_id}/>

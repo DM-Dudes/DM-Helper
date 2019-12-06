@@ -12,7 +12,7 @@ const DMTableEditPage = (props) => {
     event.preventDefault()
     let { name, story, notes } = event.target
     const DMTableObject = {
-      userdmtable: 1,
+      userdmtable: tablid,
       name: name.value,
       story: story.value,
       notes: notes.value,

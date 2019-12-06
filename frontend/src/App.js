@@ -29,9 +29,7 @@ const useStateWithLocalStorage = localStorageKey => {
   return [value, setValue];
 };
 const TableID = sessionStorage.getItem("currentTable_id")
-console.log(TableID)
 const UserID = sessionStorage.getItem("currentUser_id")
-console.log(UserID)
 const App = () => {
   const [loggedIn, setLoggedIn] = useStateWithLocalStorage(
     'myValueInLocalStorage'

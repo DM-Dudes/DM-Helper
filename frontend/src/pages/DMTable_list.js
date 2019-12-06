@@ -25,7 +25,10 @@ const DMTableListPage = (props) => {
     )
   }else{
     return(
+      <div>
+        <button><a className="nav-link" href="/create-table">CREATE TABLE</a></button>
       <DmTableList userId={userId}/>
+      </div>
     )
   }
 }

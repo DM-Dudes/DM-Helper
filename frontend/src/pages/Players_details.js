@@ -6,7 +6,6 @@ import TableNavBar from '../components/NavBar/TableNavBar.js'
 
 const Player_details = (props) => {
   const { tableid } = props
-  console.log(props)
   const [playerinfo, setPlayerInfo] = useState('');
   const [player, setPlayer] = useState(null)
   const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
