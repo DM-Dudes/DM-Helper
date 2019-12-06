@@ -6,10 +6,8 @@ import PlayerEditPage from '../pages/Player_edit.js'
 
 
 const Player_details = (props) => {
-  const { tableid } = props
   const [player, setPlayer] = useState(null)
   const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
-  const [deletePlayerClick, setDeletePlayerClick] = useState(null)
   const [editPlayerClick, setEditPlayerClick] = useState(null)
 
   const playerID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
@@ -20,7 +18,7 @@ const Player_details = (props) => {
         setPlayer(apiResponseJSON)
       }
       )
-  }, [props])
+  }, [playerID])
 
   const handleEditButtonClick = () => {
     setEditPlayerClick(true)
@@ -29,7 +27,7 @@ const Player_details = (props) => {
   if (editPlayerClick === true) {
     return (
       <div>
-        <PlayerEditPage props={player} editStatus={setEditPlayerClick} /> {/* change this */}
+        <PlayerEditPage props={player} editStatus={setEditPlayerClick} />    
       </div>
     )
   }

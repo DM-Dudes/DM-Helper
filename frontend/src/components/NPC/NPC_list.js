@@ -29,7 +29,7 @@ export const NpcList = (props) => {
           setNPCs(stateArray)
         })
     }
-  }, [])
+  }, [props.tableid])
 
   const handleClick = (NPC_id) => {
     setRedirect(true)

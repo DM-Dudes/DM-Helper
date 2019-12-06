@@ -25,7 +25,7 @@ export const NPC_create_page = (props) => {
   }
 
   const cancelButtonOnClickHandler = () => {
-    setCancelButton(<Redirect to={`/table-detail/${tableid}`} />)
+    setCancelButton(<Redirect to={`/table-detail/${props.tableid}`} />)
   }
 
   if (NPCSubmitted) {
