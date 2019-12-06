@@ -5,13 +5,12 @@ import { Redirect } from 'react-router-dom'
    {/*  */}
    
  const PlayerListTable = (props) => {
-  console.log("PlayerListTable", props)
+
   const [players, setPlayers] = useState(0)
   const [redirect, setRedirect] = useState(false)
   const [PlayerLink, setPlayerLink] = useState(null)
 
   const handleClick = (Player_id) => {
-    console.log(Player_id)
     setRedirect(true)
     setPlayerLink(Player_id)
   }
@@ -20,7 +19,6 @@ import { Redirect } from 'react-router-dom'
     const playerSet = await DmAPI.fetchPlayers()
       for(let player of playerSet){
         if(player.dmtable === props.tableid){
-
           stateArray.push(
           <div key={player.player_id}>
             <button onClick={() => handleClick(player.player_id)}>

@@ -11,12 +11,7 @@ const DmTableDetail = (props) => {
   let [editTableClick, setEditTableClick] = useState(null)
   let [deleteTableClick, setDeleteTableClick] = useState(null)
   
-
   const { name, story, notes, dmtable_id } = props
-  console.log("DmTableDetail props: ", dmtable_id)
-
-  
-
 
   const handleDeleteTable = async () => {
     await DmApi.deleteDMTable(dmtable_id)
