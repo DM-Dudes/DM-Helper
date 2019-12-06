@@ -5,30 +5,39 @@ import TableNavBar from '../components/NavBar/TableNavBar.js'
 
 
 const Player_details = (props) => {
+  console.log("PlayerDetails props", props)
   const { tableid } = props
   const [player, setPlayer] = useState(null)
   const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
-  
+  const [deletePlayerClick, setDeletePlayerClick] = useState(null)
 
   const playerID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
-
+  console.log("tablid at top of playersdetail", tableid)
    useEffect(() => {
     Api.fetchPlayerByID(playerID)
       .then((apiResponseJSON) => {
         setPlayer(apiResponseJSON)
       }
       )
+<<<<<<< HEAD
   }, [props])
 
   
+=======
+  }, [])
+
+ 
+  console.log(player)
+>>>>>>> 47fc18d35e3c98f19f231cee2753faced1492830
   const backToTableDetailonClickHandler = () => { 
-    return setBackToTableDetailButton(<Redirect to={`/table-detail/${tableid}`} />)
+    return setBackToTableDetailButton(true), 
+    <Redirect to={`/table-detail/${player.dmtable}`} />
   }
   const handleDelete = async () => {
-    return await Api.deletePlayer(playerID)
+    return await Api.deletePlayer(playerID), setBackToTableDetailButton(true)
   }
-  if (backToTableDetailButton) {
-    return backToTableDetailButton
+  if (backToTableDetailButton === true) {
+    return <Redirect to={`/table-detail/${player.dmtable}`} />
   }
   if (player){
   return (
@@ -42,7 +51,7 @@ const Player_details = (props) => {
           details = {player.details}
           <br/>
           <div>
-            <button onClick={handleDelete}>delete Player</button>
+            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this Player?'))handleDelete()}}>Delete Player</button>
           </div>
         </div>
         <br/>
