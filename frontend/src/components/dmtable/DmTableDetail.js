@@ -22,7 +22,7 @@ const DmTableDetail = (props) => {
   console.log(props)
 
   const handleDeleteTable = () => {
-    deleteDMTable(props)
+    deleteDMTable(dmtable_id)
       .then(() => {
         return (
           <Redirect to="/table-list/" />)
@@ -57,7 +57,7 @@ const DmTableDetail = (props) => {
             <button onClick={() => handleEditButtonClick()}>
               Edit Table
             </button>
-            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this table,')) handleDeleteTable() }}>
+            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this table?')) handleDeleteTable() }}>
               Delete
             </button>
           </div>
