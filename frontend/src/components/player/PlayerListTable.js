@@ -5,8 +5,10 @@ import { stat } from 'fs';
 import { Redirect } from 'react-router-dom'
 import Players_details from '../../pages/Players_details.js'
 
+   {/*  */}
+   
  const PlayerListTable = (props) => {
-
+  console.log("PlayerListTable", props)
   const [players, setPlayers] = useState(0)
   const [redirect, setRedirect] = useState(false)
   const [PlayerLink, setPlayerLink] = useState(null)

@@ -7,6 +7,7 @@ import TableNavBar from '../../components/NavBar/TableNavBar.js'
 export const NPC_detail = (props) => {
   const { tableid } = props
   const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
+  const [deleteNpcClick, setDeleteNpcClick] = useState(null)
   const [NPC, setNPC] = useState(0)
   const npcID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
 
@@ -18,9 +19,14 @@ export const NPC_detail = (props) => {
       )
   }, [])
   
-  const handleDelete = async () => {
-    return await DmAPI.deleteNPC(npcID)
+  const handleDeleteNPC = async () => {
+    return await DmAPI.deleteNPC(npcID), setDeleteNpcClick(true)
   }
+  if (deleteNpcClick === true) {
+    console.log(tableid)
+    return <Redirect to={ `/table-detail/${tableid}` } />
+  }
+
 
   const backToTableDetailonClickHandler = () => { 
     return setBackToTableDetailButton(<Redirect to={`/table-detail/${tableid}`} />)
@@ -43,7 +49,7 @@ export const NPC_detail = (props) => {
           Details = {NPC.details}
           <br/>
           <div>
-            <button onClick={handleDelete}>delete NPC</button>
+            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this NPC?'))handleDeleteNPC()}}>Delete NPC</button>
           </div>
         </div>
         <br />

@@ -1,28 +1,23 @@
-import NPC_list from '../NPC/NPC_list';
-import PlayerListTable from '../player/PlayerListTable.js';
 import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
-import { MDBBtn, MDBIcon } from "mdbreact";
+
+import NPC_list from '../NPC/NPC_list';
+import PlayerListTable from '../player/PlayerListTable.js';
 import DMTableEditPage from "../../pages/DMTable_edit.js"
 import DmApi from "../../Api/DmApi.js"
-
-
 import "../../App.css";
-
-
-
 
 
 const DmTableDetail = (props) => {
   const [newNPC, setNewNPC] = useState(null)
-  const [newPlayer, setNewPlayer] = useState(null)
   let [editTableClick, setEditTableClick] = useState(null)
   let [deleteTableClick, setDeleteTableClick] = useState(null)
   
 
   const { name, userdmtable, story, notes, dmtable_id } = props
-  console.log(props)
+  console.log("DmTableDetail props: ", dmtable_id)
 
+  
 
 
   const handleDeleteTable = async () => {
@@ -32,7 +27,6 @@ const DmTableDetail = (props) => {
     return <Redirect to="/" />
   }
   
-
   const handleEditButtonClick = () => {
     setEditTableClick(true)
   }
@@ -97,7 +91,6 @@ const DmTableDetail = (props) => {
       newNPC
     )
   }
-
 
 }
 export default DmTableDetail
