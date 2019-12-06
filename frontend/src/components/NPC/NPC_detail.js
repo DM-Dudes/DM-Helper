@@ -2,13 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from "react-router-dom"
 import DmAPI from '../../Api/DmApi.js'
 import TableNavBar from '../../components/NavBar/TableNavBar.js'
+import NpcEditPage from '../../pages/NPC_edit.js'
 
 export const NPC_detail = (props) => {
   const { tableid } = props
   const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
   const [deleteNpcClick, setDeleteNpcClick] = useState(null)
   const [NPC, setNPC] = useState(0)
+  const [editNpcClick, setEditNpcClick] = useState(null)
   const npcID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
+
+  const handleEditButtonClick = () => {
+    setEditNpcClick(true)
+  }
 
   useEffect(() => {
     DmAPI.fetchNPCByID(npcID)
@@ -23,42 +29,53 @@ export const NPC_detail = (props) => {
     return setDeleteNpcClick(true)
   }
   if (deleteNpcClick === true) {
-    console.log(tableid)
-    return <Redirect to={ `/table-detail/${tableid}` } />
+    return <Redirect to={`/table-detail/${tableid}`} />
   }
 
+  if (editNpcClick === true) {
+    return (
+      <div>
+        <NpcEditPage props={NPC} editStatus={setEditNpcClick} /> {/* change this */}
+      </div>
+    )
+  }
 
-  const backToTableDetailonClickHandler = () => { 
+  const backToTableDetailonClickHandler = () => {
     return setBackToTableDetailButton(<Redirect to={`/table-detail/${tableid}`} />)
   }
   if (backToTableDetailButton) {
     return backToTableDetailButton
   } else {
-  return (
-    <div>
-      <TableNavBar/>
+    return (
+      <div>
+        <TableNavBar />
         <div>
           Name = {NPC.name}
-          <br/>
+          <br />
           table = {NPC.dmtable}
-          <br/>
+          <br />
           HP = {NPC.hp}
-          <br/>
+          <br />
           AC = {NPC.ac}
-          <br/>
+          <br />
           Details = {NPC.details}
-          <br/>
+          <br />
           <div>
-            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this NPC?'))handleDeleteNPC()}}>Delete NPC</button>
+            <button onClick={() => handleEditButtonClick()}>
+              Edit NPC
+          </button>
+          </div>
+          <div>
+            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this NPC?')) handleDeleteNPC() }}>Delete NPC</button>
           </div>
         </div>
         <br />
         <div>
           <button onClick={() => backToTableDetailonClickHandler()} name="back">Back to Table</button>
         </div>
-    </div>
+      </div>
 
-  );
-}
+    );
+  }
 }
 export default NPC_detail;

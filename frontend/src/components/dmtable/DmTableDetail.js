@@ -4,13 +4,13 @@ import PlayerListTable from '../player/PlayerListTable.js';
 import DMTableEditPage from "../../pages/DMTable_edit.js"
 import DmApi from "../../Api/DmApi.js"
 import "../../App.css";
-import NPCList from '../../components/NPC/NPC_list.js'
+import NpcList from '../../components/NPC/NPC_list.js'
 
 
 const DmTableDetail = (props) => {
   let [editTableClick, setEditTableClick] = useState(null)
   let [deleteTableClick, setDeleteTableClick] = useState(null)
-  
+
   const { name, story, notes, dmtable_id } = props
 
   const handleDeleteTable = async () => {
@@ -20,7 +20,7 @@ const DmTableDetail = (props) => {
   if (deleteTableClick === true) {
     return <Redirect to="/" />
   }
-  
+
   const handleEditButtonClick = () => {
     setEditTableClick(true)
   }
@@ -33,46 +33,45 @@ const DmTableDetail = (props) => {
     )
   }
 
-  
-    return (
+
+  return (
+    <div>
       <div>
         <div>
           <div>
             <button onClick={() => handleEditButtonClick()}>
               Edit Table
             </button>
-            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this table?')) handleDeleteTable() }}>
-              Delete
-            </button>
           </div>
-          <div>
-            <h1>
-              {name}
-            </h1>
-            <p>
-              {story}
-            </p>
-            <p>
-              {notes}
-            </p>
-            </div>
-           <Fragment>
-            <div className="NPC_Player_List_box">
-                <div>
-                  <h3>NPCs</h3>
-                  <NPCList tableid={dmtable_id}/>
-                </div>
-              <div>
-                <h3>Players</h3>
-                <PlayerListTable tableid={dmtable_id}/>
+          <button onClick={() => { if (window.confirm('Are you sure you wish to delete this table?')) handleDeleteTable() }}>
+            Delete
+            </button>
         </div>
+        <div>
+          <h1>
+            {name}
+          </h1>
+          <p>
+            {story}
+          </p>
+          <p>
+            {notes}
+          </p>
+        </div>
+        <Fragment>
+          <div className="NPC_Player_List_box">
+            <div>
+              <h3>NPCs</h3>
+              <NpcList tableid={dmtable_id} />
+            </div>
+            <div>
+              <h3>Players</h3>
+              <PlayerListTable tableid={dmtable_id} />
+            </div>
+          </div>
+        </Fragment>
       </div>
-            </Fragment>
-            </div>
-            </div>
-     
-     )
-     
-
+    </div>
+  )
 }
 export default DmTableDetail

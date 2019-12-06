@@ -3,7 +3,7 @@ import DmAPI from '../../Api/DmApi.js'
 import { Redirect } from 'react-router-dom'
 
 
-export const NPC_list = (props) => {
+export const NpcList = (props) => {
 
   const [NPCs, setNPCs] = useState(0)
   const [redirect, setRedirect] = useState(null)
@@ -23,7 +23,7 @@ export const NPC_list = (props) => {
                     <div>{npc.name}</div>
                   </button>
                 </div>
-                )
+              )
             }
           }
           setNPCs(stateArray)
@@ -36,18 +36,17 @@ export const NPC_list = (props) => {
     setNpcLink(NPC_id)
   }
 
-  if(!redirect){
+  if (!redirect) {
     return (
       <div>
         {NPCs}
       </div>
     );
-  }else{
-    return(
-      <Redirect to={`/NPC-detail/${NpcLink}`}/>
+  } else {
+    return (
+      <Redirect to={`/NPC-detail/${NpcLink}`} />
     )
   }
-
 }
 
-export default NPC_list;
+export default NpcList;

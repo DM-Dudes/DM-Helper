@@ -7,37 +7,38 @@ import DmApi from '../Api/DmApi.js'
 const DMTableDetailsPage = (props) => {
   let { tableid } = props
   let [dmTable, setDmTable] = useState(null)
-  useEffect(() => {
 
+  useEffect(() => {
     DmApi.fetchDMTableByID(tableid)
       .then((apiResponseJSON) => {
-         setDmTable(apiResponseJSON) /* don't do this anymore: no more setState inside of useEffect */
+        setDmTable(apiResponseJSON) /* don't do this anymore: no more setState inside of useEffect */
       }
       )
       
   }, [tableid])
   const refresh = () => {
-    if(tableid !== sessionStorage.getItem("currentTable_id")){
-    window.location.reload()}
+    if (tableid !== sessionStorage.getItem("currentTable_id")) {
+      window.location.reload()
+    }
   }
+  useEffect(() => {
+    reset()
+  })
+
   useEffect(() => {
     refresh()
   })
 
-
-
   if (dmTable === null) {
     return (
       <div>
-        No soup for you.
+        Loading...
       </div>
     )
   } else {
     return (
       <div>
-        
-          <TableNavBar />
-        
+        <TableNavBar />
         <div>
           <DmTableDetail {...dmTable} />
         </div>
@@ -47,5 +48,3 @@ const DMTableDetailsPage = (props) => {
 }
 
 export default DMTableDetailsPage
-
-

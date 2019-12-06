@@ -16,34 +16,35 @@ import { Redirect } from 'react-router-dom'
   const playerList = async () => {
     let stateArray = []
     const playerSet = await DmAPI.fetchPlayers()
-      for(let player of playerSet){
-        if(player.dmtable === props.tableid){
-          stateArray.push(
+    for (let player of playerSet) {
+      if (player.dmtable === props.tableid) {
+        stateArray.push(
           <div key={player.player_id}>
             <button onClick={() => handleClick(player.player_id)}>
               <div>{player.name}</div>
             </button>
           </div>
-          )
-        }
-      }
-      if (players === 0){
-        setPlayers(stateArray)
+        )
       }
     }
+    if (players === 0) {
+      setPlayers(stateArray)
+    }
+  }
+  
   useEffect(() => {
     playerList()
   })
-  if(!redirect){
+  if (!redirect) {
     return (
       <div>
         {players}
       </div>
     );
-  }else{
-    return(
-      <Redirect to={`/Players-details/${PlayerLink}`}/>
+  } else {
+    return (
+      <Redirect to={`/Players-details/${PlayerLink}`} />
     )
   }
-  }
- export default PlayerListTable
+}
+export default PlayerListTable

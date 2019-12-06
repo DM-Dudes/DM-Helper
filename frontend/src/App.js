@@ -169,7 +169,6 @@ const App = () => {
       <div>
         <Router>
           <div>
-            <HLBar userName={userName}/>
             <div>
             <Route exact path="/" component={() => <DMTableListPage userName={localName} />} />
             </div>
