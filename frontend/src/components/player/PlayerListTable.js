@@ -22,7 +22,13 @@ import Players_details from '../../pages/Players_details.js'
       for(let player of playerSet){
         if(player.dmtable === props.tableid){
 
-          stateArray.push(<div key={player.player_id}>{player.name} <button onClick={() => handleClick(player.player_id)}>click me to go!</button></div>)
+          stateArray.push(
+          <div key={player.player_id}>
+            <button onClick={() => handleClick(player.player_id)}>
+              <div>{player.name}</div>
+            </button>
+          </div>
+          )
         }
       }
       if (players === 0){

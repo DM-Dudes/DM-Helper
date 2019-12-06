@@ -7,6 +7,7 @@ import DMTableEditPage from "../../pages/DMTable_edit.js"
 import deleteDMTable from "../../Api/DmApi.js"
 
 
+import "../../App.css";
 
 
 
@@ -70,7 +71,7 @@ const DmTableDetail = (props) => {
             <p>
               {notes}
             </p>
-            <div>
+         {  /* <div>
               <Fragment>
                 <MDBBtn onClick={() => addNpcOnClickHandler()} color="default">
                   Add NPC <MDBIcon icon="plus" className="ml-1" />
@@ -79,7 +80,7 @@ const DmTableDetail = (props) => {
                   Add Player <MDBIcon icon="plus" className="ml-1" />
                 </MDBBtn>
               </Fragment>
-            </div>
+         </div>}*/ }
           </div>
         </div>
         <div>

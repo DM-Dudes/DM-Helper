@@ -28,7 +28,8 @@ const useStateWithLocalStorage = localStorageKey => {
   }, [value]);
   return [value, setValue];
 };
-
+const TableID = sessionStorage.getItem("currentTable_id")
+const UserID = sessionStorage.getItem("currentUser_id")
 const App = () => {
   const [loggedIn, setLoggedIn] = useStateWithLocalStorage(
     'myValueInLocalStorage'
@@ -172,13 +173,13 @@ const App = () => {
             <div>
             <Route exact path="/" component={() => <DMTableListPage userName={localName} />} />
             </div>
-            <Route exact path="/create-table" component={() => <DMTableCreatePage userid='userid'/>} />
-            <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid='1' />} />
+            <Route exact path="/create-table" component={() => <DMTableCreatePage userid={UserID}/>} />
+            <Route exact path="/table-detail/:tableid" component={() => <DMTableDetailsPage tableid={TableID}/>} />
             <Route exact path="/Players-details/:playerid" component={() => <Players_details/>} />
-            <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage/>} />
-            <Route exact path="/create-npc" component={() => <NPCs_create_page tableid='1' />} />
-            <Route exact path="/edit-table/:tableid" component={() => <DMTableEditPage />} />
-            <Route exact path="/create-player" component={() => <Players_create tableid='1' />} />
+            <Route exact path="/NPC-detail/:npcid" component={() => <NPCDetailsPage />} />
+            <Route exact path="/create-npc" component={() => <NPCs_create_page tableid={TableID} />} />
+            <Route exact path="/edit-table/:userid" component={() => <DMTableEditPage userid={UserID} />} />
+            <Route exact path="/create-player" component={() => <Players_create tableid={TableID} />} />
           </div>
         </Router>
       </div>

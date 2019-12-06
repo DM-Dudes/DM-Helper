@@ -59,17 +59,17 @@ const addDMTable = (DMTableObject) => {
     })
   }
 
-  const updateDMTable = (DMTableID, data) => {
-    return fetch(`${url}/dm_tables/${DMTableID}/`, {
-      method: 'PUT',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => {
-      return res;
-  }).catch(err => err);
-  }
+const updateDMTable = (DMTableID, data) => {
+  return fetch(`${url}/dm_tables/${DMTableID}/`, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res => {
+    return res;
+}).catch(err => err);
+}
 
   // players
 const fetchPlayers = () => {

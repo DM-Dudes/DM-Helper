@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Api from '../Api/DmApi.js'
+import { Redirect } from "react-router-dom"
+import TableNavBar from '../components/NavBar/TableNavBar.js'
+
 
 const Player_details = (props) => {
+  const { tableid } = props
   const [playerinfo, setPlayerInfo] = useState('');
   const [player, setPlayer] = useState(null)
+  const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
+  
 
   const playerID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
 
-  console.log(playerID)
    useEffect(() => {
     Api.fetchPlayerByID(playerID)
       .then((apiResponseJSON) => {
@@ -16,14 +21,36 @@ const Player_details = (props) => {
       }
       )
   }, [])
+  const backToTableDetailonClickHandler = () => { 
+    return setBackToTableDetailButton(<Redirect to={`/table-detail/${tableid}`} />)
+  }
+  const handleDelete = async () => {
+    return await Api.deletePlayer(playerID)
+  }
+  if (backToTableDetailButton) {
+    return backToTableDetailButton
+  }
   if (player){
   return (
     <div>
-      <h1>Player ID: {player.player_id}</h1>
-      <h1>name: {player.name}</h1>
-      <h1>Table ID: {player.dmtable}</h1>
-      <h1>Player Details: {player.details}</h1>
+      <TableNavBar/>
+        <div>
+          Name = {player.name}
+          <br/>
+          table = {player.dmtable}
+          <br/>
+          details = {player.details}
+          <br/>
+          <div>
+            <button onClick={handleDelete}>delete Player</button>
+          </div>
+        </div>
+        <br/>
+              <div>
+          <button onClick={() => backToTableDetailonClickHandler()} name="back">Back to Table</button>
+        </div>
     </div>
+
   );}
   else{
     return(

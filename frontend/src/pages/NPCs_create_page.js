@@ -10,7 +10,6 @@ export const NPC_create_page = (props) => {
 
   const handleEvent = async (event) => {
     event.preventDefault()
-    console.log('called')
     let { name, hp, ac, details } = event.target
     const NPCObject = {
       dmtable: props.tableid,
@@ -31,7 +30,7 @@ export const NPC_create_page = (props) => {
 
   if (NPCSubmitted) {
     return (
-      <Redirect to="/" />
+      <Redirect to={`/table-detail/${tableid}`} />
     )
   } else if (cancelButton) {
     return cancelButton
@@ -42,7 +41,7 @@ export const NPC_create_page = (props) => {
         <form onSubmit={handleEvent}>
           <h2>Create Your NPC</h2>
           <br />
-          <input type="text" name="name" placeholder="Name your Table..."></input>
+          <input type="text" name="name" placeholder="Name your NPC"></input>
           <br />
           <br />
           <input type="text" name="hp" placeholder="Enter HP value"></input>
@@ -59,7 +58,6 @@ export const NPC_create_page = (props) => {
           <button onClick={() => cancelButtonOnClickHandler()} name="cancel">Cancel</button>
         </div>
       </div>
-
     )
   }
 }

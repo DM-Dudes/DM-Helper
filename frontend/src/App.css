@@ -1,26 +1,9 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-}
-a1 {
-  font-size: xx-large;
-  position: center;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.NPC_Player_List_box{
+  width: 100%;
+  margin: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+  align-content: space-between;
 }

@@ -18,7 +18,15 @@ const DMTableDetailsPage = (props) => {
          setDmTable(apiResponseJSON) /* don't do this anymore: no more setState inside of useEffect */
       }
       )
-  }, [])
+      
+  }, [props])
+  const refresh = () => {
+    if(tableid != sessionStorage.getItem("currentTable_id")){
+    window.location.reload()}
+  }
+  useEffect(() => {
+    refresh()
+  })
 
 
 

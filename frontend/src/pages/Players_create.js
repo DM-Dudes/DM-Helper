@@ -10,7 +10,6 @@ export const Player_create = (props) => {
 
   const handleEvent = async (event) => {
     event.preventDefault()
-    console.log('called')
     let { name, details } = event.target
     const PlayerObject = {
       name: name.value,
@@ -29,7 +28,7 @@ export const Player_create = (props) => {
 
   if (PlayerSubmitted) {
     return (
-      <Redirect to="/" />
+      <Redirect to={`/table-detail/${tableid}`} />
     )
   } else if (cancelButton) {
     return cancelButton
@@ -51,7 +50,6 @@ export const Player_create = (props) => {
           <button onClick={() => cancelButtonOnClickHandler()} name="cancel">Cancel</button>
         </div>
       </div>
-
     )
   }
 }

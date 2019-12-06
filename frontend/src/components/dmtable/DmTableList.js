@@ -15,9 +15,9 @@ export const DmTableList = (props) => {
         .then((apiResponseJSON) => {
           for (let table of apiResponseJSON) {
             if (table.userdmtable == userid) {
-              
+              console.log(table.dmtable_id)
               stateArray.push(
-                <div key={table.table_id}>{table.name} <button onClick={() => handleClick(table.userdmtable)}>click me to go!</button></div>
+                <div key={table.dmtable_id}>{table.name} <button onClick={() => handleClick(table.dmtable_id)}>click me to go!</button></div>
                 )
             }
           }
@@ -26,15 +26,17 @@ export const DmTableList = (props) => {
     }
   }, [props])
 
-  const handleClick = (table_id) => {
+  const handleClick = async (table_id) => {
     setRedirect(true)
     setTableLink(table_id)
+    await sessionStorage.setItem("currentTable_id", JSON.stringify(table_id))
+   
   }
   
   if(!redirect){
     return (
       <div>
-      heres where they should be
+      <h2>YOUR TABLES</h2>
         {tables}
       </div>
     )

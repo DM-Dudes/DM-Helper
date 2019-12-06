@@ -18,7 +18,11 @@ export const NPC_list = (props) => {
           for (let npc of apiResponseJSON) {
             if (npc.dmtable === tableid) {
               stateArray.push(
-                <div key={npc.npc_id}>{npc.name} <button onClick={() => handleClick(npc.npc_id)}>click me to go!</button></div>
+                <div key={npc.npc_id}>
+                  <button onClick={() => handleClick(npc.npc_id)}>
+                    <div>{npc.name}</div>
+                  </button>
+                </div>
                 )
             }
           }
