@@ -44,6 +44,7 @@ const fetchDMTableByID = (DMTableID) => {
 }
 
 const deleteDMTable = (DMTable) => {
+  console.log("fetchpage fires")
   return fetch(`${url}dm_tables/${DMTable}/`, {
     method: `delete`
   })
@@ -71,7 +72,7 @@ const updateDMTable = (DMTableID, data) => {
 }).catch(err => err);
 }
 
-  // players
+// players
 const fetchPlayers = () => {
   return fetch(url + "players")
   .then((response) => response.json())

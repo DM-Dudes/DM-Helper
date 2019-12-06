@@ -17,7 +17,6 @@ const DMTableCreatePage = (props) => {
       notes: notes.value,
     }
     let response = await DmApi.addDMTable(DMTableObject)
-    console.log(response.status)
     if (response.status === 201) {
       setdmTableSubmitted(true)
     }

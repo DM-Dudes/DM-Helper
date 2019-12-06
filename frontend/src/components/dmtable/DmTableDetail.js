@@ -1,55 +1,39 @@
-import NPC_list from '../NPC/NPC_list';
-import PlayerListTable from '../player/PlayerListTable.js';
 import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
-import { MDBBtn, MDBIcon } from "mdbreact";
+import PlayerListTable from '../player/PlayerListTable.js';
 import DMTableEditPage from "../../pages/DMTable_edit.js"
-import deleteDMTable from "../../Api/DmApi.js"
-
-
+import DmApi from "../../Api/DmApi.js"
 import "../../App.css";
-
-
-
+import NPCList from '../../components/NPC/NPC_list.js'
 
 
 const DmTableDetail = (props) => {
-  const [newNPC, setNewNPC] = useState(null)
-  const [newPlayer, setNewPlayer] = useState(null)
   let [editTableClick, setEditTableClick] = useState(null)
   let [deleteTableClick, setDeleteTableClick] = useState(null)
-  const { name, userdmtable, story, notes, dmtable_id } = props
-  console.log(props)
+  
+  const { name, story, notes, dmtable_id } = props
 
-  const handleDeleteTable = () => {
-    deleteDMTable(props)
-      .then(() => {
-        return (
-          <Redirect to="/table-list/" />)
-      })
+  const handleDeleteTable = async () => {
+    await DmApi.deleteDMTable(dmtable_id)
+    return setDeleteTableClick(true)
   }
-
+  if (deleteTableClick === true) {
+    return <Redirect to="/" />
+  }
+  
   const handleEditButtonClick = () => {
     setEditTableClick(true)
-  }
-
-  const addNpcOnClickHandler = () => {
-    setNewNPC(<Redirect to="/create-npc" />)
-  }
-
-  const addPlayerOnClickHandler = () => {
-    setNewNPC(<Redirect to="/create-npc" />)
   }
 
   if (editTableClick === true) {
     return (
       <div>
-        <DMTableEditPage props={props} editStatus={setEditTableClick} /> {/* change this */}
+        <DMTableEditPage props={props} editStatus={setEditTableClick} />
       </div>
     )
   }
 
-  if (!newNPC) {
+  
     return (
       <div>
         <div>
@@ -57,7 +41,7 @@ const DmTableDetail = (props) => {
             <button onClick={() => handleEditButtonClick()}>
               Edit Table
             </button>
-            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this table,')) handleDeleteTable() }}>
+            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this table?')) handleDeleteTable() }}>
               Delete
             </button>
           </div>
@@ -76,7 +60,7 @@ const DmTableDetail = (props) => {
             <div className="NPC_Player_List_box">
                 <div>
                   <h3>NPCs</h3>
-                  <NPC_list tableid={dmtable_id}/>
+                  <NPCList tableid={dmtable_id}/>
                 </div>
               <div>
                 <h3>Players</h3>
@@ -88,12 +72,7 @@ const DmTableDetail = (props) => {
             </div>
      
      )
-     } else {
-    return (
-      newNPC
-    )
-  }
-
+     
 
 }
 export default DmTableDetail

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import DmAPI from '../../Api/DmApi.js'
-import PlayerListMap from './PlayerListMap.js'
-import { stat } from 'fs';
 import { Redirect } from 'react-router-dom'
-import Players_details from '../../pages/Players_details.js'
 
+   {/*  */}
+   
  const PlayerListTable = (props) => {
 
   const [players, setPlayers] = useState(0)
@@ -12,7 +11,6 @@ import Players_details from '../../pages/Players_details.js'
   const [PlayerLink, setPlayerLink] = useState(null)
 
   const handleClick = (Player_id) => {
-    console.log(Player_id)
     setRedirect(true)
     setPlayerLink(Player_id)
   }
@@ -21,7 +19,6 @@ import Players_details from '../../pages/Players_details.js'
     const playerSet = await DmAPI.fetchPlayers()
       for(let player of playerSet){
         if(player.dmtable === props.tableid){
-
           stateArray.push(
           <div key={player.player_id}>
             <button onClick={() => handleClick(player.player_id)}>
