@@ -71,29 +71,24 @@ const DmTableDetail = (props) => {
             <p>
               {notes}
             </p>
-         {  /* <div>
-              <Fragment>
-                <MDBBtn onClick={() => addNpcOnClickHandler()} color="default">
-                  Add NPC <MDBIcon icon="plus" className="ml-1" />
-                </MDBBtn>
-                <MDBBtn onClick={() => addPlayerOnClickHandler()} color="default">
-                  Add Player <MDBIcon icon="plus" className="ml-1" />
-                </MDBBtn>
-              </Fragment>
-         </div>}*/ }
-          </div>
-        </div>
-        <div>
-          <h3>NPCs</h3>
-          <NPC_list tableid={dmtable_id} />
-        </div>
-        <div>
-          <h3>Players</h3>
-          <PlayerListTable tableid={dmtable_id} />
+            </div>
+           <Fragment>
+            <div className="NPC_Player_List_box">
+                <div>
+                  <h3>NPCs</h3>
+                  <NPC_list tableid={dmtable_id}/>
+                </div>
+              <div>
+                <h3>Players</h3>
+                <PlayerListTable tableid={dmtable_id}/>
         </div>
       </div>
-    );
-  } else {
+            </Fragment>
+            </div>
+            </div>
+     
+     )
+     } else {
     return (
       newNPC
     )
