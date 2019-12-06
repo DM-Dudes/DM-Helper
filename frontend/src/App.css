@@ -13,6 +13,6 @@ a {
 .NavbarButtons{
   display:flex;
 }
-#spellSearch{
+.spellSearch{
   z-index: 2;
 }
