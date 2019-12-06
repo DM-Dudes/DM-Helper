@@ -9,7 +9,6 @@ const Player_details = (props) => {
   const { tableid } = props
   const [player, setPlayer] = useState(null)
   const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
-  const [deletePlayerClick, setDeletePlayerClick] = useState(null)
 
   const playerID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
   console.log("tablid at top of playersdetail", tableid)
@@ -19,22 +18,18 @@ const Player_details = (props) => {
         setPlayer(apiResponseJSON)
       }
       )
-<<<<<<< HEAD
   }, [props])
 
   
-=======
-  }, [])
-
- 
-  console.log(player)
->>>>>>> 47fc18d35e3c98f19f231cee2753faced1492830
   const backToTableDetailonClickHandler = () => { 
-    return setBackToTableDetailButton(true), 
+    setBackToTableDetailButton(true)
+    return (
     <Redirect to={`/table-detail/${player.dmtable}`} />
+    )
   }
   const handleDelete = async () => {
-    return await Api.deletePlayer(playerID), setBackToTableDetailButton(true)
+    await Api.deletePlayer(playerID)
+    return setBackToTableDetailButton(true)
   }
   if (backToTableDetailButton === true) {
     return <Redirect to={`/table-detail/${player.dmtable}`} />

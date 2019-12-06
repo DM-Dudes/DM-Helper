@@ -1,40 +1,22 @@
-<<<<<<< HEAD
-import NPCList from '../NPC/NPC_list';
-import PlayerListTable from '../player/PlayerListTable.js';
 import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
-=======
-import React, { Fragment, useState } from "react";
-import { Redirect } from "react-router-dom";
-
-import NPC_list from '../NPC/NPC_list';
 import PlayerListTable from '../player/PlayerListTable.js';
->>>>>>> 47fc18d35e3c98f19f231cee2753faced1492830
 import DMTableEditPage from "../../pages/DMTable_edit.js"
 import DmApi from "../../Api/DmApi.js"
 import "../../App.css";
+import NPCList from '../../components/NPC/NPC_list.js'
 
-<<<<<<< HEAD
+
 const DmTableDetail = (props) => {
-
   let [editTableClick, setEditTableClick] = useState(null)
   let [deleteTableClick, setDeleteTableClick] = useState(null)
   
+
   const { name, story, notes, dmtable_id } = props
-=======
-
-const DmTableDetail = (props) => {
-  const [newNPC, setNewNPC] = useState(null)
-  let [editTableClick, setEditTableClick] = useState(null)
-  let [deleteTableClick, setDeleteTableClick] = useState(null)
-  
-
-  const { name, userdmtable, story, notes, dmtable_id } = props
   console.log("DmTableDetail props: ", dmtable_id)
 
   
 
->>>>>>> 47fc18d35e3c98f19f231cee2753faced1492830
 
   const handleDeleteTable = async () => {
     await DmApi.deleteDMTable(dmtable_id)
