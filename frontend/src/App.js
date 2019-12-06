@@ -20,7 +20,7 @@ const useStateWithLocalStorage = localStorageKey => {
   );
   React.useEffect(() => {
     localStorage.setItem(localStorageKey, value);
-  }, [value]);
+  }, [localStorageKey, value]);
   return [value, setValue];
 };
 const TableID = sessionStorage.getItem("currentTable_id")

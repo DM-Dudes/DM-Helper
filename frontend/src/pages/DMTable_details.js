@@ -8,45 +8,45 @@ const DMTableDetailsPage = (props) => {
   let { login } = localStorage.getItem('myValueInLocalStorage')
   let { tableid } = props
   let [dmTable, setDmTable] = useState(null)
-  useEffect(() => {
 
+  useEffect(() => {
     DmApi.fetchDMTableByID(tableid)
       .then((apiResponseJSON) => {
-         setDmTable(apiResponseJSON) /* don't do this anymore: no more setState inside of useEffect */
+        setDmTable(apiResponseJSON) /* don't do this anymore: no more setState inside of useEffect */
       }
       )
-      
-  }, [props])
+  }, [tableid])
+
   const refresh = () => {
-    if(tableid !== sessionStorage.getItem("currentTable_id")){
-    window.location.reload()}
+    if (tableid !== sessionStorage.getItem("currentTable_id")) {
+      window.location.reload()
+    }
   }
+
   const reset = () => {
-    if(login === false){
-      return (<Redirect to='/'/>)
+    if (login === false) {
+      return (<Redirect to='/' />)
+    }
   }
-}
-useEffect(() => {
-  reset()
-})
+
+  useEffect(() => {
+    reset()
+  })
+
   useEffect(() => {
     refresh()
   })
 
-
-
   if (dmTable === null) {
     return (
       <div>
-        No soup for you.
+        Loading...
       </div>
     )
   } else {
     return (
       <div>
-        
-          <TableNavBar />
-        
+        <TableNavBar />
         <div>
           <DmTableDetail {...dmTable} />
         </div>
@@ -56,5 +56,3 @@ useEffect(() => {
 }
 
 export default DMTableDetailsPage
-
-
