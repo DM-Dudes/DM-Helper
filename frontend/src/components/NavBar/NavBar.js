@@ -5,7 +5,6 @@ import { Navbar, Nav, Row, Col } from 'react-bootstrap';
 
 function HLNav({ handleNavClick }) {
   const logout = () => {
-    console.log('not working')
     localStorage.clear()
     sessionStorage.clear()
     window.location.reload()

@@ -8,13 +8,11 @@ import Players_details from '../../pages/Players_details.js'
    {/*  */}
    
  const PlayerListTable = (props) => {
-  console.log("PlayerListTable", props)
   const [players, setPlayers] = useState(0)
   const [redirect, setRedirect] = useState(false)
   const [PlayerLink, setPlayerLink] = useState(null)
 
   const handleClick = (Player_id) => {
-    console.log(Player_id)
     setRedirect(true)
     setPlayerLink(Player_id)
   }

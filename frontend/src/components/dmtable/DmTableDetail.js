@@ -12,12 +12,12 @@ const DmTableDetail = (props) => {
   const [newNPC, setNewNPC] = useState(null)
   let [editTableClick, setEditTableClick] = useState(null)
   let [deleteTableClick, setDeleteTableClick] = useState(null)
-  
+
 
   const { name, userdmtable, story, notes, dmtable_id } = props
-  console.log("DmTableDetail props: ", dmtable_id)
 
-  
+
+
 
 
   const handleDeleteTable = async () => {
@@ -26,7 +26,7 @@ const DmTableDetail = (props) => {
   if (deleteTableClick === true) {
     return <Redirect to="/" />
   }
-  
+
   const handleEditButtonClick = () => {
     setEditTableClick(true)
   }
@@ -52,9 +52,11 @@ const DmTableDetail = (props) => {
       <div>
         <div>
           <div>
-            <button onClick={() => handleEditButtonClick()}>
-              Edit Table
+            <div>
+              <button onClick={() => handleEditButtonClick()}>
+                Edit Table
             </button>
+            </div>
             <button onClick={() => { if (window.confirm('Are you sure you wish to delete this table?')) handleDeleteTable() }}>
               Delete
             </button>
@@ -69,24 +71,24 @@ const DmTableDetail = (props) => {
             <p>
               {notes}
             </p>
-            </div>
-           <Fragment>
+          </div>
+          <Fragment>
             <div className="NPC_Player_List_box">
-                <div>
-                  <h3>NPCs</h3>
-                  <NPC_list tableid={dmtable_id}/>
-                </div>
+              <div>
+                <h3>NPCs</h3>
+                <NPC_list tableid={dmtable_id} />
+              </div>
               <div>
                 <h3>Players</h3>
-                <PlayerListTable tableid={dmtable_id}/>
+                <PlayerListTable tableid={dmtable_id} />
+              </div>
+            </div>
+          </Fragment>
         </div>
       </div>
-            </Fragment>
-            </div>
-            </div>
-     
-     )
-     } else {
+
+    )
+  } else {
     return (
       newNPC
     )

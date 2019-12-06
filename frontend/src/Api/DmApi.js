@@ -44,7 +44,6 @@ const fetchDMTableByID = (DMTableID) => {
 }
 
 const deleteDMTable = (DMTable) => {
-  console.log("fetchpage fires")
   return fetch(`${url}dm_tables/${DMTable}/`, {
     method: `delete`
   })
@@ -125,13 +124,6 @@ const addPlayer = (playerObject) => {
     .then((response) => response.json())
   }
 
-  // const fetchNPCs = async (tableID) => {
-  //   let users = await fetch(`http://localhost:8000/npcs/`)
-  //   .then(res => res.json())
-  //   .then(data => data)
-  //   return users
-  // }
-
   const fetchNPCByID = (npcID) => {
     return fetch(`${url}npcs/${npcID}`)
     .then(res => res.json())
@@ -142,7 +134,6 @@ const addPlayer = (playerObject) => {
   }
   
   const deleteNPC = (npc) => {
-    console.log('called')
     return fetch(`${url}npcs/${npc}/`, {
       method: `delete`
     })
@@ -157,7 +148,6 @@ const addPlayer = (playerObject) => {
         body: JSON.stringify(npcObject)
       })
     }
-
   
     const updateNPC = (npcID, data) => {
       return fetch(`${url}/npcs/${npcID}/`, {
@@ -171,25 +161,23 @@ const addPlayer = (playerObject) => {
     }).catch(err => err);
     }
 
-
 export default {
-  fetchAllDM: fetchAllDM,       /* Users */
-  fetchEditDM: fetchEditDM,
-  fetchNewUser: fetchNewUser,
-  fetchDMTables: fetchDMTables, /* DM Tables */
-  fetchDMTableByID: fetchDMTableByID,
-  deleteDMTable: deleteDMTable,
-  addDMTable: addDMTable,
-  updateDMTable: updateDMTable,
-  fetchPlayers: fetchPlayers,   /* Players */
-  fetchPlayerByID: fetchPlayerByID,
-  deletePlayer: deletePlayer,
-  addPlayer: addPlayer,
-  updatePlayer: updatePlayer,
-  fetchNPCs: fetchNPCs,
-  fetchNPCByID: fetchNPCByID,   /* NPCs */
-  deleteNPC: deleteNPC,
-  addNPC: addNPC,
-  updateNPC: updateNPC,
-  addPlayer: addPlayer,
+  fetchAllDM,       /* Users */
+  fetchEditDM,
+  fetchNewUser,
+  fetchDMTables,    /* DM Tables */
+  fetchDMTableByID,
+  deleteDMTable,
+  addDMTable,
+  updateDMTable,
+  fetchPlayers,     /* Players */
+  fetchPlayerByID,
+  deletePlayer,
+  addPlayer,
+  updatePlayer,
+  fetchNPCs,
+  fetchNPCByID,     /* NPCs */
+  deleteNPC,
+  addNPC,
+  updateNPC,
 }

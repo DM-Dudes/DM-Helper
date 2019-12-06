@@ -9,8 +9,6 @@ const DMTableDetailsPage = (props) => {
   let { tableid } = props
   let [dmTable, setDmTable] = useState(null)
 
-
-  console.log(tableid)
   useEffect(() => {
 
     DmApi.fetchDMTableByID(tableid)
@@ -33,7 +31,7 @@ const DMTableDetailsPage = (props) => {
   if (dmTable === null) {
     return (
       <div>
-        No soup for you.
+        Loading...
       </div>
     )
   } else {
