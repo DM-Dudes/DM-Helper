@@ -18,7 +18,7 @@ const Player_details = (props) => {
         setPlayer(apiResponseJSON)
       }
       )
-  }, [props])
+  }, [playerID])
 
   
   const backToTableDetailonClickHandler = () => { 

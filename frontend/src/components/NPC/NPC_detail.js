@@ -16,7 +16,7 @@ export const NPC_detail = (props) => {
         setNPC(apiResponseJSON)
       }
       )
-  },[])
+  },[npcID])
   
   const handleDeleteNPC = async () => {
     await DmAPI.deleteNPC(npcID)

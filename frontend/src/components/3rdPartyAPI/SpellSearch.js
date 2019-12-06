@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import DmApi from '../../Api/DmApi.js'
 
 export const SpellSearch = () => {
 
