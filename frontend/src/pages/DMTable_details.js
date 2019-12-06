@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Redirect } from 'react-router-dom'
 import TableNavBar from '../components/NavBar/TableNavBar.js'
 import DmTableDetail from '../components/dmtable/DmTableDetail.js'
 import DmApi from '../Api/DmApi.js'
@@ -8,9 +7,6 @@ const DMTableDetailsPage = (props) => {
 
   let { tableid } = props
   let [dmTable, setDmTable] = useState(null)
-
-
-  console.log(tableid)
   useEffect(() => {
 
     DmApi.fetchDMTableByID(tableid)
@@ -21,7 +17,7 @@ const DMTableDetailsPage = (props) => {
       
   }, [props])
   const refresh = () => {
-    if(tableid != sessionStorage.getItem("currentTable_id")){
+    if(tableid !== sessionStorage.getItem("currentTable_id")){
     window.location.reload()}
   }
   useEffect(() => {

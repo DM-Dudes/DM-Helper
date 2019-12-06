@@ -71,7 +71,7 @@ const updateDMTable = (DMTableID, data) => {
 }).catch(err => err);
 }
 
-  // players
+// players
 const fetchPlayers = () => {
   return fetch(url + "players")
   .then((response) => response.json())
@@ -190,5 +190,4 @@ export default {
   deleteNPC: deleteNPC,
   addNPC: addNPC,
   updateNPC: updateNPC,
-  addPlayer: addPlayer,
 }

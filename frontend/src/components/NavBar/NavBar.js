@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link, onClick } from 'react-router-dom';
-import Container from 'react-bootstrap/Container'
-import { Navbar, Nav, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-function HLNav({ handleNavClick }) {
+
+
+function HLNav() {
   const logout = () => {
     console.log('not working')
     localStorage.clear()
@@ -21,9 +21,3 @@ function HLNav({ handleNavClick }) {
 
 
 export default HLNav;
-{/* <Link key={i} to={`/${navItem.value}/`}>{navItem.label}| </Link> */}
-//     <button>
-//       {createNavItems()}
-//     </button>
-//   </div>
-// </div>

@@ -2,24 +2,14 @@ import NPC_list from '../NPC/NPC_list';
 import PlayerListTable from '../player/PlayerListTable.js';
 import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
-import { MDBBtn, MDBIcon } from "mdbreact";
 import DMTableEditPage from "../../pages/DMTable_edit.js"
 import deleteDMTable from "../../Api/DmApi.js"
-
-
 import "../../App.css";
-
-
-
-
 
 const DmTableDetail = (props) => {
   const [newNPC, setNewNPC] = useState(null)
-  const [newPlayer, setNewPlayer] = useState(null)
   let [editTableClick, setEditTableClick] = useState(null)
-  let [deleteTableClick, setDeleteTableClick] = useState(null)
-  const { name, userdmtable, story, notes, dmtable_id } = props
-  console.log(props)
+  const { name, story, notes, dmtable_id } = props
 
   const handleDeleteTable = () => {
     deleteDMTable(props)
@@ -44,7 +34,7 @@ const DmTableDetail = (props) => {
   if (editTableClick === true) {
     return (
       <div>
-        <DMTableEditPage props={props} editStatus={setEditTableClick} /> {/* change this */}
+        <DMTableEditPage props={props} editStatus={setEditTableClick} />
       </div>
     )
   }

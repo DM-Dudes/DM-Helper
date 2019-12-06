@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Api from './Api/DmApi.js'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
+import { Redirect } from 'react-router-dom'
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import HLBar from './components/NavBar/NavBar.js';
 import NPC_list from './components/NPC/NPC_list.js'
@@ -84,7 +85,8 @@ const App = () => {
           .then((_response) => { setPost({ post: true }) })
       }
     }
-    window.location.reload()
+    return(
+      <Redirect to={`/`}/>)
   }
 
 
@@ -143,7 +145,7 @@ const App = () => {
       <div>
         <Router>
           <div>
-            <a1>Welcome To DM-Helper</a1>
+            <a>Welcome To DM-Helper</a>
           </div>
           <div className='loginform'>
             <Form onSubmit={profileSubmit} method="GET" id='test'>

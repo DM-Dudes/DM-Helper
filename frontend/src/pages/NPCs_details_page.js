@@ -1,5 +1,5 @@
 import React from 'react';
-import NPC_Detail from '../components/NPC/NPC_detail.js'
+import NPCDetail from '../components/NPC/NPC_detail.js'
 
 export const NPC_details_page = (props) => {
 
@@ -7,7 +7,7 @@ export const NPC_details_page = (props) => {
       <div>
         <h1>Welcome to the NPC detail page.</h1> 
         <div>
-          <NPC_Detail npcid={props.npcid}/>
+          <NPCDetail npcid={props.npcid}/>
         </div>
       </div>
     );

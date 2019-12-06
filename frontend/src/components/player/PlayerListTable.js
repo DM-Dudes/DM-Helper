@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DmAPI from '../../Api/DmApi.js'
-import PlayerListMap from './PlayerListMap.js'
-import { stat } from 'fs';
 import { Redirect } from 'react-router-dom'
-import Players_details from '../../pages/Players_details.js'
 
  const PlayerListTable = (props) => {
 
