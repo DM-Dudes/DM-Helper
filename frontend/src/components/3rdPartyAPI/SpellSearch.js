@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import DmApi from '../../Api/DmApi.js'
+import "../../App.css"
+
 
 export const SpellSearch = () => {
 
@@ -46,10 +47,8 @@ export const SpellSearch = () => {
          <h4 key='19'>Casting Time</h4>
         <div key='20'>{spellObject.casting_time}</div>
         <br></br>
-         <h4 key='21'>Material</h4>
-        <div key='22'>{spellObject.material && spellObject.material}</div>
-        <br></br>
-         <h4 key='23'>Components</h4>
+         <h4 key='21'>Spell Level</h4>
+        <div key='22'>{spellObject.level && spellObject.level}</div>
         <br></br>
       </div>
       )
@@ -97,7 +96,7 @@ export const SpellSearch = () => {
 
   if (toolOpen === "closed"){
     return (
-      <div>
+      <div className="spellSearch">
         <button onClick={handleSearchTool}>
           <div>
             Open Spell Search Tool
@@ -117,7 +116,6 @@ return(
       </button>
     </div>
     <form onSubmit={handleSearch}>
-      <h2>Search Database</h2>
       <input type="text" name="searchField" placeholder="Find a spell"></input>
       <button type="submit" name="submit">Search</button> 
     </form>

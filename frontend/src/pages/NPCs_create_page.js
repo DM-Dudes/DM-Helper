@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom'
+
 import DmApi from '../Api/DmApi.js'
+import TableNavBar from '../components/NavBar/TableNavBar.js'
 
 export const NPC_create_page = (props) => {
   let { tableid } = props
   let [NPCSubmitted, setNPCSubmitted] = useState(null)
-
   let [cancelButton, setCancelButton] = useState(null)
 
   const handleEvent = async (event) => {
@@ -37,26 +38,27 @@ export const NPC_create_page = (props) => {
   } else {
     return (
       <div>
-        <hr />
-        <form onSubmit={handleEvent}>
-          <h2>Create Your NPC</h2>
-          <br />
-          <input type="text" name="name" placeholder="Name your NPC"></input>
-          <br />
-          <br />
-          <input type="text" name="hp" placeholder="Enter HP value"></input>
-          <br />
-          <br />
-          <input type="text" name="ac" placeholder="Enter AC value"></input>
-          <br />
-          <br />
-          <input type="text" name="details" placeholder="Enter attack details"></input>
-          <br />
-          <button type="submit" name="submit">Submit</button>
-        </form>
-        <div>
-          <button onClick={() => cancelButtonOnClickHandler()} name="cancel">Cancel</button>
-        </div>
+        <TableNavBar/>
+          <hr />
+          <form onSubmit={handleEvent}>
+            <h2>Create Your NPC</h2>
+            <br />
+            <input type="text" name="name" placeholder="Name your NPC"></input>
+            <br />
+            <br />
+            <input type="text" name="hp" placeholder="Enter HP value"></input>
+            <br />
+            <br />
+            <input type="text" name="ac" placeholder="Enter AC value"></input>
+            <br />
+            <br />
+            <input type="text" name="details" placeholder="Enter attack details"></input>
+            <br />
+            <button type="submit" name="submit">Submit</button>
+          </form>
+          <div>
+            <button onClick={() => cancelButtonOnClickHandler()} name="cancel">Cancel</button>
+          </div>
       </div>
     )
   }

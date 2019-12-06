@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import DmAPI from '../../Api/DmApi.js'
 import { Redirect } from 'react-router-dom'
 
-const PlayerListTable = (props) => {
+import DmAPI from '../../Api/DmApi.js'
+
+   
+ const PlayerListTable = (props) => {
+
   const [players, setPlayers] = useState(0)
   const [redirect, setRedirect] = useState(false)
   const [PlayerLink, setPlayerLink] = useState(null)
@@ -29,7 +32,7 @@ const PlayerListTable = (props) => {
       setPlayers(stateArray)
     }
   }
-  
+
   useEffect(() => {
     playerList()
   })

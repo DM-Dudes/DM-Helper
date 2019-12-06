@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
 
-import PlayerListTable from '../player/PlayerListTable.js';
 import DMTableEditPage from "../../pages/DMTable_edit.js"
 import DmApi from "../../Api/DmApi.js"
 import "../../App.css";
 import NpcList from '../../components/NPC/NPC_list.js'
+import PlayerListTable from '../player/PlayerListTable.js';
 
 
 const DmTableDetail = (props) => {

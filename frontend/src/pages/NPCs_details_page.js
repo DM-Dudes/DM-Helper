@@ -1,4 +1,5 @@
 import React from 'react';
+
 import NPCDetail from '../components/NPC/NPC_detail.js'
 
 export const NPC_details_page = (props) => {

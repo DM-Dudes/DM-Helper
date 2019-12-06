@@ -49,5 +49,4 @@ const NpcEditPage = (props) => {
   }
 }
 
-
 export default NpcEditPage

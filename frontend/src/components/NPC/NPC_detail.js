@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from "react-router-dom"
+
 import DmAPI from '../../Api/DmApi.js'
 import TableNavBar from '../../components/NavBar/TableNavBar.js'
 import NpcEditPage from '../../pages/NPC_edit.js'
@@ -22,8 +23,8 @@ export const NPC_detail = (props) => {
         setNPC(apiResponseJSON)
       }
       )
-  }, [npcID])
-
+  },[npcID])
+  
   const handleDeleteNPC = async () => {
     await DmAPI.deleteNPC(npcID)
     return setDeleteNpcClick(true)

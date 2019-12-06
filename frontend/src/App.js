@@ -4,7 +4,6 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
 import { Redirect } from "react-router-dom";
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import HLBar from './components/NavBar/NavBar.js';
 import DMTableCreatePage from './pages/DMTable_create.js';
 import DMTableDetailsPage from './pages/DMTable_details.js'
 import NPCDetailsPage from './pages/NPCs_details_page.js'
@@ -169,7 +168,6 @@ const App = () => {
       <div>
         <Router>
           <div>
-            <HLBar userName={userName}/>
             <div>
             <Route exact path="/" component={() => <DMTableListPage userName={localName} />} />
             </div>

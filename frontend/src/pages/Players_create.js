@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom'
 import DmApi from '../Api/DmApi.js'
+import TableNavBar from '../components/NavBar/TableNavBar.js'
 
 export const Player_create = (props) => {
   let { tableid } = props
@@ -35,7 +36,7 @@ export const Player_create = (props) => {
   } else {
     return (
       <div>
-        <hr />
+        <TableNavBar/>
         <form onSubmit={handleEvent}>
           <h2>Create Your Player</h2>
           <br />
