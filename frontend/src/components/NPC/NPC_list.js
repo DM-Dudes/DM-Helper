@@ -8,10 +8,10 @@ export const NpcList = (props) => {
   const [NPCs, setNPCs] = useState(0)
   const [redirect, setRedirect] = useState(null)
   const [NpcLink, setNpcLink] = useState(null)
-
+  const { tableid } = props
   useEffect(() => {
-    if (props.tableid) {
-      let tableid = props.tableid
+
+    if (tableid) {
       let stateArray = []
       DmAPI.fetchNPCs()
         .then((apiResponseJSON) => {
@@ -29,7 +29,7 @@ export const NpcList = (props) => {
           setNPCs(stateArray)
         })
     }
-  }, [])
+  }, [tableid])
 
   const handleClick = (NPC_id) => {
     setRedirect(true)
