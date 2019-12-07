@@ -3,6 +3,7 @@ import Api from '../Api/DmApi.js'
 import { Redirect } from "react-router-dom"
 import TableNavBar from '../components/NavBar/TableNavBar.js'
 import PlayerEditPage from '../pages/Player_edit.js'
+import CombatPage from './CombatPage.js'
 
 
 const Player_details = (props) => {
@@ -49,6 +50,7 @@ const Player_details = (props) => {
     return (
       <div>
         <TableNavBar />
+        <CombatPage/>
         <div>
           Name = {player.name}
           <br />
@@ -58,7 +60,7 @@ const Player_details = (props) => {
           <br />
           <div>
             <button onClick={() => handleEditButtonClick()}>
-              Edit NPC
+              Edit Player
             </button>
           </div>
           <div>
