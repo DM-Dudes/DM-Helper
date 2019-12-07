@@ -48,7 +48,6 @@ const Player_details = (props) => {
     return (
       <div>
         <TableNavBar />
-        <CombatPage/>
         <div>
           Name = {player.name}
           <br />
