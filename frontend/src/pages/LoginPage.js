@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Api from './Api/DmApi.js'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import './App.css';
 import { Redirect } from "react-router-dom";
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
+import Api from './Api/DmApi.js'
+import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = React.useState(
@@ -24,7 +25,6 @@ const LoginAndSignup = () => {
   );
   const [signup, setSignUp] = useState(0)
   const [userName, setUserName] = useState(0)
-  
   const [userPass, setUserPass] = useState(0)
   const [usersinfo, setUsersInfo] = useState(0)
   const [post, setPost] = useState(false)
@@ -40,7 +40,6 @@ const LoginAndSignup = () => {
       setUserName(user_name)
       setLocalName(user_name)
     }
-
   }
   const setSignUpForm = async () => {
     setSignUp(true)
@@ -89,13 +88,13 @@ const LoginAndSignup = () => {
       }
     }
   }
+
   useEffect(() => {
     profiles()
   })
   useEffect(() => {
     userCheck()
   })
-  
   
   if (signup) {
     return (

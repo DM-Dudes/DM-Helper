@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { Redirect } from "react-router-dom";
 
 import DmApi from '../Api/DmApi'
-import { Redirect } from "react-router-dom";
 
 
 const DMTableEditPage = (props) => {

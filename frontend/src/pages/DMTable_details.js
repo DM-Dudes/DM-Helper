@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import TableNavBar from '../components/NavBar/TableNavBar.js'
-import DmTableDetail from '../components/dmtable/DmTableDetail.js'
+
 import DmApi from '../Api/DmApi.js'
+import DmTableDetail from '../components/dmtable/DmTableDetail.js'
+import TableNavBar from '../components/NavBar/TableNavBar.js'
 
 
 const DMTableDetailsPage = (props) => {

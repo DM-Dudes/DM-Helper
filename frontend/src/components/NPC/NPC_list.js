@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import DmAPI from '../../Api/DmApi.js'
 import { Redirect } from 'react-router-dom'
 
@@ -29,7 +30,7 @@ export const NpcList = (props) => {
           setNPCs(stateArray)
         })
     }
-  }, [tableid])
+  }, [props.tableid])
 
   const handleClick = (NPC_id) => {
     setRedirect(true)
