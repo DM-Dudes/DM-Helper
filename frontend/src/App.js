@@ -12,6 +12,7 @@ import NPCsCreatePage from './pages/NPCs_create_page.js'
 import DMTableListPage from './pages/DMTable_list.js'
 import DMTableEditPage from './pages/DMTable_edit.js'
 import Playersdetails from './pages/Players_details.js'
+import CombatPage from './pages/CombatPage.js'
 
 const useStateWithLocalStorage = localStorageKey => {
   const [value, setValue] = React.useState(
@@ -115,7 +116,7 @@ const App = () => {
       <div>
         <Router>
           <div>
-            <a1>Welcome To DM-Helper</a1>
+            <h2>Welcome To DM-Helper</h2>
           </div>
           <div className='signupform'>
             <Form onSubmit={newUserSubmit} method="GET" id='test'>
@@ -178,6 +179,7 @@ const App = () => {
             <Route exact path="/create-npc" component={() => <NPCsCreatePage tableid={TableID} />} />
             <Route exact path="/edit-table/:userid" component={() => <DMTableEditPage userid={UserID} />} />
             <Route exact path="/create-player" component={() => <PlayersCreate tableid={TableID} />} />
+            <Route exact path ="/battlepage" component={() => <CombatPage/>}/>
           </div>
         </Router>
       </div>
