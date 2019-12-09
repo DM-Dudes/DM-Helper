@@ -10,12 +10,22 @@
   font-size: 16px;
 }
 .dropdown{
-  background:white;
+  background:#2566D5;
   color: black;
   font-size: 16px;
   position: relative;
   border: 4px color white;
 }
-.spellName{
+.spell-name-button{
   font-size: 16px;
+  justify-content: center;
+  align-items: center;
+}
+.spell-name-button:hover{
+  cursor: pointer;
+  color: white;
+
+}
+.spell-name-text{
+
 }

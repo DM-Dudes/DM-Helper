@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 
 import DmApi from '../Api/DmApi'
 
 
 const PlayerEditPage = (props) => {
+  let { tableid } = props
   const [playerSubmitted, setPlayerSubmitted] = useState(null)
+  let [cancelButton, setCancelButton] = useState(null)
 
   const handleEvent = async (event) => {
     event.preventDefault()
@@ -21,6 +24,10 @@ const PlayerEditPage = (props) => {
     }
   }
 
+  const cancelButtonOnClickHandler = () => {
+    setCancelButton(<Redirect to={`/table-detail/${tableid}`} />)
+  }
+
   if (playerSubmitted) {
     return (
       window.location.reload()
@@ -29,14 +36,14 @@ const PlayerEditPage = (props) => {
     return (
       <div> 
         <hr />
-        <form onSubmit={handleEvent}>
+        <form className='tablecreateform' onSubmit={handleEvent}>
           <h2>Edit Your Player</h2>
           <br />
-          <input type="text" name="name" defaultValue={ props.props.name }></input>
+          <input className='inputcreatePage' type="text" name="name" defaultValue={ props.props.name }></input>
           <br />
-          <input type="text" name="details" defaultValue={ props.props.details }></input>
+          <input className='inputcreatePage' type="text" name="details" defaultValue={ props.props.details }></input>
           <br />
-          <button type="submit" name="submit">Submit</button>
+          <button className='button2' type="submit" name="submit"><span>Submit</span></button><button className="button2" onClick={() => cancelButtonOnClickHandler()} name="cancel"><span>Cancel</span></button>
         </form>
       </div>
     )

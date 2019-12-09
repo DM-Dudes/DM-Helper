@@ -17,7 +17,7 @@ export const DmTableList = (props) => {
           for (let table of apiResponseJSON) {
             if (table.userdmtable === userid) {
               stateArray.push(
-                <div key={table.dmtable_id}>{table.name} <button onClick={() => handleClick(table.dmtable_id)}>click me to go!</button></div>
+                <div className='backgroud-blue'> <button className='tablelist' onClick={() => handleClick(table.dmtable_id)}>{table.name}</button></div>
                 )
             }
           }
@@ -35,8 +35,8 @@ export const DmTableList = (props) => {
   
   if(!redirect){
     return (
-      <div>
-      <h2>YOUR TABLES</h2>
+      <div >
+      <h1 className='h1font'>YOUR TABLES</h1>
         {tables}
       </div>
     )

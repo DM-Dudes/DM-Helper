@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from "react-router-dom"
+import "./NavBar.css"
 
 
 const HLNav = () => {
@@ -22,12 +23,14 @@ const HLNav = () => {
   }
 
   return (
-    <nav className="nav">
-      <div className="NavbarButtons">
-      <button onClick={handleCreateTable}><div>Create Table</div></button>
-      <button onClick={handleLogout}><div>Logout</div></button>
-      </div>
-    </nav>
+    <div className="nav">
+      <div className="NavbarBanner">
+        <div id="title">DM Helper</div>
+          <div className="NavbarButtons">
+            <div className="NavbarButton" onClick={handleCreateTable}><div>CREATE TABLE</div></div>
+            <div className="logout-button" onClick={handleLogout}>LOG OUT</div>      </div>
+          </div>
+    </div>
 
   );
 }
