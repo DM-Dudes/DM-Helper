@@ -35,22 +35,22 @@ const DMTableCreatePage = (props) => {
     return cancelButton
   } else {
     return (
-      <div>
+      <div className='background-blue'>
         <hr />
         <form onSubmit={handleEvent} className='tablecreateform'>
           <h2>Create Your Table</h2>
           <br />
-          <input type="text" name="name" placeholder="Name your Table..."></input>
+          <input className="inputcreatePage" type="text" name="name" placeholder="Name your Table..."></input>
           <br />
-          <input type="text" name="story" placeholder="Craft your story here..."></input>
+          <input className="inputcreatePage" type="text" name="story" placeholder="Craft your story here..."></input>
           <br />
-          <input type="text" name="notes" placeholder="Notes about your story..."></input>
+          <input className="inputcreatePage" type="text" name="notes" placeholder="Notes about your story..."></input>
           <br />
           <div>
-            <button type="submit" name="submit">Submit</button>
+            <button className="button2" type="submit" name="submit"><span>Submit</span></button><button className="button2" onClick={() => cancelButtonOnClickHandler()} name="cancel"><span>Cancel</span></button>
           </div>
           <div>
-            <button onClick={() => cancelButtonOnClickHandler()} name="cancel">Cancel</button>
+            
           </div>
         </form>
       </div>
