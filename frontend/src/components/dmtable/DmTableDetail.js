@@ -3,8 +3,8 @@ import { Redirect } from "react-router-dom";
 import DMTableEditPage from "../../pages/DMTable_edit.js"
 import DmApi from "../../Api/DmApi.js"
 import "./DmTableDetail.css";
-import PlayerListTable from '../player/PlayerListTable.js'
-import NpcList from '../NPC/NPC_list.js'
+import NpcList from "../NPC/NPC_list"
+import PlayerListTable from "../player/PlayerListTable"
 
 const DmTableDetail = (props) => {
   let [editTableClick, setEditTableClick] = useState(null)
@@ -66,11 +66,11 @@ const DmTableDetail = (props) => {
     <div className="body">
       <div className="name-banner">
         <div>
-          <div className="back-button-banner">
-            <div className="back-button" onClick={() => handleBackClick()}>
-              BACK
-          </div>
-          </div>
+            <div className="back-button-banner">
+              <div className="back-button" onClick={() => handleBackClick()}>
+                BACK
+            </div>
+            </div>
         </div>
         <div className="name-banner-l2">
           <div className="table-title">

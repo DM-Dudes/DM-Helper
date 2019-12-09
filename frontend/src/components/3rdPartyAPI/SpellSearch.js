@@ -72,7 +72,7 @@ export const SpellSearch = () => {
           let spellName = (spell.name).toUpperCase()
           if (spellName.includes(input)) {
             spellArray.push(
-              <div key={spell.name}>
+              <div className="spellName" key={spell.name}>
                 <button onClick={() => handleSpellClick({ spell })}>
                   <div>{spell.name}</div>
                 </button>
@@ -98,11 +98,9 @@ export const SpellSearch = () => {
   if (toolOpen === "closed") {
     return (
       <div className="spellSearch">
-
         <div className="collapseButton" onClick={handleSearchTool}>
           SPELL SEARCH
-          </div>
-
+        </div>
       </div>
     )
   }
@@ -110,17 +108,15 @@ export const SpellSearch = () => {
 
     <div>
       <div>
-
         <div className="collapseButton" onClick={handleSearchTool}>
-          Close Spell Search Tool
+          CLOSE SPELL SEARCH
         </div>
-
       </div>
       <form onSubmit={handleSearch}>
-        <input type="text" name="searchField" placeholder="Find a spell"></input>
+        <input className="inputField" type="text" name="searchField" placeholder="Find a spell"></input>
         <button type="submit" name="submit">Search</button>
       </form>
-      <div>
+      <div className="dropdown">
         {fetched}
       </div>
     </div>
