@@ -37,7 +37,7 @@ const DMTableCreatePage = (props) => {
     return (
       <div>
         <hr />
-        <form onSubmit={handleEvent}>
+        <form onSubmit={handleEvent} className='tablecreateform'>
           <h2>Create Your Table</h2>
           <br />
           <input type="text" name="name" placeholder="Name your Table..."></input>

@@ -1,12 +1,8 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-
 import DMTableEditPage from "../../pages/DMTable_edit.js"
 import DmApi from "../../Api/DmApi.js"
 import "./DmTableDetail.css";
-import NpcList from '../../components/NPC/NPC_list.js'
-import PlayerListTable from '../player/PlayerListTable.js';
-
 
 const DmTableDetail = (props) => {
   let [editTableClick, setEditTableClick] = useState(null)

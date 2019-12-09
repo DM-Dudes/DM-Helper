@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 
 const CombatPage = (props) => {
-
   const [monsterArray, setMonsterArray] = useState([])
   const [Clicked, setClicked] = useState([])
   const [battleReady, setBattleReady] = useState(null)
@@ -35,7 +34,7 @@ const CombatPage = (props) => {
       pushArray.push(<button onClick={() => addToList(monster.name)}><div>{monster.name}</div></button>)
       }
       setMonsterArray(pushArray)
-    }, [])
+    }, [monsterData])
 
     const addToList = (monsterName) => {
       let number = Clicked

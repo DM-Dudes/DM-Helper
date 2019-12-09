@@ -4,14 +4,14 @@ import { Redirect } from "react-router-dom"
 
 const HLNav = () => {
 
-  const [logoutRedirect, setLogoutRedirect] = useState(null)
+  // const [logoutRedirect, setLogoutRedirect] = useState(null)
   const [tableRedirect, setTableRedirect] = useState(null)
 
   const handleLogout = () => {
     localStorage.clear()
     sessionStorage.clear()
     window.location.reload()
-    setLogoutRedirect(true)
+    // setLogoutRedirect(true)
   }
   const handleCreateTable = () => {
     setTableRedirect(true)
