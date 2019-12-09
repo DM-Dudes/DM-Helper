@@ -37,27 +37,27 @@ export const NPC_create_page = (props) => {
     return cancelButton
   } else {
     return (
-      <div>
+      <div className='background-blue'>
         <TableNavBar/>
           <hr />
-          <form onSubmit={handleEvent}>
+          <form onSubmit={handleEvent} className='tablecreateform'>
             <h2>Create Your NPC</h2>
             <br />
-            <input type="text" name="name" placeholder="Name your NPC"></input>
+            <input className="inputcreatePage" type="text" name="name" placeholder="Name your NPC"></input>
             <br />
             <br />
-            <input type="text" name="hp" placeholder="Enter HP value"></input>
+            <input className="inputcreatePage" type="text" name="hp" placeholder="Enter HP value"></input>
             <br />
             <br />
-            <input type="text" name="ac" placeholder="Enter AC value"></input>
+            <input className="inputcreatePage" type="text" name="ac" placeholder="Enter AC value"></input>
             <br />
             <br />
-            <input type="text" name="details" placeholder="Enter attack details"></input>
+            <input className="inputcreatePage" type="text" name="details" placeholder="Enter attack details"></input>
             <br />
-            <button type="submit" name="submit">Submit</button>
+            <button className="button2" type="submit" name="submit"><span>Submit</span></button><button className="button2" onClick={() => cancelButtonOnClickHandler()} name="cancel"><span>Cancel</span></button>
           </form>
           <div>
-            <button onClick={() => cancelButtonOnClickHandler()} name="cancel">Cancel</button>
+            
           </div>
       </div>
     )
