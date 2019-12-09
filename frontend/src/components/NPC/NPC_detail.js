@@ -88,46 +88,46 @@ export const NPC_detail = (props) => {
             </div>
           </div>
           <div className="card-container">
-            <Card text="white" style={{ width: '30rem'}} className="card-local">
+            <Card text="white" style={{ width: '30rem' }} className="card-local">
               <Card.Header className='card-header'>
-           
+
               </Card.Header>
               <Card.Body className="card-body">
-                <Card.Title>{NPC.name}</Card.Title>
+                <Card.Title className="card-title">NAME {NPC.name}</Card.Title>
                 <Card.Text className="card-text">
                   <div className="hp">
-                    <h3 font-weight="bold">
-                    HP:  
+                    <h3 className="details-title" font-weight="bold">
+                      HP:
                     </h3>
-                    <div>
-                    1 {NPC.hp}
+                    <div className="hp-ac-text">{NPC.hp}</div>
+                  </div>
+                  <div className="ac">
+                    <h3 className="details-title" font-weight="bold">
+                      AC:
+                    </h3>
+                    <div className="ac-text">
+                      {NPC.ac}
                     </div>
                   </div>
-                  <h3 font-weight="bold">
-                    AC:  
-                    </h3>
-                    <div>
-                    1 {NPC.ac}
-                    </div>
                   <br />
                   <div className="details">
                     <div className="details-title">
                       DESCRIPTION:
                   </div>
                     <br />
-                    <div>
+                    <div className="details-text">
                       {NPC.details}
                     </div>
                   </div>
                   <div className="button-container">
-                  <div>
-                    <Button onClick={() => handleEditButtonClick()} className='edit'>EDIT</Button>
+                    <div>
+                      <Button onClick={() => handleEditButtonClick()} className='edit'>EDIT</Button>
+                    </div>
                   </div>
-                </div>
                 </Card.Text>
-               
+
               </Card.Body>
-             
+
             </Card>
           </div>
         </div>

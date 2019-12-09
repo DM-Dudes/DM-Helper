@@ -3,6 +3,7 @@ import Api from '../Api/DmApi.js'
 import { Redirect } from "react-router-dom"
 import TableNavBar from '../components/NavBar/TableNavBar.js'
 import PlayerEditPage from '../pages/Player_edit.js'
+// import './Players_details.css'
 
 const Player_details = (props) => {
   const [player, setPlayer] = useState(null)
