@@ -3,4 +3,19 @@
 }
 .collapseButton:hover{
   color: darkblue;
+  cursor: pointer;
+}
+
+.inputField{
+  font-size: 16px;
+}
+.dropdown{
+  background:white;
+  color: black;
+  font-size: 16px;
+  position: relative;
+  border: 4px color white;
+}
+.spellName{
+  font-size: 16px;
 }

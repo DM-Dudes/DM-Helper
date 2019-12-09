@@ -11,6 +11,7 @@
 
 .NavbarButton:hover{
   color: darkblue;
+  cursor: pointer;
 }
 
 .NavbarBanner{
@@ -35,6 +36,7 @@
 }
 .logout-button:hover{
   color: darkblue;
+  cursor: pointer;
 }
 
 .logout-pipe{

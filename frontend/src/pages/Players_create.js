@@ -35,20 +35,20 @@ export const Player_create = (props) => {
     return cancelButton
   } else {
     return (
-      <div>
+      <div className='background-blue'>
         <TableNavBar/>
-        <form onSubmit={handleEvent}>
+        <form onSubmit={handleEvent} className='tablecreateform'>
           <h2>Create Your Player</h2>
           <br />
-          <input type="text" name="name" placeholder="Name your Player..."></input>
+          <input className="inputcreatePage" type="text" name="name" placeholder="Name your Player..."></input>
           <br />
           <br />
-          <input type="text" name="details" placeholder="Enter player details"></input>
+          <input className="inputcreatePage" type="text" name="details" placeholder="Enter player details"></input>
           <br />
-          <button type="submit" name="submit">Submit</button>
+          <button className="button2" type="submit" name="submit"><span>Submit</span></button><button className="button2" onClick={() => cancelButtonOnClickHandler()} name="cancel"><span>Cancel</span></button>
         </form>
         <div>
-          <button onClick={() => cancelButtonOnClickHandler()} name="cancel">Cancel</button>
+          
         </div>
       </div>
     )

@@ -1,12 +1,10 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-
 import DMTableEditPage from "../../pages/DMTable_edit.js"
 import DmApi from "../../Api/DmApi.js"
 import "./DmTableDetail.css";
-import NpcList from '../../components/NPC/NPC_list.js'
-import PlayerListTable from '../player/PlayerListTable.js';
-
+import NpcList from "../NPC/NPC_list"
+import PlayerListTable from "../player/PlayerListTable"
 
 const DmTableDetail = (props) => {
   let [editTableClick, setEditTableClick] = useState(null)
@@ -107,44 +105,27 @@ const DmTableDetail = (props) => {
           <div className="player-banner">
             <div className="player-title">Players</div>
             <div className="new-player-button" onClick={handlePlayerCreateButtonClick} >
-              <div className="new-player-text">Add New Player</div>
+              <div className="new-player-text">ADD PLAYER</div>
             </div>
           </div>
           <div className="npc-banner">
             <div className="npc-title">Non-Player Characters</div>
             <div className="new-npc-button" onClick={handleNpcCreateButtonClick} >
-              <div className="new-npc-text">Add New NPC</div>
+              <div className="new-npc-text">ADD NPC</div>
             </div>
+          </div>
+        </div>
+        <div className="spacer2"></div>
+        <div className="Player-NPC-lists">
+          <div>
+            <PlayerListTable tableid={dmtable_id}/>
+          </div>
+          <div className="npc-list">
+            <NpcList tableid={dmtable_id}/>
           </div>
         </div>
       </div>
     </div>
   )
-
 }
 export default DmTableDetail
-
-{/* <Fragment>
-         <div className="NPC_Player_List_box">
-           <div>
-             <h3>NPCs</h3>
-             <button onClick={handleNpcCreateButtonClick}>
-               <div>
-                 Create NPC
-             </div>
-             </button>
-             <NpcList tableid={dmtable_id} />
-           </div>
-           <div>
-             <h3>Players</h3>
-             <button onClick={handlePlayerCreateButtonClick}>
-               <div>
-                 Create Player
-           </div>
-             </button>
-             <PlayerListTable tableid={dmtable_id} />
-           </div>
-         </div>
-      </Fragment>
-     </div>
-   </div>*/}

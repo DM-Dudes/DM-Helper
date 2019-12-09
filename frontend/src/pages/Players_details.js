@@ -3,8 +3,6 @@ import Api from '../Api/DmApi.js'
 import { Redirect } from "react-router-dom"
 import TableNavBar from '../components/NavBar/TableNavBar.js'
 import PlayerEditPage from '../pages/Player_edit.js'
-import CombatPage from './CombatPage.js'
-
 
 const Player_details = (props) => {
   const [player, setPlayer] = useState(null)
@@ -34,8 +32,8 @@ const Player_details = (props) => {
   }
 
   const backToTableDetailonClickHandler = () => {
-    return setBackToTableDetailButton(true),
-      <Redirect to={`/table-detail/${player.dmtable}`} />
+    setBackToTableDetailButton(true)
+      return <Redirect to={`/table-detail/${player.dmtable}`} />
   }
   const handleDelete = async () => {
     await Api.deletePlayer(playerID)

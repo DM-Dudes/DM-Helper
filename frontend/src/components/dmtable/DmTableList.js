@@ -24,7 +24,7 @@ export const DmTableList = (props) => {
           setTables(stateArray)
         })
     }
-  }, [props])
+  }, [props.userId])
 
   const handleClick = async (table_id) => {
     setRedirect(true)

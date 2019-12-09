@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom'
-
-import DmAPI from '../../Api/DmApi.js'
+import { Redirect } from 'react-router-dom';
+import "./PlayerList.css";
+import DmAPI from '../../Api/DmApi.js';
 
    
  const PlayerListTable = (props) => {
@@ -20,10 +20,13 @@ import DmAPI from '../../Api/DmApi.js'
     for (let player of playerSet) {
       if (player.dmtable === props.tableid) {
         stateArray.push(
-          <div key={player.player_id}>
-            <button onClick={() => handleClick(player.player_id)}>
-              <div>{player.name}</div>
-            </button>
+          <div>
+            <div className="playerTeaserBox" onClick={() => handleClick(player.player_id)}>
+              <div className="teaserTop:">
+                <div>{player.name}</div>
+              </div>
+            </div>
+            <br></br>
           </div>
         )
       }
