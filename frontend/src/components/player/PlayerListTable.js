@@ -20,10 +20,10 @@ import DmAPI from '../../Api/DmApi.js';
     for (let player of playerSet) {
       if (player.dmtable === props.tableid) {
         stateArray.push(
-          <div>
-            <div className="playerTeaserBox" onClick={() => handleClick(player.player_id)}>
-              <div className="teaserTop:">
-                <div>{player.name}</div>
+          <div key={player.player_id}>
+            <div className="playerTeaserBox" onClick={() => handleClick(player.player_id)} key={player.player_id}>
+              <div className="teaserTop:" key={player.player_id}>
+                <div key={player.player_id}>{player.name}</div>
               </div>
             </div>
             <br></br>

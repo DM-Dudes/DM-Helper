@@ -72,10 +72,10 @@ export const SpellSearch = () => {
           let spellName = (spell.name).toUpperCase()
           if (spellName.includes(input)) {
             spellArray.push(
-              <div className="spellName" key={spell.name}>
-                <button onClick={() => handleSpellClick({ spell })}>
-                  <div>{spell.name}</div>
-                </button>
+              <div className="spell-name-button" key={spell.name}>
+                <div onClick={() => handleSpellClick({ spell })}>
+                  <div className="spell-name-text">{spell.name}</div>
+                </div>
               </div>
             )
           }
