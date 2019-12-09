@@ -27,11 +27,6 @@ export const NpcList = (props) => {
                     </div>
                   <br></br>
                 </div>
-                // <div key={npc.npc_id}>
-                //   <button onClick={() => handleClick(npc.npc_id)}>
-                //     <div>{npc.name}</div>
-                //   </button>
-                // </div>
               )
             }
           }

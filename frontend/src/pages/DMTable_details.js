@@ -37,9 +37,7 @@ const DMTableDetailsPage = (props) => {
     return (
       <div className="div">
         <TableNavBar />
-        
           <DmTableDetail {...dmTable} />
-        
       </div>
     )
   }
