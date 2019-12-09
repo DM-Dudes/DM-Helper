@@ -3,6 +3,8 @@ import { Redirect } from "react-router-dom";
 import DMTableEditPage from "../../pages/DMTable_edit.js"
 import DmApi from "../../Api/DmApi.js"
 import "./DmTableDetail.css";
+import PlayerListTable from '../player/PlayerListTable.js'
+import NpcList from '../NPC/NPC_list.js'
 
 const DmTableDetail = (props) => {
   let [editTableClick, setEditTableClick] = useState(null)
