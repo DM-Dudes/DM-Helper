@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Card } from 'react-bootstrap'
-import { Redirect } from "react-router-dom"
+import { Button, Card } from 'react-bootstrap';
+import { Redirect } from "react-router-dom";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import DmAPI from '../../Api/DmApi.js'
@@ -51,6 +52,10 @@ export const NPC_detail = (props) => {
     )
   }
 
+  if (backClick) {
+    return <Redirect to={"/table-detail/" + tableid} />
+  }
+
   const backToTableDetailonClickHandler = () => {
     return setBackToTableDetailButton(<Redirect to={`/table-detail/${tableid}`} />)
   }
@@ -83,17 +88,27 @@ export const NPC_detail = (props) => {
             </div>
           </div>
           <div className="card-container">
-            <Card className="card-local" bg="primary" text="white" style={{ width: '18rem' }} className="text-center">
-              <Card.Header className='card-header'>Featured</Card.Header>
+            <Card text="white" style={{ width: '30rem'}} className="card-local">
+              <Card.Header className='card-header'>
+           
+              </Card.Header>
               <Card.Body className="card-body">
                 <Card.Title>{NPC.name}</Card.Title>
                 <Card.Text className="card-text">
                   <div className="hp">
-                    HP:  {NPC.hp}
+                    <h3 font-weight="bold">
+                    HP:  
+                    </h3>
+                    <div>
+                    1 {NPC.hp}
+                    </div>
                   </div>
-                  <div className="ac">
-                    AC:  {NPC.ac}
-                  </div>
+                  <h3 font-weight="bold">
+                    AC:  
+                    </h3>
+                    <div>
+                    1 {NPC.ac}
+                    </div>
                   <br />
                   <div className="details">
                     <div className="details-title">
@@ -104,16 +119,15 @@ export const NPC_detail = (props) => {
                       {NPC.details}
                     </div>
                   </div>
-                </Card.Text>
-
-              </Card.Body>
-      
-                <div className="button-container">
+                  <div className="button-container">
                   <div>
                     <Button onClick={() => handleEditButtonClick()} className='edit'>EDIT</Button>
                   </div>
                 </div>
-              
+                </Card.Text>
+               
+              </Card.Body>
+             
             </Card>
           </div>
         </div>
