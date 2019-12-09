@@ -43,7 +43,7 @@ const CombatPage = (props) => {
       setClicked(<div>{number}</div>)
     }
   if (battleReady){
-    return (<div>battle bots!</div>)
+    return (<div>{Clicked}</div>)
   }else{
   return(
     <div>

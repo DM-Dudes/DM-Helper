@@ -49,23 +49,23 @@ const DmTableDetail = (props) => {
         </div>
         <div>
           <h1>
-            {name}
+            Here is the name of the table : {name}
           </h1>
           <p>
-            {story}
+            Here is the textfield for the story : {story}
           </p>
           <p>
-            {notes}
+            Here is the textfield for the notes : {notes}
           </p>
         </div>
         <Fragment>
           <div className="NPC_Player_List_box">
             <div>
-              <h3>NPCs</h3>
+              <h3>NPCs (below this is a list of NPC s)</h3>
               <NpcList tableid={dmtable_id} />
             </div>
             <div>
-              <h3>Players</h3>
+              <h3>Players (below this is a list of players) </h3>
               <PlayerListTable tableid={dmtable_id} />
             </div>
           </div>
