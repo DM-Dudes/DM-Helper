@@ -77,9 +77,14 @@
   color: white;
 }
 
+.details{
+  color: white;
+  font-weight: bold;
+}
 
 .details-title{
   color: white;
+  font-weight: bold;
 }
 
 .details-text{

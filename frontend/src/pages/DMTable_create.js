@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
+import TableNavBar from "../components/NavBar/TableNavBar.js"
 
 import DmApi from '../Api/DmApi'
 
@@ -36,7 +37,7 @@ const DMTableCreatePage = (props) => {
   } else {
     return (
       <div className='background-blue'>
-        <hr />
+        <TableNavBar/>
         <form onSubmit={handleEvent} className='tablecreateform'>
           <h2>Create Your Table</h2>
           <br />
