@@ -42,10 +42,19 @@ export const DmTableList = (props) => {
   
   if(!redirect){
     return (
-      <div >
-      <h1 className='h1font'>YOUR TABLES</h1>
+      <div className="body">
+        <div className="name-banner">
+          <div className="name-banner-l2">
+            <div className="table-title">
+              My Tables
+            </div>
+          </div>
+        </div>
+        <br></br>
+        <br></br>
+        <br></br>
         {tables}
-      </div>
+      </div> 
     )
   }else{
     return(
