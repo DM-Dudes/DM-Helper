@@ -14,6 +14,7 @@ export const NPC_detail = (props) => {
   const [deleteNpcClick, setDeleteNpcClick] = useState(null)
   const [NPC, setNPC] = useState(0)
   const [editNpcClick, setEditNpcClick] = useState(null)
+  let [backClick, setBackClick] = useState(null)
   const npcID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
 
   const handleEditButtonClick = () => {
@@ -33,6 +34,11 @@ export const NPC_detail = (props) => {
     await DmAPI.deleteNPC(npcID)
     return setDeleteNpcClick(true)
   }
+
+  const handleBackClick = () => {
+    setBackClick(true)
+  }
+
   if (deleteNpcClick === true) {
     return <Redirect to={`/table-detail/${tableid}`} />
   }
@@ -57,6 +63,11 @@ export const NPC_detail = (props) => {
         <div className="parent-container">
 
           <div className="name-banner">
+            <div className="back-button-banner">
+              <div className="back-button" onClick={() => handleBackClick()}>
+                BACK
+        </div>
+            </div>
             <div className="name-banner-l2">
               <div className="table-title">
                 NPC
@@ -66,51 +77,48 @@ export const NPC_detail = (props) => {
                   <div onClick={() => { if (window.confirm('Are you sure you wish to delete this NPC?')) handleDeleteNPC() }}>
                     DELETE NPC
                     </div>
-              </div>
-
                 </div>
-              </div>
-            </div>
-            <div className="card-container">
-              <Card className="card-local" bg="primary" text="white" style={{ width: '18rem' }} className="text-center">
-                <Card.Header className='card-header'>Featured</Card.Header>
-                <Card.Body className="card-body">
-                  <Card.Title>{NPC.name}</Card.Title>
-                  <Card.Text className="card-text">
-                    <div className="hp">
-                      HP:  {NPC.hp}
-                    </div>
-                    <div className="ac">
-                      AC:  {NPC.ac}
-                    </div>
-                    <br />
-                    <div className="details">
-                      <div className="details-title">
-                        DESCRIPTION:
-                  </div>
-                      <br />
-                      <div>
-                        {NPC.details}
-                      </div>
-                    </div>
-                  </Card.Text>
 
-                </Card.Body>
-                <Card.Footer className="text-muted">
-                  <div className="button-container">
-                    <div>
-                      <Button onClick={() => handleEditButtonClick()} className='edit-npc' variant="primary">EDIT</Button>
-                    </div>
-                    <div>
-                      <Button onClick={() => backToTableDetailonClickHandler()}>BACK</Button>
-                    </div>
-                  </div>
-                </Card.Footer>
-              </Card>
+              </div>
             </div>
           </div>
+          <div className="card-container">
+            <Card className="card-local" bg="primary" text="white" style={{ width: '18rem' }} className="text-center">
+              <Card.Header className='card-header'>Featured</Card.Header>
+              <Card.Body className="card-body">
+                <Card.Title>{NPC.name}</Card.Title>
+                <Card.Text className="card-text">
+                  <div className="hp">
+                    HP:  {NPC.hp}
+                  </div>
+                  <div className="ac">
+                    AC:  {NPC.ac}
+                  </div>
+                  <br />
+                  <div className="details">
+                    <div className="details-title">
+                      DESCRIPTION:
+                  </div>
+                    <br />
+                    <div>
+                      {NPC.details}
+                    </div>
+                  </div>
+                </Card.Text>
+
+              </Card.Body>
+      
+                <div className="button-container">
+                  <div>
+                    <Button onClick={() => handleEditButtonClick()} className='edit'>EDIT</Button>
+                  </div>
+                </div>
+              
+            </Card>
+          </div>
         </div>
-        );
-      }
-    }
-    export default NPC_detail;
+      </div>
+    );
+  }
+}
+export default NPC_detail;

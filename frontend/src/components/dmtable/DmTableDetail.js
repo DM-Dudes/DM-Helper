@@ -66,11 +66,11 @@ const DmTableDetail = (props) => {
     <div className="body">
       <div className="name-banner">
         <div>
-          <div className="back-button-banner">
-            <div className="back-button" onClick={() => handleBackClick()}>
-              BACK
-          </div>
-          </div>
+            <div className="back-button-banner">
+              <div className="back-button" onClick={() => handleBackClick()}>
+                BACK
+            </div>
+            </div>
         </div>
         <div className="name-banner-l2">
           <div className="table-title">
