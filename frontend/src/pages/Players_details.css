@@ -131,6 +131,9 @@
   justify-content: space-around;
   color: white;
 }
+.edit:hover{
+  cursor: pointer;
+}
 
 .edit-table-text{
   margin: auto;
