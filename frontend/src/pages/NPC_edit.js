@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 
 import DmApi from '../Api/DmApi'
 
 
 const NpcEditPage = (props) => {
   const [npcSubmitted, setNpcSubmitted] = useState(null)
+  let [cancelButton, setCancelButton] = useState(null)
    
   const handleEvent = async (event) => {
     event.preventDefault()
@@ -23,6 +25,10 @@ const NpcEditPage = (props) => {
     }
   }
 
+  const cancelButtonOnClickHandler = () => {
+    setCancelButton(<Redirect to={`/table-detail/${props.tableid}`} />)
+  }
+  
   if (npcSubmitted) {
     return (
       window.location.reload()
@@ -42,7 +48,7 @@ const NpcEditPage = (props) => {
           <br />
           <input className='inputcreatePage' type="text" name="details" defaultValue={ props.props.details }></input>
           <br />
-          <button className='button2' type="submit" name="submit"><span>Submit</span></button>
+          <button className='button2' type="submit" name="submit"><span>Submit</span></button><button className="button2" onClick={() => cancelButtonOnClickHandler()} name="cancel"><span>Cancel</span></button>
         </form>
       </div>
     )

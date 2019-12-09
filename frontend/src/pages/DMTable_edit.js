@@ -7,6 +7,7 @@ import DmApi from '../Api/DmApi'
 const DMTableEditPage = (props) => {
   let { login } = localStorage.getItem('myValueInLocalStorage')
   let [dmTableSubmitted, setdmTableSubmitted] = useState(null)
+  let [cancelButton, setCancelButton] = useState(null)
   
   const handleEvent = async (event) => {
     event.preventDefault()
@@ -31,6 +32,10 @@ const DMTableEditPage = (props) => {
       reset()
     })
 
+    const cancelButtonOnClickHandler = () => {
+      setCancelButton(<Redirect to={`/table-detail/${props.tableid}`} />)
+    }
+
   if (dmTableSubmitted) {
     return (
       window.location.reload()
@@ -48,7 +53,7 @@ const DMTableEditPage = (props) => {
           <br />
           <input className='inputcreatePage' type="text" name="notes" defaultValue={ props.props.notes }></input>
           <br />
-          <button className='button2' type="submit" name="submit"><span>Submit</span></button>
+          <button className='button2' type="submit" name="submit"><span>Submit</span></button><button className="button2" onClick={() => cancelButtonOnClickHandler()} name="cancel"><span>Cancel</span></button>
         </form>
       </div>
     )

@@ -6,7 +6,6 @@ import TableNavBar from '../components/NavBar/TableNavBar.js'
 export const Player_create = (props) => {
   let { tableid } = props
   let [PlayerSubmitted, setPlayerSubmitted] = useState(null)
-
   let [cancelButton, setCancelButton] = useState(null)
 
   const handleEvent = async (event) => {

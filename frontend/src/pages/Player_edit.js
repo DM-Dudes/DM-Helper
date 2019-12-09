@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 
 import DmApi from '../Api/DmApi'
 
 
 const PlayerEditPage = (props) => {
+  let { tableid } = props
   const [playerSubmitted, setPlayerSubmitted] = useState(null)
+  let [cancelButton, setCancelButton] = useState(null)
 
   const handleEvent = async (event) => {
     event.preventDefault()
@@ -19,6 +22,10 @@ const PlayerEditPage = (props) => {
     if (response.status === 200) {
       setPlayerSubmitted(true)
     }
+  }
+
+  const cancelButtonOnClickHandler = () => {
+    setCancelButton(<Redirect to={`/table-detail/${tableid}`} />)
   }
 
   if (playerSubmitted) {
@@ -36,7 +43,7 @@ const PlayerEditPage = (props) => {
           <br />
           <input className='inputcreatePage' type="text" name="details" defaultValue={ props.props.details }></input>
           <br />
-          <button className='button2' type="submit" name="submit"><span>Submit</span></button>
+          <button className='button2' type="submit" name="submit"><span>Submit</span></button><button className="button2" onClick={() => cancelButtonOnClickHandler()} name="cancel"><span>Cancel</span></button>
         </form>
       </div>
     )
