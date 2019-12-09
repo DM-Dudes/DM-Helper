@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import DmAPI from '../../Api/DmApi.js'
 import { Redirect } from 'react-router-dom'
+import './NPC.css'
 
 
 export const NpcList = (props) => {
@@ -19,11 +19,19 @@ export const NpcList = (props) => {
           for (let npc of apiResponseJSON) {
             if (npc.dmtable === tableid) {
               stateArray.push(
-                <div key={npc.npc_id}>
-                  <button onClick={() => handleClick(npc.npc_id)}>
-                    <div>{npc.name}</div>
-                  </button>
+                <div>
+                    <div className="npcTeaserBox" onClick={() => handleClick(npc.npc_id)}>
+                      <div className="teaserTop:">
+                        <div>{npc.name}</div>
+                      </div>
+                    </div>
+                  <br></br>
                 </div>
+                // <div key={npc.npc_id}>
+                //   <button onClick={() => handleClick(npc.npc_id)}>
+                //     <div>{npc.name}</div>
+                //   </button>
+                // </div>
               )
             }
           }
