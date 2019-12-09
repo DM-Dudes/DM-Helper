@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import DmApi from '../Api/DmApi'
-
+import TableNavBar from '../components/NavBar/TableNavBar.js'
 
 const NpcEditPage = (props) => {
   const [npcSubmitted, setNpcSubmitted] = useState(null)
@@ -30,7 +30,7 @@ const NpcEditPage = (props) => {
   } else {
     return (
       <div> 
-        <hr />
+        <TableNavBar/>
         <form onSubmit={handleEvent}>
           <h2>Edit Your NPC</h2>
           <br />

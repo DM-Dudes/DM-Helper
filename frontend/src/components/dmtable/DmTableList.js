@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom'
-
+import './dmTableList.css'
 import DmAPI from '../../Api/DmApi.js'
 
 
@@ -17,7 +17,14 @@ export const DmTableList = (props) => {
           for (let table of apiResponseJSON) {
             if (table.userdmtable === userid) {
               stateArray.push(
-                <div className='backgroud-blue'> <button className='tablelist' onClick={() => handleClick(table.dmtable_id)}>{table.name}</button></div>
+                <div key={table.dmtable_id}>
+                    <div className="tableTeaserBox" key={table.dmtable_id} onClick={() => handleClick(table.dmtable_id)} >
+                      <div className="teaserTop:" key={table.dmtable_id}>
+                        <div key={table.dmtable_id}>{table.name}</div>
+                      </div>
+                    </div>
+                  <br></br>
+                </div>
                 )
             }
           }

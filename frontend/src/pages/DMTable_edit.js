@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Redirect } from "react-router-dom";
 
 import DmApi from '../Api/DmApi'
+import TableNavBar from '../components/NavBar/TableNavBar.js'
 
 
 const DMTableEditPage = (props) => {
@@ -38,18 +39,17 @@ const DMTableEditPage = (props) => {
   } else {
     return (
       <div> 
-        <hr />
-        <form onSubmit={handleEvent}>
-          <h2>Edit Your Table</h2>
-          <br />
-          <input type="text" name="name" defaultValue={ props.props.name }></input>
-          <br />
-          <input type="text" name="story" defaultValue={ props.props.story }></input>
-          <br />
-          <input type="text" name="notes" defaultValue={ props.props.notes }></input>
-          <br />
-          <button type="submit" name="submit">Submit</button>
-        </form>
+          <form onSubmit={handleEvent}>
+            <h2>Edit Your Table</h2>
+            <br />
+            <input type="text" name="name" defaultValue={ props.props.name }></input>
+            <br />
+            <input type="text" name="story" defaultValue={ props.props.story }></input>
+            <br />
+            <input type="text" name="notes" defaultValue={ props.props.notes }></input>
+            <br />
+            <button type="submit" name="submit">Submit</button>
+          </form>
       </div>
     )
   }

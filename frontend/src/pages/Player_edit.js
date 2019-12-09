@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 import DmApi from '../Api/DmApi'
+import TableNavBar from '../components/NavBar/TableNavBar.js'
+
 
 
 const PlayerEditPage = (props) => {
@@ -28,7 +30,7 @@ const PlayerEditPage = (props) => {
   } else {
     return (
       <div> 
-        <hr />
+        <TableNavBar/>
         <form onSubmit={handleEvent}>
           <h2>Edit Your Player</h2>
           <br />
