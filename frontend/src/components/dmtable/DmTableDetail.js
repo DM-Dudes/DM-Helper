@@ -1,17 +1,22 @@
-import React, { Fragment, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import PlayerListTable from '../player/PlayerListTable.js';
 import DMTableEditPage from "../../pages/DMTable_edit.js"
 import DmApi from "../../Api/DmApi.js"
-import "../../App.css";
-import NpcList from '../../components/NPC/NPC_list.js'
-
+import "./DmTableDetail.css";
 
 const DmTableDetail = (props) => {
   let [editTableClick, setEditTableClick] = useState(null)
   let [deleteTableClick, setDeleteTableClick] = useState(null)
+  let [npcCreateClick, setNpcCreateClick] = useState(null)
+  let [playerCreateClick, setPlayerCreateClick] = useState(null)
+  let [backClick, setBackClick] = useState(null)
+
 
   const { name, story, notes, dmtable_id } = props
+
+  useEffect(() => {
+    document.body.style.backgroundColor = "#071132"
+  }, [])
 
   const handleDeleteTable = async () => {
     await DmApi.deleteDMTable(dmtable_id)
@@ -24,6 +29,16 @@ const DmTableDetail = (props) => {
   const handleEditButtonClick = () => {
     setEditTableClick(true)
   }
+  const handleNpcCreateButtonClick = () => {
+    setNpcCreateClick(true)
+  }
+  const handlePlayerCreateButtonClick = () => {
+    setPlayerCreateClick(true)
+  }
+
+  const handleBackClick = () => {
+    setBackClick(true)
+  }
 
   if (editTableClick === true) {
     return (
@@ -32,46 +47,75 @@ const DmTableDetail = (props) => {
       </div>
     )
   }
+  if (npcCreateClick) {
+    return <Redirect to={"/create-npc"} />
+  }
+
+  if (playerCreateClick) {
+    return <Redirect to={"/create-player"} />
+  }
+
+  if (backClick) {
+    return <Redirect to={"/"} />
+  }
 
 
   return (
-    <div>
-      <div>
+    <div className="body">
+      <div className="name-banner">
         <div>
-          <div>
-            <button onClick={() => handleEditButtonClick()}>
-              Edit Table
-            </button>
+          <div className="back-button-banner">
+            <div className="back-button" onClick={() => handleBackClick()}>
+              BACK
           </div>
-          <button onClick={() => { if (window.confirm('Are you sure you wish to delete this table?')) handleDeleteTable() }}>
-            Delete
-            </button>
+          </div>
         </div>
-        <div>
-          <h1>
+        <div className="name-banner-l2">
+          <div className="table-title">
             {name}
-          </h1>
-          <p>
-            {story}
-          </p>
-          <p>
-            {notes}
-          </p>
-        </div>
-        <Fragment>
-          <div className="NPC_Player_List_box">
-            <div>
-              <h3>NPCs</h3>
-              <NpcList tableid={dmtable_id} />
+          </div>
+          <div className="edit-delete-div">
+            <div className="delete-button" >
+              <div onClick={() => { if (window.confirm('Are you sure you wish to delete this table?')) handleDeleteTable() }} className="delete-table-text"> DELETE TABLE </div>
             </div>
-            <div>
-              <h3>Players</h3>
-              <PlayerListTable tableid={dmtable_id} />
+            <div className="edit-button" onClick={() => handleEditButtonClick()}>
+              <div className="edit-table-text"> EDIT TABLE </div>
             </div>
           </div>
-        </Fragment>
+        </div>
+      </div>
+      {/*This is the top level of the story/notes body portion of the page*/}
+      <div className="story-notes">
+        <div className="story-notes-titles">
+          <div className="story-title">Story</div>
+          <div className="notes-title">Notes</div>
+        </div>
+        <div className="story-notes-content-div">
+          <div className="story">{story}</div>
+          <div className="notes">{notes}</div>
+        </div>
+      </div>
+      <div className="divider-line"></div>
+      {/* this is where players and npcs are going */}
+      <div className="players-npcs-div">
+        <div className="spacer"></div>
+        <div className="player-npc-banner">
+          <div className="player-banner">
+            <div className="player-title">Players</div>
+            <div className="new-player-button" onClick={handlePlayerCreateButtonClick} >
+              <div className="new-player-text">Add New Player</div>
+            </div>
+          </div>
+          <div className="npc-banner">
+            <div className="npc-title">Non-Player Characters</div>
+            <div className="new-npc-button" onClick={handleNpcCreateButtonClick} >
+              <div className="new-npc-text">Add New NPC</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
+
 }
 export default DmTableDetail

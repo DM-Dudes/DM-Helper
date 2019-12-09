@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom'
+
 import DmApi from '../Api/DmApi.js'
 import TableNavBar from '../components/NavBar/TableNavBar.js'
 
 export const NPC_create_page = (props) => {
   let { tableid } = props
   let [NPCSubmitted, setNPCSubmitted] = useState(null)
-
   let [cancelButton, setCancelButton] = useState(null)
 
   const handleEvent = async (event) => {
@@ -26,7 +26,7 @@ export const NPC_create_page = (props) => {
   }
 
   const cancelButtonOnClickHandler = () => {
-    setCancelButton(<Redirect to={`/table-detail/${tableid}`} />)
+    setCancelButton(<Redirect to={`/table-detail/${props.tableid}`} />)
   }
 
   if (NPCSubmitted) {

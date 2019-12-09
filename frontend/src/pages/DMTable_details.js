@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import TableNavBar from '../components/NavBar/TableNavBar.js'
-import DmTableDetail from '../components/dmtable/DmTableDetail.js'
-import DmApi from '../Api/DmApi.js'
 
+import DmApi from '../Api/DmApi.js'
+import DmTableDetail from '../components/dmtable/DmTableDetail.js'
+import TableNavBar from '../components/NavBar/TableNavBar.js'
+import "./DMTable_details_page.css"
 
 const DMTableDetailsPage = (props) => {
   let { tableid } = props
@@ -34,11 +35,11 @@ const DMTableDetailsPage = (props) => {
     )
   } else {
     return (
-      <div>
+      <div className="div">
         <TableNavBar />
-        <div>
+        
           <DmTableDetail {...dmTable} />
-        </div>
+        
       </div>
     )
   }

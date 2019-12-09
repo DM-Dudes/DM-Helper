@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Api from './Api/DmApi.js'
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './App.css';
+import ReactDOM from 'react-dom'
+import Snowfall from 'react-snowfall'
 import { Redirect } from "react-router-dom";
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import DMTableCreatePage from './pages/DMTable_create.js';
@@ -112,25 +114,25 @@ const App = () => {
   
   if (signup) {
     return (
-      <div>
+      <div style={{ height: 1000, width: "100%", background: '#282c34' }}>
+      <Snowfall />
         <Router>
-          <div>
-            <a1>Welcome To DM-Helper</a1>
-          </div>
           <div className='signupform'>
+            <h1>Welcome To</h1>
+            <h1>DM-Helper</h1>
             <Form onSubmit={newUserSubmit} method="GET" id='test'>
               <FormGroup>
                 <Label for="user_name" className="col-2 ml-3">Username</Label>
-                <Input type="text" name="user_name" id="user_name" className="col-6 ml-3" placeholder="Dungeon Master" />
+                <Input type="text" name="user_name" id="user_name" className="input" placeholder="Dungeon Master" />
               </FormGroup>
               <FormGroup>
                 <Label for="password" className="col-2 ml-3">Password</Label>
-                <Input type="password" name="password" id="password" className="col-6 ml-3" placeholder="Word of Power" />
+                <Input type="password" name="password" id="password" className="input" placeholder="Word of Power" />
               </FormGroup>
-              <Button type='submit' className="col-6 ml-3" form='test'>Register</Button>
+              <Button type='submit' className="button" form='test'><span>Register</span></Button><Button className="button" type='submit' form='restart'><span>Login</span></Button>
             </Form>
             <Form onSubmit={backToLogin} method="GET" id='restart'>
-              <Button type='submit' form='restart'>Back to Login</Button>
+              
             </Form>
           </div>
         </Router>
@@ -139,26 +141,26 @@ const App = () => {
   }
   if (!loggedIn) {
     return (
-      <div>
+      <div style={{ height: 1000, width: "100%", background: '#282c34' }}>
+    <Snowfall />
         <Router>
-          <div>
-            <h1>Welcome To DM-Helper</h1>
-          </div>
           <div className='loginform'>
+            <h1>Welcome To</h1>
+            <h1>DM-Helper</h1>
             <Form onSubmit={profileSubmit} method="GET" id='test'>
               <FormGroup>
                 <Label for="user_name" className="col-2 ml-3">Username</Label>
-                <Input type="text" name="user_name" id="user_name" className="col-6 ml-3" placeholder="Dungeon Master" />
+                <Input type="text" name="user_name" id="user_name" className="input" placeholder="Dungeon Master" />
               </FormGroup>
               <FormGroup>
                 <Label for="password" className="col-2 ml-3">Password</Label>
-                <Input type="password" name="password" id="password" className="col-6 ml-3" placeholder="Word of Power" />
+                <Input type="password" name="password" id="password" className="input" placeholder="Word of Power" />
               </FormGroup>
-              <Button type='submit' className="col-6 ml-3" form='test'>Login</Button>
+              <Button type='submit' className="button" form='test'><span>Login</span></Button> <Button className="button" onClick={setSignUpForm}><span>Sign Up</span></Button>
             </Form>
-          </div>
           <div>
-            <Button onClick={setSignUpForm}>Sign Up</Button>
+           
+          </div>
           </div>
         </Router>
       </div>

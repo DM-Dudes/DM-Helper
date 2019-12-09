@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import DmAPI from '../../Api/DmApi.js'
 import { Redirect } from 'react-router-dom'
+
+import DmAPI from '../../Api/DmApi.js'
 
 
 export const DmTableList = (props) => {
@@ -23,7 +24,7 @@ export const DmTableList = (props) => {
           setTables(stateArray)
         })
     }
-  }, [props])
+  }, [props.userId])
 
   const handleClick = async (table_id) => {
     setRedirect(true)

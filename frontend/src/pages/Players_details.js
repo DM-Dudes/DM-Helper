@@ -4,12 +4,9 @@ import { Redirect } from "react-router-dom"
 import TableNavBar from '../components/NavBar/TableNavBar.js'
 import PlayerEditPage from '../pages/Player_edit.js'
 
-
 const Player_details = (props) => {
-  const { tableid } = props
   const [player, setPlayer] = useState(null)
   const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
-  const [deletePlayerClick, setDeletePlayerClick] = useState(null)
   const [editPlayerClick, setEditPlayerClick] = useState(null)
 
   const playerID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
@@ -29,14 +26,14 @@ const Player_details = (props) => {
   if (editPlayerClick === true) {
     return (
       <div>
-        <PlayerEditPage props={player} editStatus={setEditPlayerClick} /> {/* change this */}
+        <PlayerEditPage props={player} editStatus={setEditPlayerClick} />    
       </div>
     )
   }
 
   const backToTableDetailonClickHandler = () => {
-    return setBackToTableDetailButton(true),
-      <Redirect to={`/table-detail/${player.dmtable}`} />
+    setBackToTableDetailButton(true)
+      return <Redirect to={`/table-detail/${player.dmtable}`} />
   }
   const handleDelete = async () => {
     await Api.deletePlayer(playerID)
@@ -58,7 +55,7 @@ const Player_details = (props) => {
           <br />
           <div>
             <button onClick={() => handleEditButtonClick()}>
-              Edit NPC
+              Edit Player
             </button>
           </div>
           <div>

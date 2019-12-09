@@ -1,23 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Redirect } from "react-router-dom"
-
 
 
 const HLNav = () => {
 
-  const [homeRedirect, setHomeRedirect] = useState(null)
-  const [logoutRedirect, setLogoutRedirect] = useState(null)
+  // const [logoutRedirect, setLogoutRedirect] = useState(null)
   const [tableRedirect, setTableRedirect] = useState(null)
 
-  const handleHome = () => {
-    setHomeRedirect(true)
-  }
   const handleLogout = () => {
     localStorage.clear()
     sessionStorage.clear()
     window.location.reload()
-    setLogoutRedirect(true)
+    // setLogoutRedirect(true)
   }
   const handleCreateTable = () => {
     setTableRedirect(true)

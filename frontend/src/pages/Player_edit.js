@@ -43,5 +43,4 @@ const PlayerEditPage = (props) => {
   }
 }
 
-
 export default PlayerEditPage
