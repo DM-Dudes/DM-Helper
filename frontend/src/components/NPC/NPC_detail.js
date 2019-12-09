@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Button, Card } from 'react-bootstrap'
 import { Redirect } from "react-router-dom"
+
 
 import DmAPI from '../../Api/DmApi.js'
 import TableNavBar from '../../components/NavBar/TableNavBar.js'
 import NpcEditPage from '../../pages/NPC_edit.js'
+import "./NPC_detail.css"
 
 export const NPC_detail = (props) => {
   const { tableid } = props
@@ -18,13 +21,14 @@ export const NPC_detail = (props) => {
   }
 
   useEffect(() => {
+    document.body.style.backgroundColor = "#071132"
     DmAPI.fetchNPCByID(npcID)
       .then((apiResponseJSON) => {
         setNPC(apiResponseJSON)
       }
       )
-  },[npcID])
-  
+  }, [npcID])
+
   const handleDeleteNPC = async () => {
     await DmAPI.deleteNPC(npcID)
     return setDeleteNpcClick(true)
@@ -48,35 +52,65 @@ export const NPC_detail = (props) => {
     return backToTableDetailButton
   } else {
     return (
-      <div>
+      <div className="body">
         <TableNavBar />
-        <div>
-          Name = {NPC.name}
-          <br />
-          table = {NPC.dmtable}
-          <br />
-          HP = {NPC.hp}
-          <br />
-          AC = {NPC.ac}
-          <br />
-          Details = {NPC.details}
-          <br />
-          <div>
-            <button onClick={() => handleEditButtonClick()}>
-              Edit NPC
-          </button>
-          </div>
-          <div>
-            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this NPC?')) handleDeleteNPC() }}>Delete NPC</button>
-          </div>
-        </div>
-        <br />
-        <div>
-          <button onClick={() => backToTableDetailonClickHandler()} name="back">Back to Table</button>
-        </div>
-      </div>
+        <div className="parent-container">
 
-    );
-  }
-}
-export default NPC_detail;
+          <div className="name-banner">
+            <div className="name-banner-l2">
+              <div className="table-title">
+                NPC
+              </div>
+              <div className="edit-delete-div">
+                <div className="delete-button" >
+                  <div onClick={() => { if (window.confirm('Are you sure you wish to delete this NPC?')) handleDeleteNPC() }}>
+                    DELETE NPC
+                    </div>
+              </div>
+
+                </div>
+              </div>
+            </div>
+            <div className="card-container">
+              <Card className="card-local" bg="primary" text="white" style={{ width: '18rem' }} className="text-center">
+                <Card.Header className='card-header'>Featured</Card.Header>
+                <Card.Body className="card-body">
+                  <Card.Title>{NPC.name}</Card.Title>
+                  <Card.Text className="card-text">
+                    <div className="hp">
+                      HP:  {NPC.hp}
+                    </div>
+                    <div className="ac">
+                      AC:  {NPC.ac}
+                    </div>
+                    <br />
+                    <div className="details">
+                      <div className="details-title">
+                        DESCRIPTION:
+                  </div>
+                      <br />
+                      <div>
+                        {NPC.details}
+                      </div>
+                    </div>
+                  </Card.Text>
+
+                </Card.Body>
+                <Card.Footer className="text-muted">
+                  <div className="button-container">
+                    <div>
+                      <Button onClick={() => handleEditButtonClick()} className='edit-npc' variant="primary">EDIT</Button>
+                    </div>
+                    <div>
+                      <Button onClick={() => backToTableDetailonClickHandler()}>BACK</Button>
+                    </div>
+                  </div>
+                </Card.Footer>
+              </Card>
+            </div>
+          </div>
+        </div>
+        );
+      }
+    }
+    export default NPC_detail;
