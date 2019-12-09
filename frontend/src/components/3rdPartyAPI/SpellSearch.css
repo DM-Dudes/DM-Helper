@@ -3,4 +3,5 @@
 }
 .collapseButton:hover{
   color: darkblue;
+  cursor: pointer;
 }

@@ -103,19 +103,27 @@ const DmTableDetail = (props) => {
           <div className="player-banner">
             <div className="player-title">Players</div>
             <div className="new-player-button" onClick={handlePlayerCreateButtonClick} >
-              <div className="new-player-text">Add New Player</div>
+              <div className="new-player-text">ADD PLAYER</div>
             </div>
           </div>
           <div className="npc-banner">
             <div className="npc-title">Non-Player Characters</div>
             <div className="new-npc-button" onClick={handleNpcCreateButtonClick} >
-              <div className="new-npc-text">Add New NPC</div>
+              <div className="new-npc-text">ADD NPC</div>
             </div>
+          </div>
+        </div>
+        <div className="spacer2"></div>
+        <div className="Player-NPC-lists">
+          <div>
+            <PlayerListTable tableid={dmtable_id}/>
+          </div>
+          <div className="npc-list">
+            <NpcList tableid={dmtable_id}/>
           </div>
         </div>
       </div>
     </div>
   )
-
 }
 export default DmTableDetail
