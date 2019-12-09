@@ -36,7 +36,7 @@ const PlayerEditPage = (props) => {
           <br />
           <input className='inputcreatePage' type="text" name="details" defaultValue={ props.props.details }></input>
           <br />
-          <button className='inputcreatePage' type="submit" name="submit"><span>Submit</span></button>
+          <button className='button2' type="submit" name="submit"><span>Submit</span></button>
         </form>
       </div>
     )

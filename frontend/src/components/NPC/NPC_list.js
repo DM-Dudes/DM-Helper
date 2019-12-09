@@ -19,10 +19,10 @@ export const NpcList = (props) => {
           for (let npc of apiResponseJSON) {
             if (npc.dmtable === tableid) {
               stateArray.push(
-                <div>
-                    <div className="npcTeaserBox" onClick={() => handleClick(npc.npc_id)}>
-                      <div className="teaserTop:">
-                        <div>{npc.name}</div>
+                <div key={npc.npc_id}>
+                    <div className="npcTeaserBox" key={npc.npc_id} onClick={() => handleClick(npc.npc_id)} >
+                      <div className="teaserTop:" key={npc.npc_id}>
+                        <div key={npc.npc_id}>{npc.name}</div>
                       </div>
                     </div>
                   <br></br>
