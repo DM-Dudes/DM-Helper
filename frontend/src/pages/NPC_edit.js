@@ -31,18 +31,18 @@ const NpcEditPage = (props) => {
     return (
       <div> 
         <hr />
-        <form onSubmit={handleEvent}>
+        <form className='tablecreateform' onSubmit={handleEvent}>
           <h2>Edit Your NPC</h2>
           <br />
-          <input type="text" name="name" defaultValue={ props.props.name }></input>
+          <input className='inputcreatePage' type="text" name="name" defaultValue={ props.props.name }></input>
           <br />
-          <input type="text" name="hp" defaultValue={ props.props.hp }></input>
+          <input className='inputcreatePage' type="text" name="hp" defaultValue={ props.props.hp }></input>
           <br />
-          <input type="text" name="ac" defaultValue={ props.props.ac }></input>
+          <input className='inputcreatePage' type="text" name="ac" defaultValue={ props.props.ac }></input>
           <br />
-          <input type="text" name="details" defaultValue={ props.props.details }></input>
+          <input className='inputcreatePage' type="text" name="details" defaultValue={ props.props.details }></input>
           <br />
-          <button type="submit" name="submit">Submit</button>
+          <button className='button2' type="submit" name="submit"><span>Submit</span></button>
         </form>
       </div>
     )
