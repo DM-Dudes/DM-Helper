@@ -24,8 +24,8 @@ const HLNav = () => {
   return (
     <nav className="nav">
       <div className="NavbarButtons">
-      <button onClick={handleCreateTable}><div>Create Table</div></button>
-      <button onClick={handleLogout}><div>Logout</div></button>
+      <button className="button2" onClick={handleCreateTable}><div><span>Create Table</span></div></button>
+      <button className="button2" onClick={handleLogout}><div><span>Logout</span></div></button>
       </div>
     </nav>
 

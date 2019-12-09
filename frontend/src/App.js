@@ -167,7 +167,7 @@ const App = () => {
     );
   } else {
     return (
-      <div>
+      <div className='background-blue'>
         <Router>
           <div>
             <div>
