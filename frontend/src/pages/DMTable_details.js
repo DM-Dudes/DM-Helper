@@ -21,9 +21,6 @@ const DMTableDetailsPage = (props) => {
       window.location.reload()
     }
   }
-  useEffect(() => {
-    reset()
-  })
 
   useEffect(() => {
     refresh()
