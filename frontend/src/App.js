@@ -130,9 +130,10 @@ const App = () => {
                 <Label for="password" className="col-2 ml-3">Password</Label>
                 <Input type="password" name="password" id="password" className="input" placeholder="Word of Power" />
               </FormGroup>
-              <Button type='submit' className="button" form='test'><span>Register</span></Button><Form onClick={backToLogin} method="GET" id='restart'>
-            <Button className="button" type='onClick' form='restart'><span>Login</span></Button>
+              <Button type='submit' className="button" form='test'><span>Register</span></Button>
+            <Button className="button" type='submit' form='restart'><span>Login</span></Button>
             </Form> 
+              <Form onSubmit={backToLogin} method="GET" id='restart'>
             </Form>
             <div>
            </div>

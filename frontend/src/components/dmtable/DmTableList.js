@@ -20,7 +20,7 @@ export const DmTableList = (props) => {
                 <div key={table.dmtable_id}>
                     <div className="tableTeaserBox" key={table.dmtable_id} onClick={() => handleClick(table.dmtable_id)} >
                       <div className="teaserTop:" key={table.dmtable_id}>
-                        <div key={table.dmtable_id}>{table.name}</div>
+                        <div key={table.dmtable_id}><span>{table.name}</span></div>
                       </div>
                     </div>
                   <br></br>
