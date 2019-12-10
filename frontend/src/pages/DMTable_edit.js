@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from "react-router-dom";
-
 import DmApi from '../Api/DmApi'
 import TableNavBar from '../components/NavBar/TableNavBar.js'
 
