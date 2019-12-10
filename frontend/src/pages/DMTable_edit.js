@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from "react-router-dom";
-
 import DmApi from '../Api/DmApi'
 import TableNavBar from '../components/NavBar/TableNavBar.js'
 
@@ -44,7 +43,6 @@ const DMTableEditPage = (props) => {
   } else {
     return (
       <div> 
-        <TableNavBar/>
         <form className='tablecreateform' onSubmit={handleEvent}>
           <h2>Edit Your Table</h2>
           <br />
