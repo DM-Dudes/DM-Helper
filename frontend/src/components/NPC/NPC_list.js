@@ -22,7 +22,7 @@ export const NpcList = (props) => {
                 <div key={npc.npc_id}>
                     <div className="npcTeaserBox" key={npc.npc_id} onClick={() => handleClick(npc.npc_id)} >
                       <div className="teaserTop:" key={npc.npc_id}>
-                        <div key={npc.npc_id}>{npc.name}</div>
+                        <div key={npc.npc_id}><span>{npc.name}</span></div>
                       </div>
                     </div>
                   <br></br>

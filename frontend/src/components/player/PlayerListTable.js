@@ -23,7 +23,7 @@ import DmAPI from '../../Api/DmApi.js';
           <div key={player.player_id}>
             <div className="playerTeaserBox" onClick={() => handleClick(player.player_id)} key={player.player_id}>
               <div className="teaserTop:" key={player.player_id}>
-                <div key={player.player_id}>{player.name}</div>
+                <div key={player.player_id}><span>{player.name}</span></div>
               </div>
             </div>
             <br></br>
@@ -42,7 +42,7 @@ import DmAPI from '../../Api/DmApi.js';
   if (!redirect) {
     return (
       <div>
-        {players}
+       {players}
       </div>
     );
   } else {
