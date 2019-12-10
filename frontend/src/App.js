@@ -79,6 +79,7 @@ const App = () => {
         await Api.fetchNewUser(newUserObject)
           .then((_response) => { setPost({ post: true }) })
       }
+      window.location.reload()
     }
     
   }
