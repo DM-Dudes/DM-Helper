@@ -44,7 +44,6 @@ const DMTableEditPage = (props) => {
   } else {
     return (
       <div> 
-        <TableNavBar/>
         <form className='tablecreateform' onSubmit={handleEvent}>
           <h2>Edit Your Table</h2>
           <br />

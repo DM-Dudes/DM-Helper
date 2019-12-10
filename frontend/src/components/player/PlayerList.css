@@ -15,3 +15,29 @@
   border: 4px solid white;
   cursor: pointer;
 }
+.playerTeaserBox span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.playerTeaserBox span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.playerTeaserBox:hover span {
+  padding-right: 25px;
+  /* background-color: green;
+  color: white; */
+}
+
+.playerTeaserBox:hover span:after {
+  opacity: 1;
+  right: 0;
+}

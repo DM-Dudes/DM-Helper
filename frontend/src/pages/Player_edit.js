@@ -7,9 +7,12 @@ import TableNavBar from '../components/NavBar/TableNavBar.js'
 
 
 const PlayerEditPage = (props) => {
-  let { tableid } = props
+  const { tableid } = props
   const [playerSubmitted, setPlayerSubmitted] = useState(null)
-  let [cancelButton, setCancelButton] = useState(null)
+  const [cancelButton, setCancelButton] = useState(null)
+  const [backToTableDetailButton, setBackToTableDetailButton] = useState(null)
+  const [backClick, setBackClick] = useState(null)
+
 
   const handleEvent = async (event) => {
     event.preventDefault()
@@ -29,6 +32,9 @@ const PlayerEditPage = (props) => {
   const cancelButtonOnClickHandler = () => {
     setCancelButton(<Redirect to={`/table-detail/${tableid}`} />)
   }
+  const handleBackClick = () => {
+    setBackClick(true)
+  }
 
   if (playerSubmitted) {
     return (
@@ -38,6 +44,12 @@ const PlayerEditPage = (props) => {
     return (
       <div> 
         <TableNavBar/>
+          <div className="parent-container">
+            <div className="name-banner">
+              <div className="back-button-banner">
+              </div>
+            </div>
+          </div>
         <form className='tablecreateform' onSubmit={handleEvent}>
           <h2>Edit Your Player</h2>
           <br />
