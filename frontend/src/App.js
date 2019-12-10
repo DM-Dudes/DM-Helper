@@ -115,7 +115,7 @@ const App = () => {
   
   if (signup) {
     return (
-      <div style={{ height: 1000, width: "100%", background: '#282c34' }}>
+      <div style={{ height: 1000, width: "100%", background: '#3362B5' }}>
       <Snowfall />
         <Router>
           <div className='signupform'>
@@ -131,7 +131,7 @@ const App = () => {
                 <Input type="password" name="password" id="password" className="input" placeholder="Word of Power" />
               </FormGroup>
               <Button type='submit' className="button" form='test'><span>Register</span></Button>
-            <Button className="button" type='submit' form='restart'><span>Login</span></Button>
+            <Button className="button3" type='submit' form='restart'><span>Back to Login</span></Button>
             </Form> 
               <Form onSubmit={backToLogin} method="GET" id='restart'>
             </Form>
@@ -144,7 +144,7 @@ const App = () => {
   }
   if (!loggedIn) {
     return (
-      <div style={{ height: 1000, width: "100%", background: '#282c34' }}>
+      <div style={{ height: 1000, width: "100%", background: '#3362B5' }}>
     <Snowfall />
         <Router>
           <div className='loginform'>

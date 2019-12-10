@@ -3,10 +3,15 @@ import React, { useState, useEffect } from 'react'
 import DmTableList from '../components/dmtable/DmTableList.js'
 import DmApi from '../Api/DmApi.js'
 import NavBar from '../components/NavBar/NavBar'
+import { Redirect } from "react-router-dom"
 
 
 const DMTableListPage = (props) => {
   const [userId, setUserId] = useState(null)
+
+  if (!localStorage.getItem('myValueInLocalStorage')) {
+    window.location.reload()
+  }
   useEffect(() => {
     DmApi.fetchAllDM()
     .then((apiResponseJSON) => {
@@ -19,9 +24,9 @@ const DMTableListPage = (props) => {
       }
     })
   }, [props])
-
-
- if(!userId){
+  
+  
+  if(!userId){
     return (
       <div>
       <NavBar/>

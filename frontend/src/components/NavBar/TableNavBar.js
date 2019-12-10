@@ -17,7 +17,7 @@ const TableNavBar = ({ props, handleNavClick }) => {
   const handleLogout = () => {
     localStorage.clear()
     sessionStorage.clear()
-    window.location.reload()
+    // window.location.reload()
     setLogoutRedirect(true)
   }
 

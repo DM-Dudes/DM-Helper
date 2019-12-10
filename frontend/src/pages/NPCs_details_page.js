@@ -1,9 +1,10 @@
 import React from 'react';
+import { Redirect } from "react-router-dom"
 
 import NPCDetail from '../components/NPC/NPC_detail.js'
 
 export const NPC_details_page = (props) => {
-  console.log(props)
+
   return (
     <div>
       <div>
