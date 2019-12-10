@@ -55,7 +55,7 @@
 }
 
 .card-body{
- 
+ width: 100%;
 }
 
 .card-title{
@@ -77,13 +77,18 @@
   color: white;
 }
 
-
+.details{
+  display:flex;
+  flex-direction: column;
+  width:100%;
+}
 .details-title{
   color: white;
 }
 
 .details-text{
   color: white;
+  display: flex;
 }
 
 .button-container{
