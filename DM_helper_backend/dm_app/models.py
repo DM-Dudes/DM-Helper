@@ -1,10 +1,21 @@
 
 from django.db import models
+from django.core.exceptions import ValidationError
+
+
+def valid_category_name(name):
+    if name == None:
+        raise ValidationError('This field cannot be blank.')
+
+def valid_category_password(password):
+    if password == None:
+        raise ValidationError('This field cannot be blank.')
+
 
 class User(models.Model):
     user_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=255)
-    password = models.CharField(max_length=100)
+    name = models.CharField(max_length=255, validators=[valid_category_name])
+    password = models.CharField(max_length=100, valditators=[valid_category_password])
 
     def __str__(self):
         return self.name

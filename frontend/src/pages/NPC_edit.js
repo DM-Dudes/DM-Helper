@@ -6,8 +6,10 @@ import TableNavBar from '../components/NavBar/TableNavBar.js'
 
 const NpcEditPage = (props) => {
   const [npcSubmitted, setNpcSubmitted] = useState(null)
-  let [cancelButton, setCancelButton] = useState(null)
-   
+  const [cancelButton, setCancelButton] = useState(null)
+  const [backClick, setBackClick] = useState(null)
+
+
   const handleEvent = async (event) => {
     event.preventDefault()
     let { name, hp, ac, details } = event.target
@@ -24,19 +26,39 @@ const NpcEditPage = (props) => {
       setNpcSubmitted(true)
     }
   }
+   const handleBackClick = () => {
+    setBackClick(true)
+  }
 
   const cancelButtonOnClickHandler = () => {
     setCancelButton(<Redirect to={`/table-detail/${props.tableid}`} />)
   }
   
+  
   if (npcSubmitted) {
     return (
       window.location.reload()
     )
+
+   if (backClick) {
+    return <Redirect to={"/table-detail/" + props.tableid} />
+  }
   } else {
     return (
       <div> 
         <TableNavBar/>
+        <div className="name-banner">
+            <div className="back-button-banner">
+ 
+            </div>
+            <div className="name-banner-l2">
+              <div className="table-title">
+                NPC
+              </div>
+            </div>
+            </div>
+           
+       
         <form className='tablecreateform' onSubmit={handleEvent}>
           <h2>Edit Your NPC</h2>
           <br />

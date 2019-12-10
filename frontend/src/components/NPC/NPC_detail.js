@@ -15,7 +15,7 @@ export const NPC_detail = (props) => {
   const [deleteNpcClick, setDeleteNpcClick] = useState(null)
   const [NPC, setNPC] = useState(0)
   const [editNpcClick, setEditNpcClick] = useState(null)
-  let [backClick, setBackClick] = useState(null)
+  const [backClick, setBackClick] = useState(null)
   const npcID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
 
   const handleEditButtonClick = () => {
@@ -47,7 +47,7 @@ export const NPC_detail = (props) => {
   if (editNpcClick === true) {
     return (
       <div>
-        <NpcEditPage props={NPC} editStatus={setEditNpcClick} /> {/* change this */}
+        <NpcEditPage props={NPC} tableid={tableid} editStatus={setEditNpcClick} /> {/* change this */}
       </div>
     )
   }
