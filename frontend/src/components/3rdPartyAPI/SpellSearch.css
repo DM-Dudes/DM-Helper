@@ -1,20 +1,19 @@
 .collapseButton{
-  
+}
+.button{
+
 }
 .collapseButton:hover{
   color: darkblue;
   cursor: pointer;
 }
-
-.inputField{
-  font-size: 16px;
-}
 .dropdown{
-  background:white;
-  color: black;
+  background: #2566D5;
+  color: white;
   font-size: 16px;
   position: relative;
   border: 4px color white;
+  flex: display;
 }
 .spell-name-button{
   font-size: 16px;
@@ -23,9 +22,9 @@
 }
 .spell-name-button:hover{
   cursor: pointer;
-  color: white;
+  color: darkblue;
 
 }
 .spell-name-text{
-
+  align-self: center;
 }

@@ -74,7 +74,7 @@ export const SpellSearch = () => {
             spellArray.push(
               <div className="spell-name-button" key={spell.name}>
                 <div onClick={() => handleSpellClick({ spell })}>
-                  <div className="spell-name-text">{spell.name}</div>
+                  <div className="spell-name-text">&nbsp;&nbsp;&nbsp;{spell.name}</div>
                 </div>
               </div>
             )

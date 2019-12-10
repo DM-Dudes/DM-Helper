@@ -5,7 +5,7 @@ import './App.css';
 import ReactDOM from 'react-dom'
 import Snowfall from 'react-snowfall'
 import { Redirect } from "react-router-dom";
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import DMTableCreatePage from './pages/DMTable_create.js';
 import DMTableDetailsPage from './pages/DMTable_details.js'
 import NPCDetailsPage from './pages/NPCs_details_page.js'
@@ -172,6 +172,7 @@ const App = () => {
     return (
       <div className='background-blue'>
         <Router>
+         
           <div>
             <div>
             <Route exact path="/" component={() => <DMTableListPage userName={localName} />} />
@@ -184,9 +185,12 @@ const App = () => {
             <Route exact path="/edit-table/:userid" component={() => <DMTableEditPage userid={UserID} />} />
             <Route exact path="/create-player" component={() => <PlayersCreate tableid={TableID} />} />
           </div>
+      
         </Router>
       </div>
     );
   }
 }
+
+
 export default App;

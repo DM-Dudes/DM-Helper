@@ -17,6 +17,7 @@ const DmTableDetail = (props) => {
   const { name, story, notes, dmtable_id } = props
 
   useEffect(() => {
+    
     document.body.style.backgroundColor = "#071132"
   }, [])
 
