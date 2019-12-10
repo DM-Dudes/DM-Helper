@@ -88,6 +88,7 @@
 }
 
 .details-text{
+  font-size: 3000px;
   color: white;
 }
 
@@ -299,4 +300,34 @@
 .new-npc-text{
   font-size: 16px;
   margin: auto;
+}
+.edit:hover {
+  background-color: rgb(71, 71, 197);
+  color: white;
+}
+.edit span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.edit span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.edit:hover span {
+  padding-right: 25px;
+  /* background-color: green;
+  color: white; */
+}
+
+.edit:hover span:after {
+  opacity: 1;
+  right: 0;
 }

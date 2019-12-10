@@ -82,7 +82,7 @@ const DmTableDetail = (props) => {
               <div onClick={() => { if (window.confirm('Are you sure you wish to delete this table?')) handleDeleteTable() }} className="delete-table-text"> DELETE TABLE </div>
             </div>
             <div className="edit-button" onClick={() => handleEditButtonClick()}>
-              <div className="edit-table-text"> EDIT TABLE </div>
+              <div className="edit-table-text"><span>EDIT TABLE</span></div>
             </div>
           </div>
         </div>
@@ -106,13 +106,13 @@ const DmTableDetail = (props) => {
           <div className="player-banner">
             <div className="player-title">Players</div>
             <div className="new-player-button" onClick={handlePlayerCreateButtonClick} >
-              <div className="new-player-text">ADD PLAYER</div>
+              <div className="new-player-text"><span>ADD PLAYER</span></div>
             </div>
           </div>
           <div className="npc-banner">
             <div className="npc-title">Non-Player Characters</div>
             <div className="new-npc-button" onClick={handleNpcCreateButtonClick} >
-              <div className="new-npc-text">ADD NPC</div>
+              <div className="new-npc-text"><span>ADD NPC</span></div>
             </div>
           </div>
         </div>

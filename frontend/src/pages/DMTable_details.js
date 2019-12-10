@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
 import DmApi from '../Api/DmApi.js'
 import DmTableDetail from '../components/dmtable/DmTableDetail.js'
 import TableNavBar from '../components/NavBar/TableNavBar.js'

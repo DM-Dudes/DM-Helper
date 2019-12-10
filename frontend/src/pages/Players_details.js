@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import Api from '../Api/DmApi.js'
 import { Redirect } from "react-router-dom"
 import TableNavBar from '../components/NavBar/TableNavBar.js'
 import PlayerEditPage from '../pages/Player_edit.js'
@@ -95,17 +94,17 @@ const Player_details = (props) => {
                 <Card.Text className="card-text">
                   <div className="details">
                     <div className="details-title">
-                      <h4>
+                      <h2>
                         DESCRIPTION:
-                      </h4>
+                      </h2>
                     </div>
                     <div className="details-text">
                       {Player.details}
                     </div>
                   </div>
-                  <div className="button-container">
+                  <div>
                     <div>
-                      <Button onClick={() => handleEditButtonClick()} className='edit'>EDIT</Button>
+                      <Button  className="edit" onClick={() => handleEditButtonClick()} ><span>EDIT</span></Button>
                     </div>
                   </div>
                 </Card.Text>
